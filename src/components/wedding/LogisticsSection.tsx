@@ -128,11 +128,10 @@ export default function LogisticsSection() {
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="q1">
             <AccordionTrigger className="font-body text-sm text-left">
-              ¿Puedo llevar acompañante que no esté en la invitación?
+              ¿Puedo llevar acompañante que no esté en la invitación o niños?
             </AccordionTrigger>
             <AccordionContent className="font-body text-sm text-muted-foreground">
-              Lamentablemente el aforo es limitado. Si necesitas traer a alguien
-              adicional, por favor consúltanos antes.
+              Nos encantaría invitar a todo el mundo, pero por limitaciones de aforo nuestra boda será más íntima. Nos ceñiremos estrictamente a las personas que aparecen en la invitación. ¡Aprovecha para disfrutar de una noche libre de responsabilidades!
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q2">
@@ -140,17 +139,15 @@ export default function LogisticsSection() {
               ¿Cuál es el código de vestimenta exacto?
             </AccordionTrigger>
             <AccordionContent className="font-body text-sm text-muted-foreground">
-              Etiqueta formal: traje oscuro para ellos y vestido largo o cocktail
-              para ellas. Evitad el blanco, por favor.
+              Etiqueta formal o traje oscuro. Pero sobre todo, ¡venid guapos y con zapatos cómodos para darlo todo en la pista de baile! (Eso sí, dejad el blanco para la novia, por favor 😉).
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="q3">
             <AccordionTrigger className="font-body text-sm text-left">
-              ¿Hay opciones de menú para niños?
+              ¿Hay opciones de menú para intolerancias o alergias?
             </AccordionTrigger>
             <AccordionContent className="font-body text-sm text-muted-foreground">
-              Sí, disponemos de menú infantil. Indicadlo en el formulario de
-              confirmación y seleccionad "Infantil" en el menú.
+              ¡Por supuesto! Queremos que todos disfrutéis del banquete de forma segura. Por favor, indícanos cualquier alergia, intolerancia o dieta especial en el formulario de asistencia y el catering se encargará del resto.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
