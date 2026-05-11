@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import botanicalCorner from "@/assets/botanical-corner.png";
+import botanicalCorner from "@/assets/botanical-corner.webp";
 
 export default function LogisticsSection() {
   return (

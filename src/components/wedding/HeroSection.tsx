@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // ACTUALIZADO: Ya no importamos heroVenue
-import botanicalCorner from "@/assets/botanical-corner.png";
+import botanicalCorner from "@/assets/botanical-corner.webp";
 import fotoPareja from "@/assets/foto_portada_web.webp";
 import fotoLogistica from "@/assets/TE_QUEREMOS_EN_BODA.webp";
 

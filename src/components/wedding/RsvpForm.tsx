@@ -97,15 +97,13 @@ export default function RsvpForm() {
           </p>
 
           {/* LA FOTO DIVERTIDA DE ÉXITO (Solo se muestra si asisten) */}
-          {isAttending === "yes" && (
-            <div className="mb-8 mx-auto max-w-[280px] md:max-w-sm rounded-xl overflow-hidden shadow-xl border-4 border-white rotate-[2deg] hover:rotate-0 transition-transform duration-300">
-              <img
-                src={exitoImg}
-                alt="¡Confirmación recibida!"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          )}
+          <div className={`mb-8 mx-auto max-w-[280px] md:max-w-sm rounded-xl overflow-hidden shadow-xl border-4 border-white rotate-[2deg] hover:rotate-0 transition-transform duration-300 ${isAttending === "yes" ? "block" : "hidden"}`}>
+            <img
+              src={exitoImg}
+              alt="¡Confirmación recibida!"
+              className="w-full h-auto object-cover"
+            />
+          </div>
 
           <img
             src={botanicalDivider}
@@ -185,8 +183,7 @@ export default function RsvpForm() {
           </fieldset>
 
           {/* Mostrar resto del formulario SÓLO si asisten */}
-          {isAttending === "yes" && (
-            <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
+          <div className={`space-y-6 animate-in fade-in slide-in-from-top-4 duration-500 ${isAttending === "yes" ? "block" : "hidden"}`}>
 
               {/* Acompañantes ACTUALIZADO A MÁXIMO 2 */}
               <div>
@@ -414,16 +411,13 @@ export default function RsvpForm() {
                 </div>
               </div>
             </div>
-          )}
 
           {/* Mensaje si no asisten */}
-          {isAttending === "no" && (
-            <div className="text-center py-6 animate-in fade-in duration-500">
-              <p className="font-heading text-lg text-muted-foreground italic">
-                ¡Cuánto lo sentimos! Os echaremos muchísimo de menos en nuestro gran día.
-              </p>
-            </div>
-          )}
+          <div className={`text-center py-6 animate-in fade-in duration-500 ${isAttending === "no" ? "block" : "hidden"}`}>
+            <p className="font-heading text-lg text-muted-foreground italic">
+              ¡Cuánto lo sentimos! Os echaremos muchísimo de menos en nuestro gran día.
+            </p>
+          </div>
 
           {/* Botón de Enviar */}
           <div className="text-center pt-6">

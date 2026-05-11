@@ -56,7 +56,12 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
@@ -71,16 +76,11 @@
   }
 
   .btn-burgundy {
-    @apply bg-primary text-primary-foreground font-body font-medium px-8 py-3 rounded-md
-           transition-all duration-200 ease-out
-           hover:shadow-md hover:brightness-110
-           active:scale-[0.97];
+    @apply bg-primary text-primary-foreground font-body font-medium px-8 py-3 rounded-md transition-all duration-200 ease-out hover:shadow-md hover:brightness-110 active:scale-[0.97];
   }
 
   .countdown-box {
-    @apply bg-primary text-primary-foreground font-heading text-2xl md:text-3xl
-           w-16 h-16 md:w-20 md:h-20 rounded-lg flex flex-col items-center justify-center
-           shadow-md;
+    @apply bg-primary text-primary-foreground font-heading text-2xl md:text-3xl w-16 h-16 md:w-20 md:h-20 rounded-lg flex flex-col items-center justify-center shadow-md;
   }
 
   .form-label {
@@ -88,10 +88,7 @@
   }
 
   .form-input {
-    @apply w-full border border-border rounded-md px-4 py-2.5 font-body text-sm
-           bg-background text-foreground
-           focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary
-           transition-all duration-150;
+    @apply w-full border border-border rounded-md px-4 py-2.5 font-body text-sm bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-150;
   }
 }
 
@@ -100,12 +97,11 @@
   from {
     opacity: 0;
     transform: translateY(16px);
-    filter: blur(4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -114,9 +110,26 @@
 }
 
 /* Stagger children */
-.reveal-stagger > *:nth-child(1) { animation-delay: 0ms; }
-.reveal-stagger > *:nth-child(2) { animation-delay: 80ms; }
-.reveal-stagger > *:nth-child(3) { animation-delay: 160ms; }
-.reveal-stagger > *:nth-child(4) { animation-delay: 240ms; }
-.reveal-stagger > *:nth-child(5) { animation-delay: 320ms; }
-.reveal-stagger > *:nth-child(6) { animation-delay: 400ms; }
+.reveal-stagger>*:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.reveal-stagger>*:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.reveal-stagger>*:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.reveal-stagger>*:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.reveal-stagger>*:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+.reveal-stagger>*:nth-child(6) {
+  animation-delay: 400ms;
+}
