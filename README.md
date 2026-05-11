@@ -1,4 +1,4 @@
-# 💍 Web Boda Inés y Martín (202x)
+# 💍 Web Boda Inés y Martín (2026)
     
 Este es el código fuente de nuestra web de boda.
 Desarrollado y diseñado con cariño por Martín.
