@@ -52,7 +52,7 @@ export default function LogisticsSection() {
                   <li><strong>09:00h (aprox)</strong> - Desayuno conjunto para los que amanezcamos en la finca.</li>
                   <li><strong>13:00h</strong> - Ceremonia. Daremos el "Sí, quiero" rodeados de naturaleza.</li>
                   <li><strong>14:00h</strong> - Cóctel. Primeros brindis y picoteo.</li>
-                  <li><strong>15:00h</strong> - Banquete. Comida rica, vino generoso y algún discurso al que habrá que sobrevivir 😜.</li>
+                  <li><strong>16:00h</strong> - Banquete. Comida rica, vino generoso y algún discurso al que habrá que sobrevivir 😜.</li>
                   <li><strong>Tarde/Noche</strong> - Baile, barra libre y cero dignidad. Hasta que el cuerpo aguante. P.D: que el último apague la luz.</li>
                 </ul>
               </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import botanicalDivider from "@/assets/botanical-divider.webp";
 import exitoImg from "@/assets/Biien.webp";
+import fotoSinGafas from "@/assets/Foto_capricho_de_última_hora_en_ultimo_momento_.webp";
 const funnyNames = [
   "Pedro Pascal",
   "Keanu Reeves",
@@ -128,6 +129,15 @@ export default function RsvpForm() {
             className="mx-auto w-72 md:w-96 opacity-60 mb-4"
           />
           <h2 className="section-title">Confirma tu Asistencia</h2>
+        </div>
+
+        {/* EL PEAJE: Foto bonita, sin gafas, en formato apaisado */}
+        <div className="mb-8 mx-auto max-w-[280px] md:max-w-md rounded-xl overflow-hidden shadow-md border-4 border-white/80 rotate-[-1deg] hover:rotate-0 transition-transform duration-300">
+          <img
+            src={fotoSinGafas}
+            alt="Inés y Martín"
+            className="w-full h-auto object-cover"
+          />
         </div>
 
         <form
