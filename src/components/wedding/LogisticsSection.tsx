@@ -87,7 +87,7 @@ export default function LogisticsSection() {
           </p>
 
           <p className="font-body text-sm text-muted-foreground mt-4 italic">
-            * Las plazas en la finca son limitadas (105 camas). Podréis asegurar la vuestra directamente al rellenar el formulario de confirmación, lo que nos ayudará a empezar a organizar las casas.
+            * Las plazas en la finca son limitadas (106 plazas). Podréis asegurar la vuestra directamente al rellenar el formulario de confirmación, lo que nos ayudará a empezar a organizar las casas.
           </p>
         </div>
 
