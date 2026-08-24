@@ -193,7 +193,7 @@ export default function RsvpForm() {
           </fieldset>
 
           {/* Mostrar resto del formulario SÓLO si asisten */}
-          <div className={`space-y-6 animate-in fade-in slide-in-from-top-4 duration-500 ${isAttending === "yes" ? "block" : "hidden"}`}>
+          <fieldset disabled={isAttending === "no"} className={`space-y-6 animate-in fade-in slide-in-from-top-4 duration-500 border-0 p-0 m-0 ${isAttending === "yes" ? "block" : "hidden"}`}>
 
             {/* Acompañantes ACTUALIZADO A MÁXIMO 2 */}
             <div>
@@ -376,7 +376,7 @@ export default function RsvpForm() {
               {/* Botón hacia Spotify */}
               <div className="flex justify-center mb-4">
                 <a
-                  href="https://open.spotify.com/playlist/3YfpeHu8FUuEAnS5dd25by?si=49a1a00894134ba4&pt=dab04000c852ef126c4a74eaa4d930a7"
+                  href="/spotify"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-[#1DB954] hover:bg-[#1ed760] text-white px-6 py-3 rounded-full font-body text-sm font-bold transition-colors shadow-md"
@@ -392,7 +392,7 @@ export default function RsvpForm() {
               <div className="rounded-xl overflow-hidden shadow-sm border border-border/50 bg-muted/20">
                 <iframe
                   title="Spotify Playlist"
-                  src="https://open.spotify.com//embed/playlist/3YfpeHu8FUuEAnS5dd25by?si=ab52559997804164&pt=a409e2bfb418237d423e1506c9d2bb81"
+                  src="https://open.spotify.com/embed/playlist/3YfpeHu8FUuEAnS5dd25by"
                   width="100%"
                   height="152"
                   style={{ border: "none" }}
@@ -420,7 +420,7 @@ export default function RsvpForm() {
                 />
               </div>
             </div>
-          </div>
+          </fieldset>
 
           {/* Mensaje si no asisten */}
           <div className={`text-center py-6 animate-in fade-in duration-500 ${isAttending === "no" ? "block" : "hidden"}`}>
