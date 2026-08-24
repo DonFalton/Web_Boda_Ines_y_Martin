@@ -193,7 +193,7 @@ export default function RsvpForm() {
           </fieldset>
 
           {/* Mostrar resto del formulario SÓLO si asisten */}
-          <div className={`space-y-6 animate-in fade-in slide-in-from-top-4 duration-500 ${isAttending === "yes" ? "block" : "hidden"}`}>
+          <fieldset disabled={isAttending === "no"} className={`space-y-6 animate-in fade-in slide-in-from-top-4 duration-500 border-0 p-0 m-0 ${isAttending === "yes" ? "block" : "hidden"}`}>
 
             {/* Acompañantes ACTUALIZADO A MÁXIMO 2 */}
             <div>
@@ -420,7 +420,7 @@ export default function RsvpForm() {
                 />
               </div>
             </div>
-          </div>
+          </fieldset>
 
           {/* Mensaje si no asisten */}
           <div className={`text-center py-6 animate-in fade-in duration-500 ${isAttending === "no" ? "block" : "hidden"}`}>
