@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { vi } from "vitest";
 import AlbumPage from "./AlbumPage";
@@ -12,7 +12,7 @@ vi.mock("@/lib/album-api", async (importOriginal) => {
       ...original.albumApi,
       exchangeAccess: vi.fn(),
       session: vi.fn(),
-      clearGuest: vi.fn(),
+      updateGuest: vi.fn(),
     },
   };
 });
@@ -30,5 +30,15 @@ describe("AlbumPage", () => {
     expect(setItem).not.toHaveBeenCalled();
     expect(await screen.findByText("Ana")).toBeInTheDocument();
     setItem.mockRestore();
+  });
+
+  it("opens name editing without clearing the stable guest identity", async () => {
+    window.history.replaceState(null, "", "/album");
+    vi.mocked(albumApi.session).mockResolvedValue({ hasAccess: true, guest: { guestId: "g-stable", displayName: "Ana" } });
+    const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+    render(<QueryClientProvider client={client}><AlbumPage /></QueryClientProvider>);
+    fireEvent.click(await screen.findByRole("button", { name: "Cambiar" }));
+    expect(screen.getByRole("heading", { name: "Cambia tu nombre" })).toBeInTheDocument();
+    expect(screen.getByLabelText("Tu nombre")).toHaveValue("Ana");
   });
 });

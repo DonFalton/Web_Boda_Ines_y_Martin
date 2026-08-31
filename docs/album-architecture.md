@@ -4,7 +4,7 @@
 
 El álbum es una vertical independiente bajo `/album`. No modifica el componente que sirve `/`. Los invitados acceden con un secreto en el fragmento URL, indican solamente su nombre y pueden subir, ver y descargar fotografías o vídeos. OneDrive conserva los originales sin transformarlos.
 
-Quedan deliberadamente fuera del MVP: comentarios, reacciones, moderación, ZIP, borrado por invitados, transcodificación, `sharp`, `ffmpeg`, workers, CDN y persistencia de reanudación tras recargar el navegador.
+Quedan deliberadamente fuera del MVP: comentarios, reacciones, moderación, ZIP, transcodificación, `sharp`, `ffmpeg`, workers, CDN y persistencia de reanudación tras recargar el navegador.
 
 ## Flujo
 
@@ -44,13 +44,14 @@ El token del fragmento se elimina con `history.replaceState` antes de llamar al 
 |---|---|---|
 | `POST` | `/api/album/access` | Intercambia el token por cookie de acceso |
 | `GET` | `/api/album/session` | Devuelve acceso e identidad, nunca secretos |
-| `POST/DELETE` | `/api/album/guest` | Crea o elimina la identidad local |
+| `POST/PATCH/DELETE` | `/api/album/guest` | Crea, renombra o elimina la identidad local; renombrar conserva el identificador propietario |
 | `GET` | `/api/album/uploads/policy` | Límites y MIME admitidos |
 | `POST` | `/api/album/uploads/session` | Reserva cuota y crea sesión Graph |
 | `POST` | `/api/album/uploads/:id/complete` | Valida nombre, tamaño y carpeta antes de publicar |
 | `POST` | `/api/album/uploads/:id/fail` | Marca una subida cancelada o fallida |
-| `GET` | `/api/album/media` | Página de 20 visibles mediante cursor estable |
+| `GET` | `/api/album/media` | Página de 20 visibles mediante cursor estable; `scope=mine` limita al propietario actual |
 | `GET` | `/api/album/media/:id/source` | URL temporal del original |
+| `DELETE` | `/api/album/media/:id` | El propietario oculta la media y mueve el original a la papelera de OneDrive |
 | `POST` | `/api/admin/session` | Crea sesión administrativa corta |
 | `GET` | `/api/admin/microsoft/connect` | Inicia OAuth con PKCE |
 | `GET` | `/api/admin/microsoft/callback` | Guarda el refresh token cifrado |
@@ -66,9 +67,11 @@ Los thumbnails se solicitan en lotes de hasta 20 subrequests mediante `POST /v1.
 
 Cada chunk admite tres reintentos automáticos adicionales para errores de red, `429`, `500`, `502`, `503` y `504`, con backoff aproximado de 1, 2 y 4 segundos, jitter pequeño y respeto de `Retry-After`. Antes de reenviar tras un fallo ambiguo se consulta la upload session y se usa `nextExpectedRanges`; no se incrementa el offset suponiendo que el `PUT` falló. Los demás estados HTTP pasan directamente al retry manual.
 
+La identidad propietaria es un UUID aleatorio guardado únicamente dentro de la cookie firmada de invitado. Cambiar el nombre renueva esa cookie sin cambiar el UUID, por lo que **Mis recuerdos** y los permisos de borrado permanecen estables. El servidor nunca acepta un identificador propietario enviado por el frontend. El borrado exige que el UUID firmado coincida, llama a `DELETE /me/drive/items/{itemId}` y solo después marca la fila como `deleted`; Microsoft mueve el original a la papelera de OneDrive. Un `404` de Graph se considera un borrado ya completado para permitir reintentos seguros.
+
 ## Persistencia
 
-`MysqlStore` crea al iniciar las tablas mínimas `media` y `oauth_tokens`, ambas con `utf8mb4`, y abre un pool pequeño con zona horaria UTC. El bootstrap es idempotente y comprueba también el índice de paginación `(status, created_at, id)` para añadirlo de forma segura si la tabla ya existía. La galería usa un cursor opaco formado por `(createdAt,id)`, evitando duplicados o saltos al paginar elementos con la misma fecha.
+`MysqlStore` crea al iniciar las tablas mínimas `media` y `oauth_tokens`, ambas con `utf8mb4`, y abre un pool pequeño con zona horaria UTC. El bootstrap es idempotente, migra de forma aditiva el estado `deleted` y comprueba los índices de paginación `(status, created_at, id)` y de propietario `(guest_id, status, created_at, id)`. La galería usa un cursor opaco ligado a orden y ámbito, formado por `(createdAt,id)`, evitando duplicados o saltos al paginar elementos con la misma fecha.
 
 MySQL conserva la metadata de media y una única conexión Microsoft. Solo se persiste el refresh token cifrado con AES-256-GCM; el access token permanece en memoria. Al recibir `SIGINT` o `SIGTERM`, el backend cierra el servidor HTTP y ejecuta `pool.end()`. Reiniciar Node conserva la galería y permite obtener nuevos access tokens desde el refresh token cifrado.
 
@@ -97,6 +100,7 @@ La CSP no fija hostnames temporales concretos. `img-src` y `media-src` permiten 
 - Los rate limits son locales al proceso. Si se despliegan varias réplicas deben moverse a un almacén compartido.
 - No existe reconciliación automática si alguien mueve o elimina manualmente un original en OneDrive.
 - Un thumbnail temporal puede tardar en estar disponible en Graph; la tarjeta conserva su placeholder hasta una recarga posterior.
+- La propiedad depende de la cookie firmada del navegador. Borrar las cookies, usar otro dispositivo o dejar que caduque la identidad impide gestionar como propios los recuerdos anteriores; no existe cuenta personal ni recuperación de identidad en este MVP.
 
 ## Recovery / orphaned uploads
 

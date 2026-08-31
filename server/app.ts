@@ -10,7 +10,7 @@ import type { AppConfig } from "./config.js";
 import { constantTimeEqual, createPkceAttempt, signPayload, verifyPayload } from "./crypto.js";
 import { GraphError, type GraphService } from "./graph.js";
 import type { AlbumStore } from "./store.js";
-import type { AccessGrant, AdminSession, GuestIdentity, OAuthAttempt } from "./types.js";
+import type { AccessGrant, AdminSession, GuestIdentity, MediaScope, OAuthAttempt } from "./types.js";
 import { createStoredName, sanitizeOriginalName } from "./filename.js";
 import { acceptedMediaExtensions, acceptedMediaTypes, genericMediaTypes, isAcceptedMedia, mediaTypeExtensions, normalizedMediaType, parallelUploadFiles, uploadChunkBytes } from "./media-policy.js";
 
@@ -36,6 +36,14 @@ function limiter(max: number, windowMs = 15 * 60_000) {
 
 function normalizeDisplayName(value: string) {
   return value.normalize("NFC").replace(/\s+/gu, " ").trim();
+}
+
+function parseDisplayName(body: unknown) {
+  const parsed = z.object({ displayName: z.string().max(256) }).safeParse(body);
+  const displayName = parsed.success ? normalizeDisplayName(parsed.data.displayName) : "";
+  const hasVisibleCharacter = /[^\p{C}\p{Z}]/u.test(displayName);
+  const hasControlCharacter = /\p{C}/u.test(displayName);
+  return hasVisibleCharacter && !hasControlCharacter && Array.from(displayName).length <= 80 ? displayName : null;
 }
 
 function clearCookie(res: Response, name: string, config: AppConfig) {
@@ -136,17 +144,27 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
   });
 
   app.post("/api/album/guest", requireAccess, limiter(20), (req, res) => {
-    const parsed = z.object({ displayName: z.string().max(256) }).safeParse(req.body);
-    const displayName = parsed.success ? normalizeDisplayName(parsed.data.displayName) : "";
-    const hasVisibleCharacter = /[^\p{C}\p{Z}]/u.test(displayName);
-    const hasControlCharacter = /\p{C}/u.test(displayName);
-    if (!hasVisibleCharacter || hasControlCharacter || Array.from(displayName).length > 80) {
+    const displayName = parseDisplayName(req.body);
+    if (!displayName) {
       return res.status(400).json({ error: { code: "GUEST_NAME_INVALID", message: "Escribe un nombre de entre 1 y 80 caracteres." } });
     }
     const maxAge = 180 * 24 * 60 * 60_000;
-    const guest: GuestIdentity = { guestId: randomUUID(), displayName, exp: Date.now() + maxAge };
+    const existingGuest = readGuest(req);
+    const guest: GuestIdentity = { guestId: existingGuest?.guestId ?? randomUUID(), displayName, exp: Date.now() + maxAge };
     res.cookie(GUEST_COOKIE, signPayload(guest, config.cookieSecret), cookieOptions(config, maxAge));
     res.status(201).json({ guest: { guestId: guest.guestId, displayName: guest.displayName } });
+  });
+
+  app.patch("/api/album/guest", requireGuest, limiter(20), (req, res) => {
+    const displayName = parseDisplayName(req.body);
+    if (!displayName) {
+      return res.status(400).json({ error: { code: "GUEST_NAME_INVALID", message: "Escribe un nombre de entre 1 y 80 caracteres." } });
+    }
+    const currentGuest = readGuest(req)!;
+    const maxAge = 180 * 24 * 60 * 60_000;
+    const guest: GuestIdentity = { guestId: currentGuest.guestId, displayName, exp: Date.now() + maxAge };
+    res.cookie(GUEST_COOKIE, signPayload(guest, config.cookieSecret), cookieOptions(config, maxAge));
+    res.json({ guest: { guestId: guest.guestId, displayName: guest.displayName } });
   });
 
   app.delete("/api/album/guest", requireAccess, (_req, res) => {
@@ -158,10 +176,13 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
     const parsed = z.object({
       cursor: z.string().max(2048).optional(),
       order: z.enum(["newest", "oldest"]).default("newest"),
+      scope: z.enum(["all", "mine"]).default("all"),
     }).safeParse(req.query);
     if (!parsed.success) return res.status(400).json({ error: { code: "CURSOR_INVALID", message: "La página solicitada no es válida." } });
     try {
-      const page = await store.listVisibleMedia(20, parsed.data.cursor, parsed.data.order);
+      const guest = readGuest(req)!;
+      const scope: MediaScope = parsed.data.scope;
+      const page = await store.listVisibleMedia(20, parsed.data.cursor, parsed.data.order, scope === "mine" ? guest.guestId : undefined);
       const itemIds = page.items.flatMap(item => item.onedriveItemId ? [item.onedriveItemId] : []);
       const thumbnails = itemIds.length ? await graph.getThumbnails(itemIds) : new Map<string, string>();
       res.json({
@@ -172,6 +193,7 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
           mimeType: item.mimeType,
           size: item.size,
           createdAt: item.createdAt,
+          isOwner: item.guestId === guest.guestId,
           thumbnailUrl: item.onedriveItemId ? thumbnails.get(item.onedriveItemId) ?? null : null,
         })),
         nextCursor: page.nextCursor,
@@ -188,6 +210,21 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
       const url = await graph.getDownloadUrl(media.onedriveItemId);
       res.setHeader("Cache-Control", "private, no-store");
       res.json({ url, filename: media.originalName, mimeType: media.mimeType });
+    } catch (error) { next(error); }
+  });
+
+  app.delete("/api/album/media/:mediaId", requireGuest, limiter(30, 60_000), async (req, res, next) => {
+    const parsed = z.object({ mediaId: z.string().uuid() }).safeParse(req.params);
+    if (!parsed.success) return res.status(400).json({ error: { code: "MEDIA_INVALID", message: "El recuerdo solicitado no es válido." } });
+    try {
+      const guest = readGuest(req)!;
+      const media = await store.getMedia(parsed.data.mediaId);
+      if (!media || media.guestId !== guest.guestId) return res.status(404).json({ error: { code: "MEDIA_NOT_FOUND", message: "No se encontró el recuerdo." } });
+      if (media.status === "deleted") return res.status(204).end();
+      if (media.status !== "visible" || !media.onedriveItemId) return res.status(404).json({ error: { code: "MEDIA_NOT_FOUND", message: "No se encontró el recuerdo." } });
+      await graph.deleteItem(media.onedriveItemId);
+      await store.updateMedia(media.id, { status: "deleted", updatedAt: new Date().toISOString() });
+      res.status(204).end();
     } catch (error) { next(error); }
   });
 

@@ -23,6 +23,7 @@ const initialMedia = Array.from({ length: 8 }, (_, index) => ({
   mimeType: index === 3 ? "video/mp4" : "image/jpeg",
   size: 2_400_000,
   createdAt: `2026-08-30T12:00:0${index}.000Z`,
+  isOwner: index % 2 === 0,
   thumbnailUrl: thumbnail(index),
 }));
 

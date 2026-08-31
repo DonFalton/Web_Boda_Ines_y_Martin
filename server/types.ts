@@ -1,5 +1,6 @@
-export type MediaStatus = "uploading" | "visible" | "failed";
+export type MediaStatus = "uploading" | "visible" | "failed" | "deleted";
 export type MediaOrder = "newest" | "oldest";
+export type MediaScope = "all" | "mine";
 
 export type MediaRecord = {
   id: string;

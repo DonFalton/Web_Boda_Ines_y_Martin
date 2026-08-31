@@ -21,6 +21,7 @@ export interface GraphService {
   validateCompletedItem(itemId: string, storedName: string, expectedSize: number): Promise<void>;
   getThumbnails(itemIds: string[]): Promise<Map<string, string>>;
   getDownloadUrl(itemId: string): Promise<string>;
+  deleteItem(itemId: string): Promise<void>;
   hasUploadCapacity(fileSize: number): Promise<boolean>;
 }
 
@@ -221,6 +222,16 @@ export class MicrosoftGraphService implements GraphService {
     let code = "DOWNLOAD_URL_UNAVAILABLE";
     try { code = ((await response.json()) as { error?: { code?: string } }).error?.code || code; } catch { /* redacted */ }
     throw new GraphError(response.status || 502, code);
+  }
+
+  async deleteItem(itemId: string) {
+    try {
+      await this.graph<void>(`/me/drive/items/${encodeURIComponent(itemId)}`, { method: "DELETE" });
+    }
+    catch (error) {
+      if (error instanceof GraphError && error.status === 404) return;
+      throw error;
+    }
   }
 
   async hasUploadCapacity(fileSize: number) {

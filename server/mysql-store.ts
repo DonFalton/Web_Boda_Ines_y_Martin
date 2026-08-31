@@ -2,7 +2,7 @@ import mysql, { type Pool, type RowDataPacket } from "mysql2/promise";
 import type { AppConfig } from "./config.js";
 import type { AlbumStore } from "./store.js";
 import { decodeCursor, encodeCursor } from "./store.js";
-import type { MediaOrder, MediaPage, MediaRecord, StoredOAuthToken } from "./types.js";
+import type { MediaOrder, MediaPage, MediaRecord, MediaScope, StoredOAuthToken } from "./types.js";
 
 type MediaRow = RowDataPacket & {
   id: string; guest_id: string; guest_name: string; original_name: string; stored_name: string;
@@ -35,13 +35,23 @@ export class MysqlStore implements AlbumStore {
       mime_type VARCHAR(127) NOT NULL,
       size BIGINT UNSIGNED NOT NULL,
       onedrive_item_id VARCHAR(255) NULL,
-      status ENUM('uploading','visible','failed') NOT NULL,
+      status ENUM('uploading','visible','failed','deleted') NOT NULL,
       created_at DATETIME(3) NOT NULL,
       updated_at DATETIME(3) NOT NULL,
       INDEX idx_media_status_created (status, created_at DESC),
       INDEX idx_media_created (created_at DESC),
-      INDEX idx_media_status_created_id (status, created_at DESC, id DESC)
+      INDEX idx_media_status_created_id (status, created_at DESC, id DESC),
+      INDEX idx_media_guest_status_created_id (guest_id, status, created_at DESC, id DESC)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`);
+    const [statusColumns] = await this.pool.execute<RowDataPacket[]>(
+      "SELECT column_type AS columnType FROM information_schema.columns WHERE table_schema=? AND table_name='media' AND column_name='status' LIMIT 1",
+      [this.database],
+    );
+    const statusColumn = statusColumns[0] as (RowDataPacket & { columnType?: string; COLUMN_TYPE?: string }) | undefined;
+    const statusType = statusColumn?.columnType ?? statusColumn?.COLUMN_TYPE ?? "";
+    if (!statusType.includes("'deleted'")) {
+      await this.pool.execute("ALTER TABLE media MODIFY status ENUM('uploading','visible','failed','deleted') NOT NULL");
+    }
     await this.pool.execute(`CREATE TABLE IF NOT EXISTS oauth_tokens (
       id VARCHAR(32) PRIMARY KEY,
       encrypted_refresh_token TEXT NOT NULL,
@@ -53,6 +63,13 @@ export class MysqlStore implements AlbumStore {
     );
     if (!paginationIndexes.length) {
       await this.pool.execute("ALTER TABLE media ADD INDEX idx_media_status_created_id (status, created_at DESC, id DESC)");
+    }
+    const [ownerIndexes] = await this.pool.execute<RowDataPacket[]>(
+      "SELECT 1 FROM information_schema.statistics WHERE table_schema=? AND table_name='media' AND index_name='idx_media_guest_status_created_id' LIMIT 1",
+      [this.database],
+    );
+    if (!ownerIndexes.length) {
+      await this.pool.execute("ALTER TABLE media ADD INDEX idx_media_guest_status_created_id (guest_id, status, created_at DESC, id DESC)");
     }
   }
   async close() { await this.pool.end(); }
@@ -80,16 +97,18 @@ export class MysqlStore implements AlbumStore {
     const [rows] = await this.pool.execute<MediaRow[]>("SELECT * FROM media WHERE id=? LIMIT 1", [id]);
     return rows.length ? toMedia(rows[0]) : null;
   }
-  async listVisibleMedia(limit: number, cursor?: string, order: MediaOrder = "newest"): Promise<MediaPage> {
-    const decoded = decodeCursor(cursor, order);
+  async listVisibleMedia(limit: number, cursor?: string, order: MediaOrder = "newest", ownerGuestId?: string): Promise<MediaPage> {
+    const scope: MediaScope = ownerGuestId ? "mine" : "all";
+    const decoded = decodeCursor(cursor, order, scope);
     const params: unknown[] = [];
     let where = "status='visible'";
+    if (ownerGuestId) { where += " AND guest_id=?"; params.push(ownerGuestId); }
     const comparison = order === "newest" ? "<" : ">";
     const sqlDirection = order === "newest" ? "DESC" : "ASC";
     if (decoded) { where += ` AND (created_at ${comparison} ? OR (created_at = ? AND id ${comparison} ?))`; params.push(new Date(decoded.createdAt), new Date(decoded.createdAt), decoded.id); }
     params.push(limit + 1);
     const [rows] = await this.pool.query<MediaRow[]>(`SELECT * FROM media WHERE ${where} ORDER BY created_at ${sqlDirection}, id ${sqlDirection} LIMIT ?`, params);
     const hasMore = rows.length > limit; const pageRows = rows.slice(0, limit); const items = pageRows.map(toMedia);
-    return { items, nextCursor: hasMore && items.length ? encodeCursor(items.at(-1)!, order) : null };
+    return { items, nextCursor: hasMore && items.length ? encodeCursor(items.at(-1)!, order, scope) : null };
   }
 }

@@ -33,6 +33,15 @@ describe("album guest access", () => {
     expect(first.body.guest.guestId).not.toBe(second.body.guest.guestId);
   });
 
+  it("updates the display name without changing the stable owner identity", async () => {
+    const agent = request.agent(app);
+    await agent.post("/api/album/access").send({ accessToken: "test-album-token" }).expect(204);
+    const created = await agent.post("/api/album/guest").send({ displayName: "Nombre inicial" }).expect(201);
+    const updated = await agent.patch("/api/album/guest").send({ displayName: "  Nombre   nuevo  " }).expect(200);
+    expect(updated.body.guest).toEqual({ guestId: created.body.guest.guestId, displayName: "Nombre nuevo" });
+    expect((await agent.get("/api/album/session").expect(200)).body.guest).toEqual(updated.body.guest);
+  });
+
   it("rejects empty, control-only and overlong names", async () => {
     const access = await request(app).post("/api/album/access").send({ accessToken: "test-album-token" });
     const accessCookie = cookies(access)[0].split(";")[0];

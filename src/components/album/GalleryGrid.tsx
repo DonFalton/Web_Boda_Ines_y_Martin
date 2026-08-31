@@ -1,6 +1,16 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { ArrowDownUp, CalendarDays, Camera, Check, Download, Grid2X2, LayoutGrid, LoaderCircle, Play, RefreshCw, Video, X } from "lucide-react";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+import { ArrowDownUp, CalendarDays, Camera, Check, Download, Grid2X2, LayoutGrid, LoaderCircle, Play, RefreshCw, Trash2, Video, X } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,7 +23,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "@/components/ui/sonner";
-import { albumApi, type AlbumMedia, type AlbumMediaOrder } from "@/lib/album-api";
+import { albumApi, type AlbumMedia, type AlbumMediaOrder, type AlbumMediaScope } from "@/lib/album-api";
 import { cn } from "@/lib/utils";
 import { MediaViewer } from "./MediaViewer";
 
@@ -82,6 +92,7 @@ function startBrowserDownload(download: PreparedDownload) {
 }
 
 export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProps) {
+  const queryClient = useQueryClient();
   const viewerReturnFocus = useRef<HTMLButtonElement | null>(null);
   const selectionGesture = useRef<SelectionGesture | null>(null);
   const suppressedClickId = useRef<string | null>(null);
@@ -92,11 +103,14 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [preparingDownloads, setPreparingDownloads] = useState(false);
   const [preparedDownloads, setPreparedDownloads] = useState<PreparedDownload[]>([]);
+  const [scope, setScope] = useState<AlbumMediaScope>("all");
+  const [deleteTarget, setDeleteTarget] = useState<AlbumMedia | null>(null);
+  const [deleting, setDeleting] = useState(false);
   const [preferences, setPreferences] = useState(loadGalleryPreferences);
   const { layout, order } = preferences;
   const gallery = useInfiniteQuery({
-    queryKey: ["album-media", order],
-    queryFn: ({ pageParam }) => albumApi.media(pageParam, order),
+    queryKey: ["album-media", order, scope],
+    queryFn: ({ pageParam }) => albumApi.media(pageParam, order, scope),
     initialPageParam: undefined as string | undefined,
     getNextPageParam: page => page.nextCursor ?? undefined,
     staleTime: 2 * 60_000,
@@ -129,6 +143,30 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
     setSelectionMode(false);
     setSelectedIds(new Set());
     setPreparedDownloads([]);
+  }
+
+  function changeScope(nextScope: AlbumMediaScope) {
+    leaveSelectionMode();
+    setViewerItem(null);
+    setScope(nextScope);
+  }
+
+  async function deleteOwnedMedia() {
+    if (!deleteTarget || deleting) return;
+    setDeleting(true);
+    try {
+      await albumApi.deleteMedia(deleteTarget.id);
+      if (viewerItem?.id === deleteTarget.id) setViewerItem(null);
+      setDeleteTarget(null);
+      await queryClient.invalidateQueries({ queryKey: ["album-media"] });
+      toast.success("Recuerdo enviado a la papelera de OneDrive.");
+    }
+    catch {
+      toast.error("No se pudo eliminar el recuerdo. Inténtalo de nuevo.");
+    }
+    finally {
+      setDeleting(false);
+    }
   }
 
   function toggleItem(item: AlbumMedia) {
@@ -292,7 +330,7 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
       ? `${isSelected ? "Deseleccionar" : "Seleccionar"} recuerdo compartido por ${item.guestName}`
       : `Abrir recuerdo compartido por ${item.guestName}`;
     return (
-      <li key={item.id}>
+      <li key={item.id} className="relative">
         <button
           type="button"
           data-media-id={item.id}
@@ -326,6 +364,18 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
             </span>
           )}
         </button>
+        {scope === "mine" && item.isOwner && !selectionMode && (
+          <Button
+            className="absolute left-2 top-2 z-10 h-9 w-9 rounded-full border border-white/70 bg-black/55 text-white shadow-md hover:bg-destructive hover:text-destructive-foreground"
+            size="icon"
+            variant="ghost"
+            onClick={() => setDeleteTarget(item)}
+            aria-label={`Eliminar recuerdo compartido por ${item.guestName}`}
+            title="Eliminar recuerdo"
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        )}
       </li>
     );
   }
@@ -371,6 +421,11 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
         </div>
       </div>
 
+      <div className="mb-4 inline-flex rounded-lg border border-primary/15 bg-card/70 p-1" aria-label="Filtrar recuerdos">
+        <Button className="h-8 px-3 text-xs sm:text-sm" size="sm" variant={scope === "all" ? "default" : "ghost"} aria-pressed={scope === "all"} onClick={() => changeScope("all")}>Todos</Button>
+        <Button className="h-8 px-3 text-xs sm:text-sm" size="sm" variant={scope === "mine" ? "default" : "ghost"} aria-pressed={scope === "mine"} onClick={() => changeScope("mine")}>Mis recuerdos</Button>
+      </div>
+
       {gallery.isLoading && (
         <div className="grid grid-cols-2 gap-1.5 sm:gap-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5" aria-label="Cargando galería">
           {Array.from({ length: 10 }, (_, index) => <Skeleton key={index} className="aspect-[4/5] rounded-md sm:rounded-lg" />)}
@@ -387,8 +442,8 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
       {!gallery.isLoading && !gallery.isError && items.length === 0 && (
         <div className="rounded-xl border border-dashed border-primary/20 bg-card/55 px-5 py-10 text-center sm:py-14">
           <Camera className="mx-auto h-8 w-8 text-primary/65" aria-hidden="true" />
-          <p className="mt-3 font-heading text-xl text-primary sm:text-2xl">Sé la primera persona en compartir un recuerdo</p>
-          <p className="mt-1 text-xs text-muted-foreground">Usa el botón de subir para estrenar el álbum.</p>
+          <p className="mt-3 font-heading text-xl text-primary sm:text-2xl">{scope === "mine" ? "Aún no has compartido ningún recuerdo" : "Sé la primera persona en compartir un recuerdo"}</p>
+          <p className="mt-1 text-xs text-muted-foreground">{scope === "mine" ? "Cuando subas fotos o vídeos, aparecerán aquí." : "Usa el botón de subir para estrenar el álbum."}</p>
         </div>
       )}
 
@@ -431,6 +486,23 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
       )}
 
       {!onSelect && <MediaViewer selected={viewerItem} items={items} onSelect={setViewerItem} onClose={closeViewer} />}
+
+      <AlertDialog open={Boolean(deleteTarget)} onOpenChange={(open) => { if (!open && !deleting) setDeleteTarget(null); }}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>¿Eliminar este recuerdo?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Dejará de aparecer en el álbum y el original se moverá a la papelera de OneDrive, donde podrá recuperarse durante el periodo que conserve Microsoft.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={deleting}>Cancelar</AlertDialogCancel>
+            <AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90" disabled={deleting} onClick={(event) => { event.preventDefault(); void deleteOwnedMedia(); }}>
+              {deleting ? <><LoaderCircle className="mr-2 h-4 w-4 animate-spin" /> Eliminando…</> : "Mover a la papelera"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 }

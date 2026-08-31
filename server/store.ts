@@ -1,4 +1,4 @@
-import type { MediaOrder, MediaPage, MediaRecord, StoredOAuthToken } from "./types.js";
+import type { MediaOrder, MediaPage, MediaRecord, MediaScope, StoredOAuthToken } from "./types.js";
 
 export interface AlbumStore {
   init(): Promise<void>;
@@ -8,21 +8,22 @@ export interface AlbumStore {
   createMedia(media: MediaRecord): Promise<void>;
   updateMedia(id: string, patch: Partial<Pick<MediaRecord, "onedriveItemId" | "status" | "updatedAt">>): Promise<MediaRecord | null>;
   getMedia(id: string): Promise<MediaRecord | null>;
-  listVisibleMedia(limit: number, cursor?: string, order?: MediaOrder): Promise<MediaPage>;
+  listVisibleMedia(limit: number, cursor?: string, order?: MediaOrder, ownerGuestId?: string): Promise<MediaPage>;
 }
 
-function encodeCursor(media: MediaRecord, order: MediaOrder = "newest") {
-  return Buffer.from(JSON.stringify({ createdAt: media.createdAt, id: media.id, order })).toString("base64url");
+function encodeCursor(media: MediaRecord, order: MediaOrder = "newest", scope: MediaScope = "all") {
+  return Buffer.from(JSON.stringify({ createdAt: media.createdAt, id: media.id, order, scope })).toString("base64url");
 }
 
-function decodeCursor(cursor?: string, expectedOrder: MediaOrder = "newest"): { createdAt: string; id: string } | null {
+function decodeCursor(cursor?: string, expectedOrder: MediaOrder = "newest", expectedScope: MediaScope = "all"): { createdAt: string; id: string } | null {
   if (!cursor) return null;
   try {
     const parsed = JSON.parse(Buffer.from(cursor, "base64url").toString("utf8")) as unknown;
     if (!parsed || typeof parsed !== "object") return null;
-    const value = parsed as { createdAt?: unknown; id?: unknown; order?: unknown };
+    const value = parsed as { createdAt?: unknown; id?: unknown; order?: unknown; scope?: unknown };
     if (typeof value.createdAt !== "string" || Number.isNaN(Date.parse(value.createdAt)) || typeof value.id !== "string" || !value.id) return null;
     if ((value.order ?? "newest") !== expectedOrder) return null;
+    if ((value.scope ?? "all") !== expectedScope) return null;
     return { createdAt: value.createdAt, id: value.id };
   }
   catch { return null; }
@@ -44,17 +45,20 @@ export class MemoryStore implements AlbumStore {
     return { ...next };
   }
   async getMedia(id: string) { const value = this.media.get(id); return value ? { ...value } : null; }
-  async listVisibleMedia(limit: number, cursor?: string, order: MediaOrder = "newest"): Promise<MediaPage> {
-    const decoded = decodeCursor(cursor, order);
+  async listVisibleMedia(limit: number, cursor?: string, order: MediaOrder = "newest", ownerGuestId?: string): Promise<MediaPage> {
+    const scope: MediaScope = ownerGuestId ? "mine" : "all";
+    const decoded = decodeCursor(cursor, order, scope);
     const direction = order === "newest" ? -1 : 1;
-    const sorted = [...this.media.values()].filter(item => item.status === "visible").sort((a, b) => direction * (a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id)));
+    const sorted = [...this.media.values()]
+      .filter(item => item.status === "visible" && (!ownerGuestId || item.guestId === ownerGuestId))
+      .sort((a, b) => direction * (a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id)));
     const filtered = decoded
       ? sorted.filter(item => order === "newest"
         ? item.createdAt < decoded.createdAt || (item.createdAt === decoded.createdAt && item.id < decoded.id)
         : item.createdAt > decoded.createdAt || (item.createdAt === decoded.createdAt && item.id > decoded.id))
       : sorted;
     const page = filtered.slice(0, limit);
-    return { items: page.map(item => ({ ...item })), nextCursor: filtered.length > limit && page.length ? encodeCursor(page.at(-1)!, order) : null };
+    return { items: page.map(item => ({ ...item })), nextCursor: filtered.length > limit && page.length ? encodeCursor(page.at(-1)!, order, scope) : null };
   }
 }
 

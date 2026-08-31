@@ -27,6 +27,10 @@ async function installAlbumMock(page: Page) {
       guest = { guestId: "guest-e2e", displayName: (request.postDataJSON() as { displayName: string }).displayName };
       return json(route, { guest }, 201);
     }
+    if (path === "/api/album/guest" && request.method() === "PATCH") {
+      guest = { guestId: guest?.guestId ?? "guest-e2e", displayName: (request.postDataJSON() as { displayName: string }).displayName };
+      return json(route, { guest });
+    }
     if (path === "/api/album/uploads/policy") return json(route, {
       maxFileBytes: 10_000_000,
       maxBatchFiles: 50,
@@ -40,8 +44,8 @@ async function installAlbumMock(page: Page) {
     if (path === "/api/album/uploads/session" && request.method() === "POST") return json(route, { mediaId: "00000000-0000-4000-8000-000000000001", storedName: "stored-recuerdo.jpg", uploadUrl: "http://127.0.0.1:5173/mock-onedrive/session", expiresAt: "2030-01-01T00:00:00Z" }, 201);
     if (path.endsWith("/complete") && request.method() === "POST") {
       media = [
-        { id: "00000000-0000-4000-8000-000000000001", guestName: guest?.displayName ?? "Invitada", originalName: "recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T12:00:00.000Z", thumbnailUrl: pixel },
-        { id: "00000000-0000-4000-8000-000000000002", guestName: "Otra invitada", originalName: "otro-recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T11:00:00.000Z", thumbnailUrl: pixel },
+        { id: "00000000-0000-4000-8000-000000000001", guestName: guest?.displayName ?? "Invitada", originalName: "recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T12:00:00.000Z", isOwner: true, thumbnailUrl: pixel },
+        { id: "00000000-0000-4000-8000-000000000002", guestName: "Otra invitada", originalName: "otro-recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T11:00:00.000Z", isOwner: false, thumbnailUrl: pixel },
       ];
       return json(route, { mediaId: "00000000-0000-4000-8000-000000000001", status: "visible" });
     }
@@ -49,7 +53,17 @@ async function installAlbumMock(page: Page) {
       const second = path.includes("00000000-0000-4000-8000-000000000002");
       return json(route, { url: pixel, filename: second ? "otro-recuerdo.jpg" : "recuerdo.jpg", mimeType: "image/jpeg" });
     }
-    if (path === "/api/album/media") return json(route, { items: media, nextCursor: null });
+    if (/^\/api\/album\/media\/[^/]+$/.test(path) && request.method() === "DELETE") {
+      const mediaId = path.split("/").at(-1);
+      const target = media.find(item => item.id === mediaId);
+      if (!target?.isOwner) return json(route, { error: { code: "MEDIA_NOT_FOUND", message: "No se encontró el recuerdo." } }, 404);
+      media = media.filter(item => item.id !== mediaId);
+      return route.fulfill({ status: 204 });
+    }
+    if (path === "/api/album/media") {
+      const scope = new URL(request.url()).searchParams.get("scope");
+      return json(route, { items: scope === "mine" ? media.filter(item => item.isOwner) : media, nextCursor: null });
+    }
     if (path.endsWith("/fail")) return route.fulfill({ status: 204 });
     return json(route, { error: { code: "MOCK_NOT_FOUND", message: path } }, 404);
   });
@@ -84,6 +98,13 @@ test("magic access, guest identity, direct upload, gallery and viewer", async ({
   await expect(page.getByText("Descargas individuales")).toBeVisible();
   await page.getByRole("button", { name: "Cerrar" }).click();
   await expect(page.getByText("2 seleccionados")).toBeHidden();
+
+  await page.getByRole("button", { name: "Mis recuerdos" }).click();
+  await expect(page.getByRole("button", { name: "Abrir recuerdo compartido por Otra invitada" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Eliminar recuerdo compartido por Invitada E2E" }).click();
+  await expect(page.getByRole("alertdialog")).toContainText("papelera de OneDrive");
+  await page.getByRole("button", { name: "Mover a la papelera" }).click();
+  await expect(page.getByText("Aún no has compartido ningún recuerdo")).toBeVisible();
 });
 
 test("the existing wedding home remains available", async ({ page }) => {

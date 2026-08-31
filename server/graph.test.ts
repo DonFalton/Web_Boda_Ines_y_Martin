@@ -106,6 +106,27 @@ describe("MicrosoftGraphService", () => {
     });
   });
 
+  it("moves an item to the OneDrive recycle bin and treats an already missing item as deleted", async () => {
+    const config = testConfig();
+    const store = new MemoryStore();
+    await store.saveOAuthToken({ id: "microsoft", encryptedRefreshToken: encryptToken("refresh-token", config.tokenEncryptionKey), updatedAt: new Date().toISOString() });
+    let deleteCalls = 0;
+    const fetcher = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/oauth2/v2.0/token")) return Response.json({ access_token: "access-token", expires_in: 3600 });
+      if (url.endsWith("/me/drive/items/item-to-delete") && init?.method === "DELETE") {
+        deleteCalls += 1;
+        return deleteCalls === 1 ? new Response(null, { status: 204 }) : Response.json({ error: { code: "itemNotFound" } }, { status: 404 });
+      }
+      throw new Error(`Unexpected mock request: ${url}`);
+    }) as typeof fetch;
+    const graph = new MicrosoftGraphService(config, store, fetcher);
+
+    await expect(graph.deleteItem("item-to-delete")).resolves.toBeUndefined();
+    await expect(graph.deleteItem("item-to-delete")).resolves.toBeUndefined();
+    expect(deleteCalls).toBe(2);
+  });
+
   it("uses the Graph thumbnail collection and selects large", async () => {
     const { result, batchBody } = await thumbnails([{ id: "0", status: 200, body: { value: [{ large: { url: "https://thumb/large" }, medium: { url: "https://thumb/medium" } }] } }]);
     expect(result.get("item-1")).toBe("https://thumb/large");

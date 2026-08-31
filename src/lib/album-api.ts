@@ -18,10 +18,12 @@ export type AlbumMedia = {
   mimeType: string;
   size: number;
   createdAt: string;
+  isOwner: boolean;
   thumbnailUrl: string | null;
 };
 export type AlbumMediaPage = { items: AlbumMedia[]; nextCursor: string | null };
 export type AlbumMediaOrder = "newest" | "oldest";
+export type AlbumMediaScope = "all" | "mine";
 
 export class AlbumApiError extends Error {
   constructor(public readonly code: string, message: string, public readonly status: number) {
@@ -47,6 +49,7 @@ export const albumApi = {
   session: () => request<AlbumSession>("/api/album/session"),
   exchangeAccess: (accessToken: string) => request<void>("/api/album/access", { method: "POST", body: JSON.stringify({ accessToken }) }),
   createGuest: (displayName: string) => request<{ guest: AlbumGuest }>("/api/album/guest", { method: "POST", body: JSON.stringify({ displayName }) }),
+  updateGuest: (displayName: string) => request<{ guest: AlbumGuest }>("/api/album/guest", { method: "PATCH", body: JSON.stringify({ displayName }) }),
   clearGuest: () => request<void>("/api/album/guest", { method: "DELETE" }),
   uploadPolicy: () => request<UploadPolicy>("/api/album/uploads/policy"),
   createUploadSession: (file: Pick<File, "name" | "type" | "size">) => request<DirectUploadSession>("/api/album/uploads/session", {
@@ -58,12 +61,13 @@ export const albumApi = {
     body: JSON.stringify({ itemId }),
   }),
   failUpload: (mediaId: string) => request<void>(`/api/album/uploads/${encodeURIComponent(mediaId)}/fail`, { method: "POST" }),
-  media: (cursor?: string, order: AlbumMediaOrder = "newest") => {
-    const params = new URLSearchParams({ order });
+  media: (cursor?: string, order: AlbumMediaOrder = "newest", scope: AlbumMediaScope = "all") => {
+    const params = new URLSearchParams({ order, scope });
     if (cursor) params.set("cursor", cursor);
     return request<AlbumMediaPage>(`/api/album/media?${params.toString()}`);
   },
   mediaSource: (mediaId: string) => request<{ url: string; filename: string; mimeType: string }>(`/api/album/media/${encodeURIComponent(mediaId)}/source`),
+  deleteMedia: (mediaId: string) => request<void>(`/api/album/media/${encodeURIComponent(mediaId)}`, { method: "DELETE" }),
   createAdminSession: (adminKey: string) => request<void>("/api/admin/session", { method: "POST", body: JSON.stringify({ adminKey }) }),
   adminStatus: () => request<{ connected: boolean }>("/api/admin/microsoft/status"),
   testOneDrive: () => request<{ ok: boolean; itemName: string }>("/api/admin/microsoft/test", { method: "POST" }),

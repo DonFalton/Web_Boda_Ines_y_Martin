@@ -87,6 +87,16 @@ describeMysql("MysqlStore real integration", () => {
       [testDatabase],
     );
     expect(indexRows.map(row => row.columnName)).toEqual(["status", "created_at", "id"]);
+    const [ownerIndexRows] = await cleanupPool.execute<RowDataPacket[]>(
+      "SELECT column_name AS columnName FROM information_schema.statistics WHERE table_schema=? AND table_name='media' AND index_name='idx_media_guest_status_created_id' ORDER BY seq_in_index",
+      [testDatabase],
+    );
+    expect(ownerIndexRows.map(row => row.columnName)).toEqual(["guest_id", "status", "created_at", "id"]);
+    const [statusRows] = await cleanupPool.execute<RowDataPacket[]>(
+      "SELECT column_type AS columnType FROM information_schema.columns WHERE table_schema=? AND table_name='media' AND column_name='status'",
+      [testDatabase],
+    );
+    expect(String(statusRows[0].columnType ?? statusRows[0].COLUMN_TYPE)).toContain("'deleted'");
   });
 
   it("persists Unicode media, 15 GiB size and status across pool recreation", async () => {
@@ -172,6 +182,10 @@ describeMysql("MysqlStore real integration", () => {
     expect(new Set([...oldestPageOne.items, ...oldestPageTwo.items].map(item => item.id)).size).toBe(3);
     expect((await second.getMedia(mediaIds[2]))?.guestName).toBe("Robert'); DROP TABLE media;--");
     expect(await second.getMedia(mediaIds[1])).not.toBeNull();
+    const mine = await second.listVisibleMedia(10, undefined, "newest", records[0].guestId);
+    expect(mine.items).toHaveLength(3);
+    await second.updateMedia(mediaIds[1], { status: "deleted", updatedAt: "2026-08-31T10:04:00.000Z" });
+    expect((await second.listVisibleMedia(10, undefined, "newest", records[0].guestId)).items.map(item => item.id)).not.toContain(mediaIds[1]);
     await second.close();
   });
 });

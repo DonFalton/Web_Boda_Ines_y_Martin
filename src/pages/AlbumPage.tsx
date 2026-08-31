@@ -13,6 +13,7 @@ export default function AlbumPage() {
   const [exchangePending, setExchangePending] = useState(Boolean(window.location.hash));
   const [exchangeError, setExchangeError] = useState("");
   const [selectionMode, setSelectionMode] = useState(false);
+  const [editingIdentity, setEditingIdentity] = useState(false);
   const session = useQuery({ queryKey: ["album-session"], queryFn: albumApi.session, enabled: !exchangePending, retry: false });
 
   useEffect(() => {
@@ -32,9 +33,9 @@ export default function AlbumPage() {
       .finally(() => setExchangePending(false));
   }, [queryClient]);
 
-  async function clearIdentity() {
-    await albumApi.clearGuest();
+  async function identityUpdated() {
     await queryClient.invalidateQueries({ queryKey: ["album-session"] });
+    setEditingIdentity(false);
   }
 
   if (exchangePending || session.isLoading) {
@@ -56,11 +57,24 @@ export default function AlbumPage() {
     return <AlbumShell><GuestGate onCreated={() => queryClient.invalidateQueries({ queryKey: ["album-session"] })} /></AlbumShell>;
   }
 
+  if (editingIdentity) {
+    return (
+      <AlbumShell>
+        <GuestGate
+          editing
+          initialDisplayName={session.data.guest.displayName}
+          onCancel={() => setEditingIdentity(false)}
+          onCreated={identityUpdated}
+        />
+      </AlbumShell>
+    );
+  }
+
   return (
     <AlbumShell>
       <div className="mb-3 flex h-12 items-center justify-between gap-2 rounded-lg border border-primary/10 bg-card/70 px-3 sm:mb-4 sm:px-4">
         <p className="text-sm text-muted-foreground">Hola, <strong className="font-medium text-foreground">{session.data.guest.displayName}</strong></p>
-        <Button className="h-9 px-2 text-xs sm:text-sm" variant="link" size="sm" onClick={() => void clearIdentity()}>Cambiar</Button>
+        <Button className="h-9 px-2 text-xs sm:text-sm" variant="link" size="sm" onClick={() => setEditingIdentity(true)}>Cambiar</Button>
       </div>
       <UploadPanel mobileActionHidden={selectionMode} />
       <GalleryGrid onSelectionModeChange={setSelectionMode} />

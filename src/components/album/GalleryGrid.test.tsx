@@ -6,7 +6,7 @@ import { albumApi, type AlbumMedia } from "@/lib/album-api";
 
 vi.mock("@/lib/album-api", async (importOriginal) => {
   const original = await importOriginal<typeof import("@/lib/album-api")>();
-  return { ...original, albumApi: { ...original.albumApi, media: vi.fn(), mediaSource: vi.fn() } };
+  return { ...original, albumApi: { ...original.albumApi, media: vi.fn(), mediaSource: vi.fn(), deleteMedia: vi.fn() } };
 });
 
 function renderGallery(onSelect = vi.fn()) {
@@ -22,6 +22,7 @@ const photo: AlbumMedia = {
   mimeType: "image/jpeg",
   size: 500,
   createdAt: "2026-08-30T12:00:00.000Z",
+  isOwner: true,
   thumbnailUrl: "https://thumb.example/baile.jpg",
 };
 
@@ -33,6 +34,7 @@ const video: AlbumMedia = {
   mimeType: "video/mp4",
   thumbnailUrl: null,
   createdAt: "2026-08-29T11:00:00.000Z",
+  isOwner: false,
 };
 
 describe("GalleryGrid", () => {
@@ -107,14 +109,14 @@ describe("GalleryGrid", () => {
     renderGallery();
     await screen.findByRole("button", { name: "Diseño y orden" });
 
-    fireEvent.click(screen.getByRole("button", { name: "Diseño y orden" }));
+    fireEvent.pointerDown(screen.getByRole("button", { name: "Diseño y orden" }), { button: 0, ctrlKey: false });
     fireEvent.click(await screen.findByRole("menuitemradio", { name: /Cuadrícula/ }));
     await waitFor(() => expect(screen.getByRole("button", { name: "Abrir recuerdo compartido por Lucía" })).toHaveClass("aspect-square"));
     await waitFor(() => expect(JSON.parse(window.localStorage.getItem("album-gallery-preferences-v1") ?? "null")).toMatchObject({ layout: "grid" }));
 
-    fireEvent.click(screen.getByRole("button", { name: "Diseño y orden" }));
+    fireEvent.pointerDown(screen.getByRole("button", { name: "Diseño y orden" }), { button: 0, ctrlKey: false });
     fireEvent.click(await screen.findByRole("menuitemradio", { name: "Añadidos primero" }));
-    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, "oldest"));
+    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, "oldest", "all"));
     expect(JSON.parse(window.localStorage.getItem("album-gallery-preferences-v1") ?? "null")).toMatchObject({ layout: "grid", order: "oldest" });
   });
 
@@ -125,7 +127,7 @@ describe("GalleryGrid", () => {
 
     expect(await screen.findByRole("heading", { level: 3, name: /29 de agosto de 2026/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: /30 de agosto de 2026/i })).toBeInTheDocument();
-    expect(albumApi.media).toHaveBeenCalledWith(undefined, "oldest");
+    expect(albumApi.media).toHaveBeenCalledWith(undefined, "oldest", "all");
   });
 
   it("enters selection mode on a long press and selects tiles while dragging", async () => {
@@ -162,5 +164,17 @@ describe("GalleryGrid", () => {
     expect(screen.queryByText("1 seleccionado")).not.toBeInTheDocument();
 
     vi.useRealTimers();
+  });
+
+  it("shows owned memories and deletes one only after recycle-bin confirmation", async () => {
+    vi.mocked(albumApi.media).mockResolvedValue({ items: [photo], nextCursor: null });
+    vi.mocked(albumApi.deleteMedia).mockResolvedValue(undefined);
+    renderGallery();
+    fireEvent.click(await screen.findByRole("button", { name: "Mis recuerdos" }));
+    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, "newest", "mine"));
+    fireEvent.click(await screen.findByRole("button", { name: "Eliminar recuerdo compartido por Lucía" }));
+    expect(screen.getByRole("alertdialog")).toHaveTextContent("papelera de OneDrive");
+    fireEvent.click(screen.getByRole("button", { name: "Mover a la papelera" }));
+    await waitFor(() => expect(albumApi.deleteMedia).toHaveBeenCalledWith(photo.id));
   });
 });
