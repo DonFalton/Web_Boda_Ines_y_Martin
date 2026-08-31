@@ -24,11 +24,12 @@ describe("album security boundaries", () => {
     expect(csp).toContain("object-src 'none'");
     expect(sources("img-src")).toContain("https://*.microsoftpersonalcontent.com");
     expect(sources("media-src")).toContain("https://*.microsoftpersonalcontent.com");
+    expect(sources("frame-src")).toEqual(expect.arrayContaining(["'self'", "https://*.1drv.com", "https://*.sharepoint.com", "https://*.microsoftpersonalcontent.com"]));
     expect(sources("connect-src")).toContain("https://*.up.1drv.com");
     expect(sources("connect-src")).not.toContain("https://graph.microsoft.com");
     expect(sources("connect-src")).not.toContain("https://*.microsoftpersonalcontent.com");
     expect(csp).not.toContain("https://my.microsoftpersonalcontent.com");
-    for (const directive of ["connect-src", "img-src", "media-src"]) {
+    for (const directive of ["connect-src", "img-src", "media-src", "frame-src"]) {
       expect(sources(directive)).not.toContain("*");
       expect(sources(directive)).not.toContain("https:");
       expect(sources(directive)).not.toContain("https://*.microsoft.com");

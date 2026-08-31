@@ -12,6 +12,7 @@ export default function AlbumPage() {
   const exchangeStarted = useRef(false);
   const [exchangePending, setExchangePending] = useState(Boolean(window.location.hash));
   const [exchangeError, setExchangeError] = useState("");
+  const [selectionMode, setSelectionMode] = useState(false);
   const session = useQuery({ queryKey: ["album-session"], queryFn: albumApi.session, enabled: !exchangePending, retry: false });
 
   useEffect(() => {
@@ -57,12 +58,12 @@ export default function AlbumPage() {
 
   return (
     <AlbumShell>
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-2 rounded-md border bg-card/70 px-4 py-3">
+      <div className="mb-3 flex h-12 items-center justify-between gap-2 rounded-lg border border-primary/10 bg-card/70 px-3 sm:mb-4 sm:px-4">
         <p className="text-sm text-muted-foreground">Hola, <strong className="font-medium text-foreground">{session.data.guest.displayName}</strong></p>
-        <Button variant="link" size="sm" onClick={() => void clearIdentity()}>Este no soy yo</Button>
+        <Button className="h-9 px-2 text-xs sm:text-sm" variant="link" size="sm" onClick={() => void clearIdentity()}>Cambiar</Button>
       </div>
-      <UploadPanel />
-      <GalleryGrid />
+      <UploadPanel mobileActionHidden={selectionMode} />
+      <GalleryGrid onSelectionModeChange={setSelectionMode} />
     </AlbumShell>
   );
 }

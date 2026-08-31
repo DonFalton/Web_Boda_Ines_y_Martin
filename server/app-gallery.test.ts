@@ -42,6 +42,15 @@ describe("album gallery", () => {
     expect(second.body.items).toHaveLength(1);
     expect(second.body.nextCursor).toBeNull();
 
+    const oldestFirst = await agent.get("/api/album/media?order=oldest").expect(200);
+    expect(oldestFirst.body.items).toHaveLength(20);
+    expect(oldestFirst.body.items[0]).toMatchObject({ guestName: "Invitado 1" });
+    const oldestSecond = await agent.get(`/api/album/media?order=oldest&cursor=${encodeURIComponent(oldestFirst.body.nextCursor)}`).expect(200);
+    expect(oldestSecond.body.items).toHaveLength(1);
+    expect(oldestSecond.body.items[0]).toMatchObject({ guestName: "Invitado 21" });
+
+    await agent.get("/api/album/media?order=unsupported").expect(400);
+
     const source = await agent.get(`/api/album/media/${first.body.items[0].id}/source`).expect(200);
     expect(source.body).toMatchObject({ url: "https://download.example/drive-21", filename: "foto-21.jpg", mimeType: "image/jpeg" });
     expect(source.headers["cache-control"]).toContain("no-store");

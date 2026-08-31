@@ -55,6 +55,7 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
         fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
         imgSrc: ["'self'", "data:", "blob:", "https://*.1drv.com", "https://*.sharepoint.com", "https://*.microsoftpersonalcontent.com"],
         mediaSrc: ["'self'", "blob:", "https://*.1drv.com", "https://*.sharepoint.com", "https://*.microsoftpersonalcontent.com"],
+        frameSrc: ["'self'", "https://*.1drv.com", "https://*.sharepoint.com", "https://*.microsoftpersonalcontent.com"],
         connectSrc: ["'self'", "https://*.up.1drv.com", "https://*.1drv.com", "https://*.sharepoint.com"],
         frameAncestors: ["'none'"],
         objectSrc: ["'none'"],
@@ -154,10 +155,13 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
   });
 
   app.get("/api/album/media", requireGuest, limiter(120, 60_000), async (req, res, next) => {
-    const parsed = z.object({ cursor: z.string().max(2048).optional() }).safeParse(req.query);
+    const parsed = z.object({
+      cursor: z.string().max(2048).optional(),
+      order: z.enum(["newest", "oldest"]).default("newest"),
+    }).safeParse(req.query);
     if (!parsed.success) return res.status(400).json({ error: { code: "CURSOR_INVALID", message: "La página solicitada no es válida." } });
     try {
-      const page = await store.listVisibleMedia(20, parsed.data.cursor);
+      const page = await store.listVisibleMedia(20, parsed.data.cursor, parsed.data.order);
       const itemIds = page.items.flatMap(item => item.onedriveItemId ? [item.onedriveItemId] : []);
       const thumbnails = itemIds.length ? await graph.getThumbnails(itemIds) : new Map<string, string>();
       res.json({

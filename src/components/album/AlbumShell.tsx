@@ -16,13 +16,13 @@ export function AlbumShell({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background px-4 py-8 text-foreground sm:py-12">
-      <div className="mx-auto w-full max-w-5xl">
-        <header className="mb-8 text-center">
-          <p className="mb-2 font-body text-xs font-medium uppercase tracking-[0.28em] text-primary/70">Nuestro álbum compartido</p>
-          <h1 className="font-heading text-4xl font-semibold text-primary sm:text-5xl">Inés &amp; Martín</h1>
-          <p className="mt-2 font-heading text-xl italic text-foreground/75">Comparte tus recuerdos</p>
-          <img src={botanicalDivider} alt="" className="mx-auto mt-4 h-8 w-auto max-w-[220px] object-contain" />
+    <main className="min-h-screen bg-background px-3 py-4 text-foreground sm:px-6 sm:py-7">
+      <div className="mx-auto w-full max-w-7xl">
+        <header className="mb-4 text-center sm:mb-6">
+          <p className="mb-1 font-body text-[10px] font-medium uppercase tracking-[0.26em] text-primary/65 sm:text-xs">Nuestro álbum compartido</p>
+          <h1 className="font-heading text-[2.35rem] font-semibold leading-none text-primary sm:text-5xl">Inés &amp; Martín</h1>
+          <p className="mt-1 font-heading text-lg italic text-foreground/70 sm:text-xl">Comparte tus recuerdos</p>
+          <img src={botanicalDivider} alt="" className="mx-auto mt-2 h-6 w-auto max-w-[180px] object-contain sm:mt-3 sm:h-7 sm:max-w-[210px]" />
         </header>
         {children}
       </div>

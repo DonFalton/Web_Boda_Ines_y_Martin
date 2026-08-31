@@ -1,4 +1,5 @@
 export type MediaStatus = "uploading" | "visible" | "failed";
+export type MediaOrder = "newest" | "oldest";
 
 export type MediaRecord = {
   id: string;
@@ -46,4 +47,3 @@ export type OAuthAttempt = {
   codeVerifier: string;
   exp: number;
 };
-

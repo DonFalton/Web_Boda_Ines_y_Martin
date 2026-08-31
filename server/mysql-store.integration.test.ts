@@ -161,6 +161,15 @@ describeMysql("MysqlStore real integration", () => {
       mediaIds[1],
     ]);
     expect(new Set([...pageOne.items, ...pageTwo.items].map(item => item.id)).size).toBe(3);
+
+    const oldestPageOne = await second.listVisibleMedia(2, undefined, "oldest");
+    const oldestPageTwo = await second.listVisibleMedia(2, oldestPageOne.nextCursor!, "oldest");
+    expect([...oldestPageOne.items, ...oldestPageTwo.items].map(item => item.id)).toEqual([
+      mediaIds[1],
+      mediaIds[2],
+      mediaIds[3],
+    ]);
+    expect(new Set([...oldestPageOne.items, ...oldestPageTwo.items].map(item => item.id)).size).toBe(3);
     expect((await second.getMedia(mediaIds[2]))?.guestName).toBe("Robert'); DROP TABLE media;--");
     expect(await second.getMedia(mediaIds[1])).not.toBeNull();
     await second.close();

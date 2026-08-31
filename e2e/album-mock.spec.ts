@@ -39,10 +39,16 @@ async function installAlbumMock(page: Page) {
     });
     if (path === "/api/album/uploads/session" && request.method() === "POST") return json(route, { mediaId: "00000000-0000-4000-8000-000000000001", storedName: "stored-recuerdo.jpg", uploadUrl: "http://127.0.0.1:5173/mock-onedrive/session", expiresAt: "2030-01-01T00:00:00Z" }, 201);
     if (path.endsWith("/complete") && request.method() === "POST") {
-      media = [{ id: "00000000-0000-4000-8000-000000000001", guestName: guest?.displayName ?? "Invitada", originalName: "recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T12:00:00.000Z", thumbnailUrl: pixel }];
+      media = [
+        { id: "00000000-0000-4000-8000-000000000001", guestName: guest?.displayName ?? "Invitada", originalName: "recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T12:00:00.000Z", thumbnailUrl: pixel },
+        { id: "00000000-0000-4000-8000-000000000002", guestName: "Otra invitada", originalName: "otro-recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T11:00:00.000Z", thumbnailUrl: pixel },
+      ];
       return json(route, { mediaId: "00000000-0000-4000-8000-000000000001", status: "visible" });
     }
-    if (path.endsWith("/source")) return json(route, { url: pixel, filename: "recuerdo.jpg", mimeType: "image/jpeg" });
+    if (path.endsWith("/source")) {
+      const second = path.includes("00000000-0000-4000-8000-000000000002");
+      return json(route, { url: pixel, filename: second ? "otro-recuerdo.jpg" : "recuerdo.jpg", mimeType: "image/jpeg" });
+    }
     if (path === "/api/album/media") return json(route, { items: media, nextCursor: null });
     if (path.endsWith("/fail")) return route.fulfill({ status: 204 });
     return json(route, { error: { code: "MOCK_NOT_FOUND", message: path } }, 404);
@@ -58,14 +64,26 @@ test("magic access, guest identity, direct upload, gallery and viewer", async ({
   await expect(page.getByText("Hola,")).toBeVisible();
 
   await page.locator('input[type="file"]').setInputFiles({ name: "recuerdo.jpg", mimeType: "image/jpeg", buffer: Buffer.from("foto") });
-  await expect(page.getByText(/Compartido$/)).toBeVisible();
-  const card = page.getByRole("button", { name: /Abrir recuerdo\.jpg, compartido por Invitada E2E/ });
+  await expect(page.getByText("Recuerdo compartido", { exact: true })).toBeVisible();
+  const card = page.getByRole("button", { name: "Abrir recuerdo compartido por Invitada E2E" });
   await expect(card).toBeVisible();
   await card.click();
-  await expect(page.getByRole("heading", { name: "recuerdo.jpg" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Recuerdo compartido por Invitada E2E" })).toBeVisible();
+  await expect(page.getByText("1 de 2", { exact: true })).toBeVisible();
+  await expect(page.getByText("recuerdo.jpg", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("link", { name: /Descargar/ })).toHaveAttribute("download", "recuerdo.jpg");
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("heading", { name: "recuerdo.jpg" })).toBeHidden();
+  await expect(page.getByRole("heading", { name: "Recuerdo compartido por Invitada E2E" })).toBeHidden();
+  await expect(card).toBeFocused();
+
+  await page.getByRole("button", { name: "Seleccionar" }).click();
+  await page.getByRole("button", { name: "Seleccionar todo" }).click();
+  await expect(page.getByText("2 seleccionados")).toBeVisible();
+  await page.getByRole("button", { name: "Descargar" }).click();
+  await expect(page.locator('iframe[data-album-download]')).toHaveCount(2);
+  await expect(page.getByText("Descargas individuales")).toBeVisible();
+  await page.getByRole("button", { name: "Cerrar" }).click();
+  await expect(page.getByText("2 seleccionados")).toBeHidden();
 });
 
 test("the existing wedding home remains available", async ({ page }) => {

@@ -21,6 +21,7 @@ export type AlbumMedia = {
   thumbnailUrl: string | null;
 };
 export type AlbumMediaPage = { items: AlbumMedia[]; nextCursor: string | null };
+export type AlbumMediaOrder = "newest" | "oldest";
 
 export class AlbumApiError extends Error {
   constructor(public readonly code: string, message: string, public readonly status: number) {
@@ -57,7 +58,11 @@ export const albumApi = {
     body: JSON.stringify({ itemId }),
   }),
   failUpload: (mediaId: string) => request<void>(`/api/album/uploads/${encodeURIComponent(mediaId)}/fail`, { method: "POST" }),
-  media: (cursor?: string) => request<AlbumMediaPage>(`/api/album/media${cursor ? `?cursor=${encodeURIComponent(cursor)}` : ""}`),
+  media: (cursor?: string, order: AlbumMediaOrder = "newest") => {
+    const params = new URLSearchParams({ order });
+    if (cursor) params.set("cursor", cursor);
+    return request<AlbumMediaPage>(`/api/album/media?${params.toString()}`);
+  },
   mediaSource: (mediaId: string) => request<{ url: string; filename: string; mimeType: string }>(`/api/album/media/${encodeURIComponent(mediaId)}/source`),
   createAdminSession: (adminKey: string) => request<void>("/api/admin/session", { method: "POST", body: JSON.stringify({ adminKey }) }),
   adminStatus: () => request<{ connected: boolean }>("/api/admin/microsoft/status"),

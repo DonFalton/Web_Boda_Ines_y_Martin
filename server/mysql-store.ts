@@ -2,7 +2,7 @@ import mysql, { type Pool, type RowDataPacket } from "mysql2/promise";
 import type { AppConfig } from "./config.js";
 import type { AlbumStore } from "./store.js";
 import { decodeCursor, encodeCursor } from "./store.js";
-import type { MediaPage, MediaRecord, StoredOAuthToken } from "./types.js";
+import type { MediaOrder, MediaPage, MediaRecord, StoredOAuthToken } from "./types.js";
 
 type MediaRow = RowDataPacket & {
   id: string; guest_id: string; guest_name: string; original_name: string; stored_name: string;
@@ -80,14 +80,16 @@ export class MysqlStore implements AlbumStore {
     const [rows] = await this.pool.execute<MediaRow[]>("SELECT * FROM media WHERE id=? LIMIT 1", [id]);
     return rows.length ? toMedia(rows[0]) : null;
   }
-  async listVisibleMedia(limit: number, cursor?: string): Promise<MediaPage> {
-    const decoded = decodeCursor(cursor);
+  async listVisibleMedia(limit: number, cursor?: string, order: MediaOrder = "newest"): Promise<MediaPage> {
+    const decoded = decodeCursor(cursor, order);
     const params: unknown[] = [];
     let where = "status='visible'";
-    if (decoded) { where += " AND (created_at < ? OR (created_at = ? AND id < ?))"; params.push(new Date(decoded.createdAt), new Date(decoded.createdAt), decoded.id); }
+    const comparison = order === "newest" ? "<" : ">";
+    const sqlDirection = order === "newest" ? "DESC" : "ASC";
+    if (decoded) { where += ` AND (created_at ${comparison} ? OR (created_at = ? AND id ${comparison} ?))`; params.push(new Date(decoded.createdAt), new Date(decoded.createdAt), decoded.id); }
     params.push(limit + 1);
-    const [rows] = await this.pool.query<MediaRow[]>(`SELECT * FROM media WHERE ${where} ORDER BY created_at DESC, id DESC LIMIT ?`, params);
+    const [rows] = await this.pool.query<MediaRow[]>(`SELECT * FROM media WHERE ${where} ORDER BY created_at ${sqlDirection}, id ${sqlDirection} LIMIT ?`, params);
     const hasMore = rows.length > limit; const pageRows = rows.slice(0, limit); const items = pageRows.map(toMedia);
-    return { items, nextCursor: hasMore && items.length ? encodeCursor(items.at(-1)!) : null };
+    return { items, nextCursor: hasMore && items.length ? encodeCursor(items.at(-1)!, order) : null };
   }
 }
