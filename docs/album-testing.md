@@ -9,7 +9,7 @@ La matriz soportada se ejecuta con **Node.js 22 LTS** (`node --version` debe dev
 | Backend | `npm run test:server` | cookies, identidad propietaria estable, OAuth, cifrado, Graph, borrado recuperable, políticas, sesiones de subida, paginación y hardening |
 | MySQL real | `npm run test:mysql` | schema idempotente, índices, `utf8mb4`, 15 GiB, SQL parametrizado, paginación y persistencia de media/OAuth tras recrear el pool |
 | Frontend | `npm test` | fragmento mágico, nombre, selección de archivos, galería, visor, metadato noindex y rutas |
-| E2E mock | `npm run test:e2e` | acceso → invitado → subida directa simulada → publicación → visor/descarga → Mis recuerdos → papelera; portada `/` |
+| E2E mock | `npm run test:e2e` | acceso → invitado → subida directa simulada → publicación → visor/descarga múltiple → Mis recuerdos → papelera; portada `/` |
 | Tipos | `npm run typecheck` | TypeScript frontend/configuración |
 | Producción | `npm run build` | bundle Vite y compilación Node |
 | Dependencias | `npm run audit:prod` | vulnerabilidades conocidas reportadas por npm en el árbol de producción; no es una auditoría integral |
@@ -53,11 +53,12 @@ Estas pruebas requieren configurar `.env`, registrar previamente el callback loc
 8. Cancela una subida y comprueba que no aparece en galería.
 9. Comprueba cuadrícula a 390 px, 768 px, 1280 px y 1440 px.
 10. Abre imagen y vídeo; usa flechas, Escape, foco y descarga.
-11. Repite con dos navegadores usando el mismo nombre: deben conservar identidades distintas.
-12. Cambia el nombre y confirma que **Mis recuerdos** sigue mostrando el contenido anterior.
-13. Desde otro navegador confirma que no aparece la acción de borrar sobre contenido ajeno.
-14. Borra un recuerdo propio y confirma que desaparece de la galería y queda recuperable en la papelera de OneDrive.
-15. Reinicia el backend con MySQL y confirma persistencia.
+11. Selecciona varios recuerdos y comprueba que una sola pulsación en **Descargar** inicia todos los archivos seleccionados.
+12. Repite con dos navegadores usando el mismo nombre: deben conservar identidades distintas.
+13. Cambia el nombre y confirma que **Mis recuerdos** sigue mostrando el contenido anterior.
+14. Desde otro navegador confirma que no aparece la acción de borrar sobre contenido ajeno.
+15. Borra un recuerdo propio y confirma que desaparece de la galería y queda recuperable en la papelera de OneDrive.
+16. Reinicia el backend con MySQL y confirma persistencia.
 
 ## Casos no cubiertos automáticamente
 

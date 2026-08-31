@@ -95,7 +95,7 @@ test("magic access, guest identity, direct upload, gallery and viewer", async ({
   await expect(page.getByText("2 seleccionados")).toBeVisible();
   await page.getByRole("button", { name: "Descargar" }).click();
   await expect(page.locator('iframe[data-album-download]')).toHaveCount(2);
-  await expect(page.getByText("Descargas individuales")).toBeVisible();
+  await expect(page.getByText("Descargas individuales")).toHaveCount(0);
   await page.getByRole("button", { name: "Cerrar" }).click();
   await expect(page.getByText("2 seleccionados")).toBeHidden();
 

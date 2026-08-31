@@ -102,7 +102,6 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   const [selectionMode, setSelectionMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [preparingDownloads, setPreparingDownloads] = useState(false);
-  const [preparedDownloads, setPreparedDownloads] = useState<PreparedDownload[]>([]);
   const [scope, setScope] = useState<AlbumMediaScope>("all");
   const [deleteTarget, setDeleteTarget] = useState<AlbumMedia | null>(null);
   const [deleting, setDeleting] = useState(false);
@@ -142,7 +141,6 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   function leaveSelectionMode() {
     setSelectionMode(false);
     setSelectedIds(new Set());
-    setPreparedDownloads([]);
   }
 
   function changeScope(nextScope: AlbumMediaScope) {
@@ -170,7 +168,6 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   }
 
   function toggleItem(item: AlbumMedia) {
-    setPreparedDownloads([]);
     setSelectedIds(current => {
       const next = new Set(current);
       if (next.has(item.id)) next.delete(item.id);
@@ -181,7 +178,6 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   }
 
   function selectItem(item: AlbumMedia) {
-    setPreparedDownloads([]);
     setSelectedIds(current => {
       if (current.has(item.id)) return current;
       if (current.size >= MAX_SELECTION) {
@@ -284,7 +280,6 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   function selectAll() {
     const selectable = items.slice(0, MAX_SELECTION);
     setSelectedIds(new Set(selectable.map(item => item.id)));
-    setPreparedDownloads([]);
     if (items.length > MAX_SELECTION) toast.info(`Se han seleccionado los primeros ${MAX_SELECTION} recuerdos.`);
   }
 
@@ -301,21 +296,13 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   async function downloadSelection() {
     if (!selectedItems.length || preparingDownloads) return;
     setPreparingDownloads(true);
-    setPreparedDownloads([]);
     const results = await Promise.allSettled(selectedItems.map(async item => {
       const source = await albumApi.mediaSource(item.id);
       return { id: item.id, filename: source.filename, url: source.url } satisfies PreparedDownload;
     }));
     const ready = results.flatMap(result => result.status === "fulfilled" ? [result.value] : []);
-    setPreparedDownloads(ready);
     ready.forEach(startBrowserDownload);
     setPreparingDownloads(false);
-
-    if (ready.length) {
-      toast.info(`${ready.length === 1 ? "Descarga preparada" : `${ready.length} descargas preparadas`}.`, {
-        description: "El navegador puede pedir permiso para varias descargas. Si bloquea alguna, usa los enlaces individuales.",
-      });
-    }
     if (ready.length !== selectedItems.length) toast.error("No se pudieron preparar todas las descargas.");
   }
 
@@ -473,15 +460,6 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
               {preparingDownloads ? <LoaderCircle className="animate-spin" /> : <Download />} <span className="hidden min-[360px]:inline">Descargar</span>
             </Button>
           </div>
-          {preparedDownloads.length > 0 && (
-            <details className="mt-2 border-t pt-2 text-xs" open>
-              <summary className="cursor-pointer font-medium text-primary">Descargas individuales</summary>
-              <p className="mt-1 text-[11px] text-muted-foreground">Si el navegador bloqueó alguna descarga, ábrela desde aquí.</p>
-              <ul className="mt-1 max-h-24 space-y-1 overflow-auto">
-                {preparedDownloads.map(download => <li key={download.id}><a className="block truncate underline underline-offset-2" href={download.url} target="_blank" rel="noopener noreferrer" download={download.filename}>{download.filename}</a></li>)}
-              </ul>
-            </details>
-          )}
         </aside>
       )}
 

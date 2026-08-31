@@ -63,7 +63,7 @@ describe("GalleryGrid", () => {
     expect(await screen.findByText(/primera persona en compartir/)).toBeInTheDocument();
   });
 
-  it("selects up to the gallery limit and prepares individual download fallbacks", async () => {
+  it("selects up to the gallery limit and starts every selected download without extra steps", async () => {
     vi.mocked(albumApi.media).mockResolvedValue({ items: [photo, video], nextCursor: null });
     vi.mocked(albumApi.mediaSource)
       .mockResolvedValueOnce({ url: "https://download.example/photo", filename: "baile.jpg", mimeType: "image/jpeg" })
@@ -78,8 +78,8 @@ describe("GalleryGrid", () => {
     await waitFor(() => expect(albumApi.mediaSource).toHaveBeenCalledTimes(2));
     expect(document.querySelectorAll('iframe[data-album-download]')).toHaveLength(2);
     expect(document.querySelector<HTMLIFrameElement>('iframe[data-album-download="media-1"]')).toHaveAttribute("sandbox", "allow-downloads");
-    expect(await screen.findByText("Descargas individuales")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "baile.jpg" })).toHaveAttribute("href", "https://download.example/photo");
+    expect(screen.queryByText(/permiso para descargar varios archivos/)).not.toBeInTheDocument();
+    expect(screen.queryByText("Descargas individuales")).not.toBeInTheDocument();
     expect(screen.getByText("2 seleccionados")).toBeInTheDocument();
   });
 
