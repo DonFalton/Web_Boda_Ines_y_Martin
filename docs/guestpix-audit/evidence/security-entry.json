@@ -1,0 +1,62 @@
+{
+  "documentHeaders": {
+    "cache-control": "public, max-age=0, must-revalidate",
+    "content-type": "text/html; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "strict-transport-security": "max-age=2592000",
+    "x-content-type-options": "nosniff"
+  },
+  "meta": [
+    {
+      "name": "viewport",
+      "httpEquiv": null,
+      "content": "width=device-width, initial-scale=1.0"
+    }
+  ],
+  "formCount": 1,
+  "labels": [
+    {
+      "for": "name",
+      "text": "Nombre completo*"
+    },
+    {
+      "for": "email",
+      "text": "Correo electrónico (Opcional)"
+    }
+  ],
+  "serviceWorkers": [],
+  "robots": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "appearsToBeHtmlShell": true,
+    "hasUserAgentDirective": false,
+    "hasDisallowDirective": false
+  },
+  "internalUrlInFreshContext": {
+    "finalUrl": "https://my.guestpix.com/guest/{eventId}/login",
+    "title": "Welcome | GUESTPIX",
+    "text": "Boda de prueba encabezado Mensaje del anfitrión Hola a todos Contraseña* Nombre completo* Correo electrónico (Opcional) Sólo te enviaremos actualizaciones de eventos en nombre de tu anfitrión. Continuar El uso de esta plataforma está sujeto a los Términos de Servicio de Invitados y Política de Uso Aceptable. © 2026 - Evento desarrollado por - Plan Gratuito Idioma: Español (España) Más información Inicio de sesión del Anfitrión Obtener Guestpix Preguntas frecuentes Precios Legal Privacidad Términos de Servicio Términos y Condiciones del Anfitrión Política de Uso Aceptable",
+    "inputs": [
+      {
+        "name": "",
+        "type": "checkbox",
+        "placeholder": ""
+      },
+      {
+        "name": "passcode",
+        "type": "text",
+        "placeholder": ""
+      },
+      {
+        "name": "name",
+        "type": "text",
+        "placeholder": ""
+      },
+      {
+        "name": "email",
+        "type": "text",
+        "placeholder": ""
+      }
+    ]
+  }
+}

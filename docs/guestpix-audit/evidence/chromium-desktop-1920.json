@@ -1,0 +1,4271 @@
+{
+  "profile": "chromium-desktop-1920",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "requests": [
+    {
+      "at": 19,
+      "method": "GET",
+      "type": "document",
+      "url": "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 198,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/splash.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1076,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 1077,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1286,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://my.guestpix.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.9417994452299403:1788099040:asHFtryX8mwmiQdrrmVRxnvR-sErNqoXrwkR87JAXwg/a3347c1c888bcfcd",
+      "bodyBytes": 16550
+    },
+    {
+      "at": 1505,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/measurement/conversion?random=%7Bredacted%7D&cv=%7Bredacted%7D&tid=%7Bredacted%7D&fst=%7Bredacted%7D&fmt=%7Bredacted%7D&en=%7Bredacted%7D&gtm=%7Bredacted%7D&gcd=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&tag_exp=%7Bredacted%7D&u_w=%7Bredacted%7D&u_h=%7Bredacted%7D&url=%7Bredacted%7D&gacid=%7Bredacted%7D&ae=%7Bredacted%7D&frm=%7Bredacted%7D&tiba=%7Bredacted%7D&gdid=%7Bredacted%7D&npa=%7Bredacted%7D&pscdl=%7Bredacted%7D&auid=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uamb=%7Bredacted%7D&uam=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&rcb=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1509,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&_gaz=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_prs=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&_fv=%7Bredacted%7D&_nsi=%7Bredacted%7D&_ss=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&epn.percent_scrolled=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1515,
+      "method": "GET",
+      "type": "image",
+      "url": "https://www.google.es/ads/ga-audiences?v=%7Bredacted%7D&t=%7Bredacted%7D&slf_rd=%7Bredacted%7D&_r=%7Bredacted%7D&tid=%7Bredacted%7D&cid=%7Bredacted%7D&gtm=%7Bredacted%7D&rcb=%7Bredacted%7D&aip=%7Bredacted%7D&dma=%7Bredacted%7D&dma_cps=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&tag_exp=%7Bredacted%7D&z=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1695,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 1695,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 1699,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 350
+    },
+    {
+      "at": 1699,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1701,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1701,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/validateaccess/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1701,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/splash-BcPT_QO8.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1701,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/cover-BlOsI-nI.jpeg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1702,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo_footer-DON8jIgi.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 1719,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/tgejjsfp.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 2068,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 356
+    },
+    {
+      "at": 2552,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 5206,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://my.guestpix.com/bc50/d/pagead/form-data/10933174436?gtm=%7Bredacted%7D&gcd=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&tag_exp=%7Bredacted%7D&rcb=%7Bredacted%7D&did=%7Bredacted%7D&gdid=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&ae=%7Bredacted%7D&auid=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uamb=%7Bredacted%7D&uam=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&gap.fsrc=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&fmt=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 5206,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://my.guestpix.com/bc50/d/ccm/form-data/10933174436?gtm=%7Bredacted%7D&gcd=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&tag_exp=%7Bredacted%7D&rcb=%7Bredacted%7D&did=%7Bredacted%7D&gdid=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&ae=%7Bredacted%7D&pscdl=%7Bredacted%7D&auid=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uamb=%7Bredacted%7D&uam=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&gap.fsrc=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&fmt=%7Bredacted%7D&_uip=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 5217,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/login",
+      "bodyBytes": 76
+    },
+    {
+      "at": 5908,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6374,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6374,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6430,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dr=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6498,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 356
+    },
+    {
+      "at": 6504,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 6505,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 6506,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 341
+    },
+    {
+      "at": 6656,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dr=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6659,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D?include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6659,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?eventVidType=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6659,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6660,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6660,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6661,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/albums?",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6741,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PRU.JNO.IMG-20260829-WA0008.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6741,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.ZEB.favicon.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6741,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.LPE.ChatGPTImage10may2026192412.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 6741,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.2J3.hero-venue.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 7026,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/guest/%7Bredacted%7D/welcome",
+      "bodyBytes": 0
+    },
+    {
+      "at": 7026,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/wishlist",
+      "bodyBytes": 0
+    },
+    {
+      "at": 7026,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/rsvp",
+      "bodyBytes": 0
+    },
+    {
+      "at": 7529,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 14442,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 14442,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 14443,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 15810,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 15855,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/23046dfe-ef4a-4815-9c40-2dfc6fb28a7a",
+      "bodyBytes": 0
+    },
+    {
+      "at": 15884,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/presigned",
+      "bodyBytes": 105
+    },
+    {
+      "at": 15885,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/presigned",
+      "bodyBytes": 103
+    },
+    {
+      "at": 16032,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/a51e0ee0-2aa0-4162-a5e0-c96aead364d7",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16033,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/b9b3afa4-8646-4ae2-be8c-6695a7859362",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16100,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/a5dc6956-6c70-43d9-b0e1-b77be5e6299b",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16102,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/ef463cb9-383e-4475-a07b-38749afd3a0b",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16144,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/ec6b464d-4d0c-47bc-8bfd-4e8318ffe59e",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16144,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/e9b60454-f527-406f-aa4a-f92122d7bfcd",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16164,
+      "method": "PUT",
+      "type": "xhr",
+      "url": "https://gpxprod.4fe680c48afb57111dd058b5da82bdb9.r2.cloudflarestorage.com/full/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg?X-Amz-Expires=%7Bredacted%7D&X-Amz-Algorithm=%7Bredacted%7D&X-Amz-Credential=%7Bredacted%7D&X-Amz-Date=%7Bredacted%7D&X-Amz-SignedHeaders=%7Bredacted%7D&X-Amz-Signature=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16182,
+      "method": "PUT",
+      "type": "xhr",
+      "url": "https://gpxprod.4fe680c48afb57111dd058b5da82bdb9.r2.cloudflarestorage.com/full/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.png?X-Amz-Expires=%7Bredacted%7D&X-Amz-Algorithm=%7Bredacted%7D&X-Amz-Credential=%7Bredacted%7D&X-Amz-Date=%7Bredacted%7D&X-Amz-SignedHeaders=%7Bredacted%7D&X-Amz-Signature=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16182,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/f403894d-40da-471a-9627-e207fd2a2592",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16882,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/complete",
+      "bodyBytes": 367
+    },
+    {
+      "at": 17698,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 17698,
+      "method": "GET",
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/f8ac9256-ad3e-4414-9d7f-e0e3c17cb9ca",
+      "bodyBytes": 0
+    },
+    {
+      "at": 17698,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "bodyBytes": 0
+    },
+    {
+      "at": 17698,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/complete",
+      "bodyBytes": 371
+    },
+    {
+      "at": 60613,
+      "method": "GET",
+      "type": "document",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 60798,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&_gaz=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 60802,
+      "method": "GET",
+      "type": "image",
+      "url": "https://www.google.es/ads/ga-audiences?v=%7Bredacted%7D&t=%7Bredacted%7D&slf_rd=%7Bredacted%7D&_r=%7Bredacted%7D&tid=%7Bredacted%7D&cid=%7Bredacted%7D&gtm=%7Bredacted%7D&rcb=%7Bredacted%7D&aip=%7Bredacted%7D&dma=%7Bredacted%7D&dma_cps=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&tag_exp=%7Bredacted%7D&z=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 60803,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 60841,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/splash.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 60977,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 60977,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 60977,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 60978,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61232,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 925
+    },
+    {
+      "at": 61240,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 61342,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&epn.percent_scrolled=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61345,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61351,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D?include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61353,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?eventVidType=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61357,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61362,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo_footer-DON8jIgi.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61363,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61363,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 61366,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 61368,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 61369,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 61370,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 61396,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/splash-BcPT_QO8.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61399,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61399,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/albums?",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61816,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61816,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PRU.JNO.IMG-20260829-WA0008.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61816,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.ZEB.favicon.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61817,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61818,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.LPE.ChatGPTImage10may2026192412.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61818,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.2J3.hero-venue.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61851,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/tgejjsfp.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61851,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/guest/%7Bredacted%7D/welcome",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61851,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/wishlist",
+      "bodyBytes": 0
+    },
+    {
+      "at": 61851,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/rsvp",
+      "bodyBytes": 0
+    },
+    {
+      "at": 63787,
+      "method": "GET",
+      "type": "document",
+      "url": "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 63880,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 63882,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 63901,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/splash.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 63978,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 63978,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64034,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 946
+    },
+    {
+      "at": 64069,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 64069,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 64069,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 356
+    },
+    {
+      "at": 64143,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&epn.percent_scrolled=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64144,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64147,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64150,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/validateaccess/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64150,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/splash-BcPT_QO8.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64150,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo-DrdPdY9s.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64150,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo_footer-DON8jIgi.png",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64151,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/cover-BlOsI-nI.jpeg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64746,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/tgejjsfp.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64746,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64804,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 356
+    },
+    {
+      "at": 64815,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 64816,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 64817,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 340
+    },
+    {
+      "at": 64902,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64904,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D?include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64904,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?eventVidType=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64904,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64907,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64907,
+      "method": "GET",
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "bodyBytes": 0
+    },
+    {
+      "at": 64908,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/albums?",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65115,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65116,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PRU.JNO.IMG-20260829-WA0008.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65117,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.ZEB.favicon.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65119,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65119,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.LPE.ChatGPTImage10may2026192412.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65119,
+      "method": "GET",
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.2J3.hero-venue.jpg",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65536,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/guest/%7Bredacted%7D/welcome",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65536,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/wishlist",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65544,
+      "method": "GET",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/rsvp",
+      "bodyBytes": 0
+    },
+    {
+      "at": 65816,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    }
+  ],
+  "responses": [
+    {
+      "status": 200,
+      "type": "document",
+      "url": "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "text/html; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "strict-transport-security": "max-age=2592000",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/splash.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/webp",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "9360"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://my.guestpix.com/cdn-cgi/challenge-platform/h/b/jsd/oneshot/e694063b5082/0.9417994452299403:1788099040:asHFtryX8mwmiQdrrmVRxnvR-sErNqoXrwkR87JAXwg/a3347c1c888bcfcd",
+      "headers": {
+        "content-length": "0",
+        "content-type": "text/plain; charset=UTF-8"
+      }
+    },
+    {
+      "status": 401,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://www.google.es/ads/ga-audiences?v=%7Bredacted%7D&t=%7Bredacted%7D&slf_rd=%7Bredacted%7D&_r=%7Bredacted%7D&tid=%7Bredacted%7D&cid=%7Bredacted%7D&gtm=%7Bredacted%7D&rcb=%7Bredacted%7D&aip=%7Bredacted%7D&dma=%7Bredacted%7D&dma_cps=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&tag_exp=%7Bredacted%7D&z=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "x-content-type-options": "nosniff",
+        "content-length": "42",
+        "content-type": "image/gif"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&_gaz=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_prs=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&_fv=%7Bredacted%7D&_nsi=%7Bredacted%7D&_ss=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&epn.percent_scrolled=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/measurement/conversion?random=%7Bredacted%7D&cv=%7Bredacted%7D&tid=%7Bredacted%7D&fst=%7Bredacted%7D&fmt=%7Bredacted%7D&en=%7Bredacted%7D&gtm=%7Bredacted%7D&gcd=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&tag_exp=%7Bredacted%7D&u_w=%7Bredacted%7D&u_h=%7Bredacted%7D&url=%7Bredacted%7D&gacid=%7Bredacted%7D&ae=%7Bredacted%7D&frm=%7Bredacted%7D&tiba=%7Bredacted%7D&gdid=%7Bredacted%7D&npa=%7Bredacted%7D&pscdl=%7Bredacted%7D&auid=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uamb=%7Bredacted%7D&uam=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&rcb=%7Bredacted%7D",
+      "headers": {}
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/splash-BcPT_QO8.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "22658"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/cover-BlOsI-nI.jpeg",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "11365"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo_footer-DON8jIgi.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "7759"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/tgejjsfp.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "299509"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/validateaccess/%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://my.guestpix.com/bc50/d/ccm/form-data/10933174436?gtm=%7Bredacted%7D&gcd=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&tag_exp=%7Bredacted%7D&rcb=%7Bredacted%7D&did=%7Bredacted%7D&gdid=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&ae=%7Bredacted%7D&pscdl=%7Bredacted%7D&auid=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uamb=%7Bredacted%7D&uam=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&gap.fsrc=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&fmt=%7Bredacted%7D&_uip=%7Bredacted%7D",
+      "headers": {
+        "content-type": "text/plain",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-cache, no-store, must-revalidate"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://my.guestpix.com/bc50/d/pagead/form-data/10933174436?gtm=%7Bredacted%7D&gcd=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&tag_exp=%7Bredacted%7D&rcb=%7Bredacted%7D&did=%7Bredacted%7D&gdid=%7Bredacted%7D&npa=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&ae=%7Bredacted%7D&auid=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uamb=%7Bredacted%7D&uam=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&gap.fsrc=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&fmt=%7Bredacted%7D",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "text/html; charset=UTF-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/login",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 401,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "status": 401,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dr=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dr=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?eventVidType=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000",
+        "content-length": "25"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/gif",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "38566"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/albums?",
+      "headers": {
+        "content-type": "application/json",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PRU.JNO.IMG-20260829-WA0008.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "144867"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.ZEB.favicon.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "319444"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.2J3.hero-venue.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "113090"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.LPE.ChatGPTImage10may2026192412.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "79212"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D?include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 422,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/wishlist",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 422,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/guest/%7Bredacted%7D/welcome",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/rsvp",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/23046dfe-ef4a-4815-9c40-2dfc6fb28a7a",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "182422"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/a51e0ee0-2aa0-4162-a5e0-c96aead364d7",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "25626"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/b9b3afa4-8646-4ae2-be8c-6695a7859362",
+      "headers": {
+        "content-type": "image/png",
+        "content-length": "42562"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/a5dc6956-6c70-43d9-b0e1-b77be5e6299b",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "25794"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/ef463cb9-383e-4475-a07b-38749afd3a0b",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "182422"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/ec6b464d-4d0c-47bc-8bfd-4e8318ffe59e",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "25626"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/presigned",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/e9b60454-f527-406f-aa4a-f92122d7bfcd",
+      "headers": {
+        "content-type": "image/png",
+        "content-length": "42562"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/presigned",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/f403894d-40da-471a-9627-e207fd2a2592",
+      "headers": {
+        "content-type": "image/jpeg",
+        "content-length": "25794"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://gpxprod.4fe680c48afb57111dd058b5da82bdb9.r2.cloudflarestorage.com/full/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.png?X-Amz-Expires=%7Bredacted%7D&X-Amz-Algorithm=%7Bredacted%7D&X-Amz-Credential=%7Bredacted%7D&X-Amz-Date=%7Bredacted%7D&X-Amz-SignedHeaders=%7Bredacted%7D&X-Amz-Signature=%7Bredacted%7D",
+      "headers": {
+        "content-length": "0",
+        "content-type": "text/plain;charset=UTF-8"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://gpxprod.4fe680c48afb57111dd058b5da82bdb9.r2.cloudflarestorage.com/full/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg?X-Amz-Expires=%7Bredacted%7D&X-Amz-Algorithm=%7Bredacted%7D&X-Amz-Credential=%7Bredacted%7D&X-Amz-Date=%7Bredacted%7D&X-Amz-SignedHeaders=%7Bredacted%7D&X-Amz-Signature=%7Bredacted%7D",
+      "headers": {
+        "content-length": "0",
+        "content-type": "text/plain;charset=UTF-8"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "blob:https://my.guestpix.com/f8ac9256-ad3e-4414-9d7f-e0e3c17cb9ca",
+      "headers": {
+        "content-type": "image/png",
+        "content-length": "42562"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/gif",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "38566"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/complete",
+      "headers": {
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/complete",
+      "headers": {
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "document",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "text/html; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "strict-transport-security": "max-age=2592000",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/splash.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/webp",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "9360"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 401,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo_footer-DON8jIgi.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "7759"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/splash-BcPT_QO8.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "22658"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/gif",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "38566"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&epn.percent_scrolled=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?eventVidType=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000",
+        "content-length": "25"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/albums?",
+      "headers": {
+        "content-type": "application/json",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PRU.JNO.IMG-20260829-WA0008.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "144867"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.ZEB.favicon.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "319444"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.LPE.ChatGPTImage10may2026192412.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "79212"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.2J3.hero-venue.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "113090"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D?include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/tgejjsfp.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "299509"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 422,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/wishlist",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 422,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/guest/%7Bredacted%7D/welcome",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/rsvp",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "170947"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "135292"
+      }
+    },
+    {
+      "status": 200,
+      "type": "document",
+      "url": "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "text/html; charset=utf-8",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "strict-transport-security": "max-age=2592000",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/splash.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/webp",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "9360"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 401,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/splash-BcPT_QO8.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "22658"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo_footer-DON8jIgi.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "7759"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/cover-BlOsI-nI.jpeg",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "11365"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dl=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&epn.percent_scrolled=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/logo-DrdPdY9s.png",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/png",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "8569"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/validateaccess/%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/tgejjsfp.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "299509"
+      }
+    },
+    {
+      "status": 401,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/me",
+      "headers": {
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://my.guestpix.com/assets/gpx-loading-CDTrXGkV.gif",
+      "headers": {
+        "x-content-type-options": "nosniff",
+        "content-type": "image/gif",
+        "cache-control": "public, max-age=2678400",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "content-length": "38566"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 200,
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-length": "2",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dt=%7Bredacted%7D&dp=%7Bredacted%7D&dl=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&en=%7Bredacted%7D&_ee=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 204,
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "headers": {
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?eventVidType=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000",
+        "content-length": "25"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/albums?",
+      "headers": {
+        "content-type": "application/json",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/guest/%7Bredacted%7D/media?page=%7Bredacted%7D&perPage=%7Bredacted%7D&type=%7Bredacted%7D&include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "135292"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PRU.JNO.IMG-20260829-WA0008.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "144867"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.ZEB.favicon.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "319444"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "strict-transport-security": "max-age=2592000",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "170947"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.LPE.ChatGPTImage10may2026192412.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "79212"
+      }
+    },
+    {
+      "status": 200,
+      "type": "image",
+      "url": "https://data.guestpix.com/Pix/%7Bredacted%7D/PED.2J3.hero-venue.jpg",
+      "headers": {
+        "content-type": "image/jpeg",
+        "cache-control": "public, max-age=604800, immutable",
+        "content-length": "113090"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://mapi.guestpix.com/api/event/%7Bredacted%7D?include=%7Bredacted%7D",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 422,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/wishlist",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 422,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/guest/%7Bredacted%7D/welcome",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 200,
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/events/%7Bredacted%7D/rsvp",
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "strict-transport-security": "max-age=2592000"
+      }
+    },
+    {
+      "status": 204,
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/plain"
+      }
+    }
+  ],
+  "navigations": [
+    "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/access/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/access/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+    "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/access/%7Bredacted%7D/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/access/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D/access/%7Bredacted%7D",
+    "https://my.guestpix.com/guest/%7Bredacted%7D"
+  ],
+  "states": [
+    {
+      "label": "entry",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/access/%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nBoda Prueba\nMensaje del anfitrión\n\nHola a todos\n\nNombre completo*\nCorreo electrónico (Opcional)\n\nSólo te enviaremos actualizaciones de eventos en nombre de tu anfitrión.\n\nContinuar\n\nEl uso de esta plataforma está sujeto a los Términos de Servicio de Invitados y Política de Uso Aceptable.\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable",
+      "headings": [
+        "Boda Prueba",
+        "Mensaje del anfitrión"
+      ],
+      "buttons": [
+        "Continuar",
+        "Idioma: Español (España)"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "text",
+          "name": "email",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": null,
+          "loading": null,
+          "width": 2112,
+          "height": 1188,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": null,
+          "loading": null,
+          "width": 736,
+          "height": 502,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "_gcl_ls",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "empty-name",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/access/%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nBoda Prueba\nMensaje del anfitrión\n\nHola a todos\n\nNombre completo*\nPor favor proporciona tu nombre\nCorreo electrónico (Opcional)\n\nSólo te enviaremos actualizaciones de eventos en nombre de tu anfitrión.\n\nContinuar\n\nEl uso de esta plataforma está sujeto a los Términos de Servicio de Invitados y Política de Uso Aceptable.\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable",
+      "headings": [
+        "Boda Prueba",
+        "Mensaje del anfitrión"
+      ],
+      "buttons": [
+        "Continuar",
+        "Idioma: Español (España)"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "text",
+          "name": "name",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "text",
+          "name": "email",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": null,
+          "loading": null,
+          "width": 2112,
+          "height": 1188,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": null,
+          "loading": null,
+          "width": 736,
+          "height": 528,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "_gcl_ls",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "home-gallery",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "viewer-open",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)",
+        ""
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        },
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 768,
+          "height": 432,
+          "sourceKind": "event-media"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "after-viewer-escape",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "upload-modal-empty",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable\nUpload to Gallery\nClose\n¿Omitir la verificación de duplicados?\nAyuda\nSuelta los archivos aquí o explorar archivos",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)",
+        "Close",
+        "explorar archivos"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "upload-files-selected-immediate",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable\nUpload to Gallery\nClose\n¿Omitir la verificación de duplicados?\nAyuda\nCancelar\nCargando 2 archivos\ncodex-test-photo-01.jpg\n178 KB\ncodex-test-photo-02.png\n42 KB\nCargando\nFiltrar · 0 B de 220 KB · 0s restante",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)",
+        "Close",
+        "Cancelar",
+        "Añadir más",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "upload-after-wait",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable\nUpload to Gallery\nClose\n¿Omitir la verificación de duplicados?\nAyuda\nSuelta los archivos aquí o explorar archivos",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)",
+        "Close",
+        "explorar archivos"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "reload-same-session",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable\nUpload to Gallery\nClose\n¿Omitir la verificación de duplicados?\nAyuda\nSuelta los archivos aquí o explorar archivos",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)",
+        "Close",
+        "explorar archivos"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 256,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 256,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    },
+    {
+      "label": "magic-link-again-same-session",
+      "url": "https://my.guestpix.com/guest/%7Bredacted%7D",
+      "title": "Welcome | GUESTPIX",
+      "bodyText": "Boda de prueba encabezado\nEspañol (España)\nSÁBADO, 26 DE SEPTIEMBRE DE 2026\nBoda de prueba encabezado\n\nHola a todos\n\nCargar fotos\n¿Recordarme cargar más tarde?\nEXPLORAR\nOrganiza tu propio evento gratuito con GUESTPIX\nComenzar\nGALERÍA\nLIBRO DE INVITADOS\nCargar fotos\nCuadrícula\nNoticias\n1\nFiltros\nAyuda\n© 2026 - Evento desarrollado por - Plan Gratuito\nIdioma:\nEspañol (España)\nMás información\nInicio de sesión del Anfitrión\nObtener Guestpix\nPreguntas frecuentes\nPrecios\nLegal\nPrivacidad\nTérminos de Servicio\nTérminos y Condiciones del Anfitrión\nPolítica de Uso Aceptable",
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ],
+      "buttons": [
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Idioma: Español (España)"
+      ],
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": false
+        },
+        {
+          "type": "checkbox",
+          "name": "allowDuplicates",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "",
+          "multiple": false,
+          "checked": true
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        },
+        {
+          "type": "file",
+          "name": "files[]",
+          "placeholder": "",
+          "required": false,
+          "minLength": -1,
+          "maxLength": -1,
+          "accept": "image/jpeg, image/png, image/bmp, image/gif, image/webp, .heic, .heif",
+          "multiple": true,
+          "checked": false
+        }
+      ],
+      "visibleImages": [
+        {
+          "alt": "Boda de prueba encabezado",
+          "loading": null,
+          "width": 220,
+          "height": 220,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 256,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 364,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 256,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 205,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 789,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Gallery Item",
+          "loading": null,
+          "width": 364,
+          "height": 201,
+          "sourceKind": "event-media"
+        },
+        {
+          "alt": "Logotipo de GUESTPIX",
+          "loading": null,
+          "width": 160,
+          "height": 42,
+          "sourceKind": "ui"
+        }
+      ],
+      "storage": {
+        "localStorageKeys": [
+          "pendingReactions",
+          "uploaded-{eventId}",
+          "_gcl_ls",
+          "pending-approval-banner-dismissed",
+          "install-banner-dismissed",
+          "in-app-browser-warning"
+        ],
+        "sessionStorageKeys": [],
+        "indexedDBNames": [],
+        "jsCookieNames": [
+          "_gcl_au",
+          "_ga",
+          "_ga_WFNY8RJKPR"
+        ]
+      }
+    }
+  ],
+  "entryKeyboard": [
+    {
+      "tag": "A",
+      "text": "Boda de prueba encabezado",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "INPUT",
+      "text": "",
+      "name": "name",
+      "aria": null
+    },
+    {
+      "tag": "INPUT",
+      "text": "",
+      "name": "email",
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Continuar",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "A",
+      "text": "Términos de Servicio de Invitados",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "A",
+      "text": "Política de Uso Aceptable",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "A",
+      "text": "",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "A",
+      "text": "",
+      "name": null,
+      "aria": "Open instagram"
+    },
+    {
+      "tag": "A",
+      "text": "",
+      "name": null,
+      "aria": "Open facebook"
+    },
+    {
+      "tag": "A",
+      "text": "",
+      "name": null,
+      "aria": "Open pinterest"
+    }
+  ],
+  "emptyNameValidity": {
+    "valid": true,
+    "valueMissing": false,
+    "validationMessage": "",
+    "ariaInvalid": null
+  },
+  "layouts": [
+    {
+      "label": "width-390",
+      "viewport": {
+        "width": 390,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 3,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 18,
+          "y": 360,
+          "width": 156,
+          "height": 156
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-412",
+      "viewport": {
+        "width": 412,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 18,
+          "y": 360,
+          "width": 156,
+          "height": 156
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-639",
+      "viewport": {
+        "width": 639,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 18,
+          "y": 360,
+          "width": 156,
+          "height": 156
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-640",
+      "viewport": {
+        "width": 640,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 18,
+          "y": 349,
+          "width": 156,
+          "height": 156
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-767",
+      "viewport": {
+        "width": 767,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 82,
+          "y": 349,
+          "width": 156,
+          "height": 156
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-768",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 18,
+          "y": 549,
+          "width": 188,
+          "height": 188
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-1023",
+      "viewport": {
+        "width": 1023,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 146,
+          "y": 549,
+          "width": 188,
+          "height": 188
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-1024",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 18,
+          "y": 517,
+          "width": 220,
+          "height": 220
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 2,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 98,
+          "y": 517,
+          "width": 220,
+          "height": 220
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    },
+    {
+      "label": "width-1920",
+      "viewport": {
+        "width": 1920,
+        "height": 900
+      },
+      "mediaCount": 5,
+      "columns": 5,
+      "firstRowColumns": 1,
+      "firstRow": [
+        {
+          "x": 210,
+          "y": 283,
+          "width": 220,
+          "height": 220
+        }
+      ],
+      "fixed": [
+        {
+          "tag": "DIV",
+          "text": ""
+        },
+        {
+          "tag": "OL",
+          "text": ""
+        },
+        {
+          "tag": "DIV",
+          "text": "Upload to GalleryClose¿Omitir la verificación de duplicados?AyudaSuelta sus arch"
+        }
+      ]
+    }
+  ],
+  "galleryVisibleMediaCount": 5,
+  "viewerKeyboard": [
+    {
+      "tag": "BUTTON",
+      "text": "Cargar fotos",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "¿Recordarme cargar más tarde?",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Explorar",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "A",
+      "text": "Comenzar",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Galería",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "DIV",
+      "text": "",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Cargar fotosCargar",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Cuadrícula",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Noticias",
+      "name": null,
+      "aria": null
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Filtros",
+      "name": null,
+      "aria": null
+    }
+  ],
+  "download": {
+    "visible": false
+  },
+  "viewerEscapeClosed": false,
+  "uploadOpenedAt": 14382,
+  "urlWithUploadOpen": "https://my.guestpix.com/guest/%7Bredacted%7D/?upload=%7Bredacted%7D",
+  "uploadRequests": [
+    {
+      "at": 14442,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 526
+    },
+    {
+      "at": 14442,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://o4507773902979072.ingest.us.sentry.io/api/4508219734228992/envelope/?sentry_version=%7Bredacted%7D&sentry_key=%7Bredacted%7D&sentry_client=%7Bredacted%7D",
+      "bodyBytes": 521
+    },
+    {
+      "at": 14443,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+      "bodyBytes": 326
+    },
+    {
+      "at": 15810,
+      "method": "POST",
+      "type": "fetch",
+      "url": "https://region1.analytics.google.com/g/collect?v=%7Bredacted%7D&tid=%7Bredacted%7D&gtm=%7Bredacted%7D&_p=%7Bredacted%7D&gcd=%7Bredacted%7D&npa=%7Bredacted%7D&dma_cps=%7Bredacted%7D&dma=%7Bredacted%7D&gdid=%7Bredacted%7D&ecid=%7Bredacted%7D&_eu=%7Bredacted%7D&_uip=%7Bredacted%7D&ae=%7Bredacted%7D&are=%7Bredacted%7D&cid=%7Bredacted%7D&ec_mode=%7Bredacted%7D&frm=%7Bredacted%7D&pscdl=%7Bredacted%7D&rcb=%7Bredacted%7D&sr=%7Bredacted%7D&uaa=%7Bredacted%7D&uab=%7Bredacted%7D&uafvl=%7Bredacted%7D&uam=%7Bredacted%7D&uamb=%7Bredacted%7D&uap=%7Bredacted%7D&uapv=%7Bredacted%7D&uaw=%7Bredacted%7D&ul=%7Bredacted%7D&ur=%7Bredacted%7D&gaf=%7Bredacted%7D&_s=%7Bredacted%7D&tag_exp=%7Bredacted%7D&dl=%7Bredacted%7D&dr=%7Bredacted%7D&sid=%7Bredacted%7D&sct=%7Bredacted%7D&seg=%7Bredacted%7D&dt=%7Bredacted%7D&en=%7Bredacted%7D&gap.gtb=%7Bredacted%7D&ep.anonymize_ip=%7Bredacted%7D&_et=%7Bredacted%7D&tfd=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 15884,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/presigned",
+      "bodyBytes": 105
+    },
+    {
+      "at": 15885,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/presigned",
+      "bodyBytes": 103
+    },
+    {
+      "at": 16164,
+      "method": "PUT",
+      "type": "xhr",
+      "url": "https://gpxprod.4fe680c48afb57111dd058b5da82bdb9.r2.cloudflarestorage.com/full/%7Bredacted%7D/GEP.J40.codex-test-photo-01.jpg?X-Amz-Expires=%7Bredacted%7D&X-Amz-Algorithm=%7Bredacted%7D&X-Amz-Credential=%7Bredacted%7D&X-Amz-Date=%7Bredacted%7D&X-Amz-SignedHeaders=%7Bredacted%7D&X-Amz-Signature=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16182,
+      "method": "PUT",
+      "type": "xhr",
+      "url": "https://gpxprod.4fe680c48afb57111dd058b5da82bdb9.r2.cloudflarestorage.com/full/%7Bredacted%7D/GEP.BBJ.codex-test-photo-02.png?X-Amz-Expires=%7Bredacted%7D&X-Amz-Algorithm=%7Bredacted%7D&X-Amz-Credential=%7Bredacted%7D&X-Amz-Date=%7Bredacted%7D&X-Amz-SignedHeaders=%7Bredacted%7D&X-Amz-Signature=%7Bredacted%7D",
+      "bodyBytes": 0
+    },
+    {
+      "at": 16882,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/complete",
+      "bodyBytes": 367
+    },
+    {
+      "at": 17698,
+      "method": "POST",
+      "type": "xhr",
+      "url": "https://api.guestpix.com/v1/upload/%7Bredacted%7D/complete",
+      "bodyBytes": 371
+    }
+  ],
+  "cookies": [
+    {
+      "name": "__cflb",
+      "domain": "api.guestpix.com",
+      "path": "/",
+      "expires": 1788182937.583057,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "cf_clearance",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1819636137.584058,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "__cf_bm",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1788101937.584241,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_gcl_au",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1795876138,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1822660200.321592,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__cflb",
+      "domain": "mapi.guestpix.com",
+      "path": "/",
+      "expires": 1788101938.078956,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ev{eventId}",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1819636142.203079,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "gpxIDs",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1819636142.203284,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_WFNY8RJKPR",
+      "domain": ".guestpix.com",
+      "path": "/",
+      "expires": 1822660202.116102,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ]
+}

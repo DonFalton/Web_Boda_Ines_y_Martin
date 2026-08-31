@@ -1,0 +1,132 @@
+{
+  "states": [
+    {
+      "label": "filters",
+      "url": "https://my.guestpix.com/guest/{eventId}/",
+      "text": "Boda de prueba encabezado Cerrar menú Inicio de sesión del anfitrión Obtener GUESTPIX Español (España) SÁBADO, 26 DE SEPTIEMBRE DE 2026 Boda de prueba encabezado Hola a todos Cargar fotos ¿Recordarme cargar más tarde? DESPLÁZATE PARA EXPLORAR Organiza tu propio evento gratuito con GUESTPIX Comenzar GALERÍA LIBRO DE INVITADOS Cargar 1 0 0 Gepete 0 0 Gepete 0 0 Prueba 0 0 Pedro Piqueras Pi 0 0 Pedro Piqueras Pi 0 0 Pedro Piqueras Pi © 2026 - Evento desarrollado por - Plan Gratuito Idioma: Español (España) Más información Inicio de sesión del Anfitrión Obtener Guestpix Preguntas frecuentes Precios Legal Privacidad Términos de Servicio Términos y Condiciones del Anfitrión Política de Uso Aceptable",
+      "buttons": [
+        "",
+        "Cerrar menú",
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Desplázate para explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "Idioma: Español (España)"
+      ],
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ]
+    },
+    {
+      "label": "news-view",
+      "url": "https://my.guestpix.com/guest/{eventId}/",
+      "text": "Boda de prueba encabezado Cerrar menú Inicio de sesión del anfitrión Obtener GUESTPIX Español (España) SÁBADO, 26 DE SEPTIEMBRE DE 2026 Boda de prueba encabezado Hola a todos Cargar fotos ¿Recordarme cargar más tarde? DESPLÁZATE PARA EXPLORAR Organiza tu propio evento gratuito con GUESTPIX Comenzar GALERÍA LIBRO DE INVITADOS Cargar 1 0 0 Gepete 0 0 Gepete 0 0 Prueba 0 0 Pedro Piqueras Pi 0 0 Pedro Piqueras Pi 0 0 Pedro Piqueras Pi © 2026 - Evento desarrollado por - Plan Gratuito Idioma: Español (España) Más información Inicio de sesión del Anfitrión Obtener Guestpix Preguntas frecuentes Precios Legal Privacidad Términos de Servicio Términos y Condiciones del Anfitrión Política de Uso Aceptable",
+      "buttons": [
+        "",
+        "Cerrar menú",
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Desplázate para explorar",
+        "Cargar fotosCargar",
+        "Filtros",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "",
+        "",
+        "0",
+        "Idioma: Español (España)"
+      ],
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Upload to Gallery"
+      ]
+    },
+    {
+      "label": "guestbook",
+      "url": "https://my.guestpix.com/guest/{eventId}/?tab=guestbook",
+      "text": "Boda de prueba encabezado Cerrar menú Inicio de sesión del anfitrión Obtener GUESTPIX Español (España) SÁBADO, 26 DE SEPTIEMBRE DE 2026 Boda de prueba encabezado Hola a todos Cargar fotos ¿Recordarme cargar más tarde? DESPLÁZATE PARA EXPLORAR Organiza tu propio evento gratuito con GUESTPIX Comenzar GALERÍA LIBRO DE INVITADOS Libro de invitados Galería © 2026 - Evento desarrollado por - Plan Gratuito Idioma: Español (España) Más información Inicio de sesión del Anfitrión Obtener Guestpix Preguntas frecuentes Precios Legal Privacidad Términos de Servicio Términos y Condiciones del Anfitrión Política de Uso Aceptable",
+      "buttons": [
+        "",
+        "Cerrar menú",
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Desplázate para explorar",
+        "Volver a la galeríaGalería",
+        "",
+        "Idioma: Español (España)"
+      ],
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Libro de invitados",
+        "Deja un mensaje para el anfitrión",
+        "Upload to Gallery"
+      ]
+    },
+    {
+      "label": "mobile-menu",
+      "url": "https://my.guestpix.com/guest/{eventId}/?tab=guestbook",
+      "text": "Boda de prueba encabezado Cerrar menú Inicio de sesión del anfitrión Obtener GUESTPIX Español (España) SÁBADO, 26 DE SEPTIEMBRE DE 2026 Boda de prueba encabezado Hola a todos Cargar fotos ¿Recordarme cargar más tarde? DESPLÁZATE PARA EXPLORAR Organiza tu propio evento gratuito con GUESTPIX Comenzar GALERÍA LIBRO DE INVITADOS Libro de invitados Galería + Deja un mensaje para el anfitrión Comparte un mensaje para el anfitrión en el libro de invitados, solo el anfitrión verá lo que escribas. Escribe un mensaje © 2026 - Evento desarrollado por - Plan Gratuito Idioma: Español (España) Más información Inicio de sesión del Anfitrión Obtener Guestpix Preguntas frecuentes Precios Legal Privacidad Términos de Servicio Términos y Condiciones del Anfitrión Política de Uso Aceptable",
+      "buttons": [
+        "",
+        "Cerrar menú",
+        " Español (España)",
+        "",
+        "Cargar fotos",
+        " ¿Recordarme cargar más tarde?",
+        "Desplázate para explorar",
+        "Volver a la galeríaGalería",
+        "Escribe un mensaje",
+        "Idioma: Español (España)"
+      ],
+      "headings": [
+        "Boda de prueba encabezado",
+        "Organiza tu propio evento gratuito con GUESTPIX",
+        "Libro de invitados",
+        "Deja un mensaje para el anfitrión",
+        "Upload to Gallery"
+      ]
+    }
+  ]
+}

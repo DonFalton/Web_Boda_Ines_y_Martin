@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-server
+*.tsbuildinfo
+playwright-report
+test-results
+blob-report
 *.local
 
 # Editor directories and files
@@ -23,3 +28,6 @@ dist-ssr
 *.sln
 *.sw?
 node_modules
+.env
+.env.*
+!.env.example
