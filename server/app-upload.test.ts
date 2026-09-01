@@ -28,7 +28,7 @@ describe("album upload sessions", () => {
 
   it("creates a direct session and only publishes after Graph validation", async () => {
     const agent = await authenticatedAgent();
-    const created = await agent.post("/api/album/uploads/session").send({ originalName: "foto verano?.jpg", mimeType: "image/jpeg", size: 1_000 }).expect(201);
+    const created = await agent.post("/api/album/uploads/session").send({ originalName: "foto verano?.jpg", mimeType: "image/jpeg", size: 1_000, capturedAt: "2026-08-20T10:30:00.000Z", captureSource: "embedded" }).expect(201);
     expect(created.body.uploadUrl).toBe("https://upload.example/session");
     expect(created.body.storedName).not.toContain("?");
     expect((await store.getMedia(created.body.mediaId))?.status).toBe("uploading");
@@ -36,6 +36,13 @@ describe("album upload sessions", () => {
     const media = await store.getMedia(created.body.mediaId);
     expect(graph.validateCompletedItem).toHaveBeenCalledWith("onedrive-item", media?.storedName, 1_000);
     expect(media?.status).toBe("visible");
+    expect(media).toMatchObject({ capturedAt: "2026-08-20T10:30:00.000Z", captureSource: "embedded" });
+  });
+
+  it("rejects inconsistent or future capture metadata", async () => {
+    const agent = await authenticatedAgent();
+    await agent.post("/api/album/uploads/session").send({ originalName: "foto.jpg", mimeType: "image/jpeg", size: 10, capturedAt: "2026-08-20T10:30:00.000Z", captureSource: "unknown" }).expect(400);
+    await agent.post("/api/album/uploads/session").send({ originalName: "foto.jpg", mimeType: "image/jpeg", size: 10, capturedAt: "2999-08-20T10:30:00.000Z", captureSource: "embedded" }).expect(400);
   });
 
   it("accepts an empty mobile MIME and stores the type inferred from the extension", async () => {

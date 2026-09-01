@@ -4,7 +4,7 @@ import type { AlbumStore } from "./store.js";
 
 type Fetcher = typeof fetch;
 type TokenResponse = { access_token: string; expires_in?: number; refresh_token?: string; error?: string; error_description?: string };
-type DriveItem = { id: string; name: string; size?: number; parentReference?: { id?: string }; folder?: object };
+type DriveItem = { id: string; name: string; size?: number; parentReference?: { id?: string }; folder?: object; photo?: { takenDateTime?: string } };
 
 export class GraphError extends Error {
   constructor(public readonly status: number, public readonly code: string, message = "Microsoft Graph request failed") {
@@ -18,7 +18,7 @@ export interface GraphService {
   exchangeAuthorizationCode(code: string, codeVerifier: string): Promise<void>;
   testConnection(): Promise<{ ok: true; itemName: string }>;
   createUploadSession(storedName: string, size: number): Promise<{ uploadUrl: string; expiresAt: string }>;
-  validateCompletedItem(itemId: string, storedName: string, expectedSize: number): Promise<void>;
+  validateCompletedItem(itemId: string, storedName: string, expectedSize: number): Promise<{ capturedAt: string | null } | void>;
   getThumbnails(itemIds: string[]): Promise<Map<string, string>>;
   getDownloadUrl(itemId: string): Promise<string>;
   deleteItem(itemId: string): Promise<void>;
@@ -180,11 +180,13 @@ export class MicrosoftGraphService implements GraphService {
   async validateCompletedItem(itemId: string, storedName: string, expectedSize: number) {
     const [folderId, item] = await Promise.all([
       this.ensureFolder(),
-      this.graph<DriveItem>(`/me/drive/items/${encodeURIComponent(itemId)}?$select=id,name,size,parentReference`),
+      this.graph<DriveItem>(`/me/drive/items/${encodeURIComponent(itemId)}?$select=id,name,size,parentReference,photo`),
     ]);
     if (item.name !== storedName || Number(item.size) !== expectedSize || item.parentReference?.id !== folderId) {
       throw new GraphError(409, "UPLOAD_COMPLETION_MISMATCH");
     }
+    const takenMilliseconds = item.photo?.takenDateTime ? Date.parse(item.photo.takenDateTime) : Number.NaN;
+    return { capturedAt: Number.isFinite(takenMilliseconds) ? new Date(takenMilliseconds).toISOString() : null };
   }
 
   async getThumbnails(itemIds: string[]) {

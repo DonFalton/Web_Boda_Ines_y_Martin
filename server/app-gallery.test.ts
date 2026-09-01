@@ -17,6 +17,8 @@ describe("album gallery", () => {
         storedName: `stored-${index}.jpg`,
         mimeType: "image/jpeg",
         size: 100 + index,
+        capturedAt: new Date(Date.UTC(2026, 6, 30, 12, 0, 21 - index)).toISOString(),
+        captureSource: "embedded",
         onedriveItemId: `drive-${index}`,
         status: index === 0 ? "failed" : "visible",
         createdAt: date,
@@ -56,6 +58,44 @@ describe("album gallery", () => {
     expect(source.headers["cache-control"]).toContain("no-store");
   });
 
+  it("filters images and videos and orders by capture date, type or guest", async () => {
+    const store = new MemoryStore();
+    const rows = [
+      { id: "20000000-0000-4000-8000-000000000001", guestName: "Bea", mimeType: "video/mp4", capturedAt: "2026-08-30T09:00:00.000Z" },
+      { id: "20000000-0000-4000-8000-000000000002", guestName: "Ana", mimeType: "image/jpeg", capturedAt: "2026-08-30T10:00:00.000Z" },
+      { id: "20000000-0000-4000-8000-000000000003", guestName: "Álvaro", mimeType: "video/mp4", capturedAt: "2026-08-30T11:00:00.000Z" },
+      { id: "20000000-0000-4000-8000-000000000004", guestName: "Carlos", mimeType: "image/jpeg", capturedAt: null },
+    ] as const;
+    for (const [index, row] of rows.entries()) {
+      const createdAt = new Date(Date.UTC(2026, 7, 31, 12, 0, index)).toISOString();
+      await store.createMedia({
+        ...row,
+        guestId: `guest-${index}`,
+        originalName: `media-${index}`,
+        storedName: `stored-${index}`,
+        size: 10,
+        captureSource: row.capturedAt ? "embedded" : "unknown",
+        onedriveItemId: null,
+        status: "visible",
+        createdAt,
+        updatedAt: createdAt,
+      });
+    }
+    const app = createApp({ config: testConfig(), store, graph: { getThumbnails: vi.fn(async () => new Map()) } as unknown as GraphService });
+    const agent = request.agent(app);
+    await agent.post("/api/album/access").send({ accessToken: "test-album-token" }).expect(204);
+    await agent.post("/api/album/guest").send({ displayName: "Visor" }).expect(201);
+
+    const captured = await agent.get("/api/album/media?sort=captured&direction=asc").expect(200);
+    expect(captured.body.items.map((item: { guestName: string }) => item.guestName)).toEqual(["Bea", "Ana", "Álvaro", "Carlos"]);
+    expect(captured.body.items[0]).toMatchObject({ capturedAt: rows[0].capturedAt, captureSource: "embedded" });
+    const imagesByGuest = await agent.get("/api/album/media?kind=image&sort=guest&direction=asc").expect(200);
+    expect(imagesByGuest.body.items.map((item: { guestName: string }) => item.guestName)).toEqual(["Ana", "Carlos"]);
+    const byType = await agent.get("/api/album/media?sort=type&direction=asc").expect(200);
+    expect(byType.body.items.map((item: { mimeType: string }) => item.mimeType.startsWith("image/"))).toEqual([true, true, false, false]);
+    await agent.get("/api/album/media?kind=document").expect(400);
+  });
+
   it("filters owned memories and only lets their owner move them to the OneDrive recycle bin", async () => {
     const store = new MemoryStore();
     const graph = {
@@ -71,8 +111,8 @@ describe("album gallery", () => {
     const now = new Date().toISOString();
     const ownedId = "10000000-0000-4000-8000-000000000001";
     const foreignId = "10000000-0000-4000-8000-000000000002";
-    await store.createMedia({ id: ownedId, guestId: ownerGuest.guestId, guestName: "Propietaria", originalName: "mia.jpg", storedName: "mia.jpg", mimeType: "image/jpeg", size: 10, onedriveItemId: "drive-owned", status: "visible", createdAt: now, updatedAt: now });
-    await store.createMedia({ id: foreignId, guestId: "foreign-guest", guestName: "Otra persona", originalName: "otra.jpg", storedName: "otra.jpg", mimeType: "image/jpeg", size: 10, onedriveItemId: "drive-foreign", status: "visible", createdAt: now, updatedAt: now });
+    await store.createMedia({ id: ownedId, guestId: ownerGuest.guestId, guestName: "Propietaria", originalName: "mia.jpg", storedName: "mia.jpg", mimeType: "image/jpeg", size: 10, capturedAt: now, captureSource: "embedded", onedriveItemId: "drive-owned", status: "visible", createdAt: now, updatedAt: now });
+    await store.createMedia({ id: foreignId, guestId: "foreign-guest", guestName: "Otra persona", originalName: "otra.jpg", storedName: "otra.jpg", mimeType: "image/jpeg", size: 10, capturedAt: null, captureSource: "unknown", onedriveItemId: "drive-foreign", status: "visible", createdAt: now, updatedAt: now });
 
     const mine = await owner.get("/api/album/media?scope=mine").expect(200);
     expect(mine.body.items).toHaveLength(1);
@@ -100,7 +140,7 @@ describe("album gallery", () => {
     const guest = (await owner.post("/api/album/guest").send({ displayName: "Propietaria" }).expect(201)).body.guest;
     const mediaId = "10000000-0000-4000-8000-000000000003";
     const now = new Date().toISOString();
-    await store.createMedia({ id: mediaId, guestId: guest.guestId, guestName: guest.displayName, originalName: "mia.jpg", storedName: "mia.jpg", mimeType: "image/jpeg", size: 10, onedriveItemId: "drive-owned", status: "visible", createdAt: now, updatedAt: now });
+    await store.createMedia({ id: mediaId, guestId: guest.guestId, guestName: guest.displayName, originalName: "mia.jpg", storedName: "mia.jpg", mimeType: "image/jpeg", size: 10, capturedAt: now, captureSource: "embedded", onedriveItemId: "drive-owned", status: "visible", createdAt: now, updatedAt: now });
 
     await owner.delete(`/api/album/media/${mediaId}`).expect(500);
     expect((await store.getMedia(mediaId))?.status).toBe("visible");

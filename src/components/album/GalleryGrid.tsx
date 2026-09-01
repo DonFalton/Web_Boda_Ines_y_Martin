@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "@/components/ui/sonner";
-import { albumApi, type AlbumMedia, type AlbumMediaOrder, type AlbumMediaScope } from "@/lib/album-api";
+import { albumApi, type AlbumMedia, type AlbumMediaDirection, type AlbumMediaKind, type AlbumMediaScope, type AlbumMediaSort } from "@/lib/album-api";
 import { cn } from "@/lib/utils";
 import { MediaViewer } from "./MediaViewer";
 
@@ -44,7 +44,7 @@ const LONG_PRESS_MOVE_TOLERANCE = 12;
 const GALLERY_PREFERENCES_KEY = "album-gallery-preferences-v1";
 
 type GalleryLayout = "comfortable" | "grid" | "day";
-type GalleryPreferences = { layout: GalleryLayout; order: AlbumMediaOrder };
+type GalleryPreferences = { layout: GalleryLayout; sort: AlbumMediaSort; direction: AlbumMediaDirection; kind: AlbumMediaKind };
 type SelectionGesture = {
   pointerId: number;
   startX: number;
@@ -55,14 +55,16 @@ type SelectionGesture = {
   visited: Set<string>;
 };
 
-const defaultPreferences: GalleryPreferences = { layout: "comfortable", order: "newest" };
+const defaultPreferences: GalleryPreferences = { layout: "comfortable", sort: "uploaded", direction: "desc", kind: "all" };
 
 function loadGalleryPreferences(): GalleryPreferences {
   try {
-    const value = JSON.parse(window.localStorage.getItem(GALLERY_PREFERENCES_KEY) ?? "null") as Partial<GalleryPreferences> | null;
+    const value = JSON.parse(window.localStorage.getItem(GALLERY_PREFERENCES_KEY) ?? "null") as (Partial<GalleryPreferences> & { order?: "newest" | "oldest" }) | null;
     return {
       layout: value?.layout === "grid" || value?.layout === "day" || value?.layout === "comfortable" ? value.layout : defaultPreferences.layout,
-      order: value?.order === "oldest" || value?.order === "newest" ? value.order : defaultPreferences.order,
+      sort: value?.sort === "captured" || value?.sort === "type" || value?.sort === "guest" || value?.sort === "uploaded" ? value.sort : defaultPreferences.sort,
+      direction: value?.direction === "asc" || value?.direction === "desc" ? value.direction : value?.order === "oldest" ? "asc" : "desc",
+      kind: value?.kind === "image" || value?.kind === "video" || value?.kind === "all" ? value.kind : defaultPreferences.kind,
     };
   }
   catch {
@@ -106,10 +108,10 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   const [deleteTarget, setDeleteTarget] = useState<AlbumMedia | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [preferences, setPreferences] = useState(loadGalleryPreferences);
-  const { layout, order } = preferences;
+  const { layout, sort, direction, kind } = preferences;
   const gallery = useInfiniteQuery({
-    queryKey: ["album-media", order, scope],
-    queryFn: ({ pageParam }) => albumApi.media(pageParam, order, scope),
+    queryKey: ["album-media", sort, direction, kind, scope],
+    queryFn: ({ pageParam }) => albumApi.media(pageParam, { sort, direction, kind, scope }),
     initialPageParam: undefined as string | undefined,
     getNextPageParam: page => page.nextCursor ?? undefined,
     staleTime: 2 * 60_000,
@@ -119,12 +121,25 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
   const dayGroups = useMemo(() => {
     const groups = new Map<string, AlbumMedia[]>();
     for (const item of items) {
-      const key = localDayKey(item.createdAt);
+      const displayDate = sort === "captured" ? item.capturedAt : item.createdAt;
+      const key = displayDate ? localDayKey(displayDate) : "unknown";
       const group = groups.get(key) ?? [];
       group.push(item);
       groups.set(key, group);
     }
-    return [...groups.entries()].map(([key, groupItems]) => ({ key, label: dayLabel(groupItems[0].createdAt), items: groupItems }));
+    return [...groups.entries()].map(([key, groupItems]) => {
+      const displayDate = sort === "captured" ? groupItems[0].capturedAt : groupItems[0].createdAt;
+      return { key, label: displayDate ? dayLabel(displayDate) : "Fecha de captura desconocida", items: groupItems };
+    });
+  }, [items, sort]);
+  const guestGroups = useMemo(() => {
+    const groups = new Map<string, AlbumMedia[]>();
+    for (const item of items) {
+      const group = groups.get(item.guestName) ?? [];
+      group.push(item);
+      groups.set(item.guestName, group);
+    }
+    return [...groups.entries()].map(([guestName, groupItems]) => ({ guestName, items: groupItems }));
   }, [items]);
   const selectedItems = items.filter(item => selectedIds.has(item.id));
 
@@ -378,12 +393,12 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
           <Button className="h-10 w-10" size="icon" variant="ghost" onClick={() => void gallery.refetch()} disabled={gallery.isFetching} aria-label="Actualizar galería" title="Actualizar galería">
             <RefreshCw className={cn(gallery.isFetching && "animate-spin")} />
           </Button>
-          {items.length > 0 && !selectionMode && (
+          {!selectionMode && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="h-10 w-10" size="icon" variant="ghost" aria-label="Diseño y orden" title="Diseño y orden"><LayoutGrid /></Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64" align="end">
+              <DropdownMenuContent className="max-h-[var(--radix-dropdown-menu-content-available-height)] w-64 overflow-y-auto overscroll-contain" align="end">
                 <DropdownMenuLabel>Diseño</DropdownMenuLabel>
                 <DropdownMenuRadioGroup value={layout} onValueChange={(value) => {
                   if (value === "comfortable" || value === "grid" || value === "day") setPreferences(current => ({ ...current, layout: value }));
@@ -393,12 +408,30 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
                   <DropdownMenuRadioItem value="day"><CalendarDays className="mr-2 h-4 w-4" /> Día</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuLabel className="flex items-center gap-2"><ArrowDownUp className="h-4 w-4" /> Orden</DropdownMenuLabel>
-                <DropdownMenuRadioGroup value={order} onValueChange={(value) => {
-                  if (value === "newest" || value === "oldest") setPreferences(current => ({ ...current, order: value }));
+                <DropdownMenuLabel className="flex items-center gap-2"><ArrowDownUp className="h-4 w-4" /> Ordenar por</DropdownMenuLabel>
+                <DropdownMenuRadioGroup value={sort} onValueChange={(value) => {
+                  if (value === "uploaded" || value === "captured" || value === "type" || value === "guest") setPreferences(current => ({ ...current, sort: value }));
                 }}>
-                  <DropdownMenuRadioItem value="newest">Añadidos recientemente</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="oldest">Añadidos primero</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="uploaded">Fecha de subida</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="captured">Fecha de captura</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="type">Tipo</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="guest">Invitado</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+                <DropdownMenuLabel>Dirección</DropdownMenuLabel>
+                <DropdownMenuRadioGroup value={direction} onValueChange={(value) => {
+                  if (value === "asc" || value === "desc") setPreferences(current => ({ ...current, direction: value }));
+                }}>
+                  <DropdownMenuRadioItem value="desc">{sort === "type" || sort === "guest" ? "Z–A" : "Más recientes primero"}</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="asc">{sort === "type" || sort === "guest" ? "A–Z" : "Más antiguos primero"}</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Mostrar</DropdownMenuLabel>
+                <DropdownMenuRadioGroup value={kind} onValueChange={(value) => {
+                  if (value === "all" || value === "image" || value === "video") setPreferences(current => ({ ...current, kind: value }));
+                }}>
+                  <DropdownMenuRadioItem value="all">Fotos y vídeos</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="image"><Camera className="mr-2 h-4 w-4" /> Solo imágenes</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="video"><Video className="mr-2 h-4 w-4" /> Solo vídeos</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -434,13 +467,24 @@ export function GalleryGrid({ onSelect, onSelectionModeChange }: GalleryGridProp
         </div>
       )}
 
-      {items.length > 0 && layout !== "day" && <ul className={gridClassName}>{items.map(renderMediaItem)}</ul>}
+      {items.length > 0 && sort !== "guest" && layout !== "day" && <ul className={gridClassName}>{items.map(renderMediaItem)}</ul>}
 
-      {items.length > 0 && layout === "day" && (
+      {items.length > 0 && sort !== "guest" && layout === "day" && (
         <div className="space-y-6" data-gallery-layout="day">
           {dayGroups.map(group => (
             <section key={group.key} aria-labelledby={`album-day-${group.key}`}>
               <h3 id={`album-day-${group.key}`} className="mb-2 font-heading text-lg font-semibold text-primary sm:text-xl">{group.label}</h3>
+              <ul className={gridClassName}>{group.items.map(renderMediaItem)}</ul>
+            </section>
+          ))}
+        </div>
+      )}
+
+      {items.length > 0 && sort === "guest" && (
+        <div className="space-y-6" data-gallery-grouping="guest">
+          {guestGroups.map((group, index) => (
+            <section key={group.guestName} aria-labelledby={`album-guest-${index}`}>
+              <h3 id={`album-guest-${index}`} className="mb-2 font-heading text-lg font-semibold text-primary sm:text-xl">Recuerdos de {group.guestName}</h3>
               <ul className={gridClassName}>{group.items.map(renderMediaItem)}</ul>
             </section>
           ))}

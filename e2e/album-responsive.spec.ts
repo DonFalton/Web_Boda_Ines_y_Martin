@@ -22,6 +22,8 @@ const initialMedia = Array.from({ length: 8 }, (_, index) => ({
   originalName: index === 3 ? "brindis.mp4" : `recuerdo-${index}.jpg`,
   mimeType: index === 3 ? "video/mp4" : "image/jpeg",
   size: 2_400_000,
+  capturedAt: `2026-08-29T12:00:0${index}.000Z`,
+  captureSource: "embedded",
   createdAt: `2026-08-30T12:00:0${index}.000Z`,
   isOwner: index % 2 === 0,
   thumbnailUrl: thumbnail(index),

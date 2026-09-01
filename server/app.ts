@@ -175,14 +175,23 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
   app.get("/api/album/media", requireGuest, limiter(120, 60_000), async (req, res, next) => {
     const parsed = z.object({
       cursor: z.string().max(2048).optional(),
-      order: z.enum(["newest", "oldest"]).default("newest"),
+      sort: z.enum(["uploaded", "captured", "type", "guest"]).default("uploaded"),
+      direction: z.enum(["asc", "desc"]).default("desc"),
+      kind: z.enum(["all", "image", "video"]).default("all"),
+      order: z.enum(["newest", "oldest"]).optional(),
       scope: z.enum(["all", "mine"]).default("all"),
     }).safeParse(req.query);
     if (!parsed.success) return res.status(400).json({ error: { code: "CURSOR_INVALID", message: "La página solicitada no es válida." } });
     try {
       const guest = readGuest(req)!;
       const scope: MediaScope = parsed.data.scope;
-      const page = await store.listVisibleMedia(20, parsed.data.cursor, parsed.data.order, scope === "mine" ? guest.guestId : undefined);
+      const direction = parsed.data.order ? (parsed.data.order === "newest" ? "desc" : "asc") : parsed.data.direction;
+      const page = await store.listVisibleMedia(20, parsed.data.cursor, {
+        sort: parsed.data.order ? "uploaded" : parsed.data.sort,
+        direction,
+        kind: parsed.data.kind,
+        ownerGuestId: scope === "mine" ? guest.guestId : undefined,
+      });
       const itemIds = page.items.flatMap(item => item.onedriveItemId ? [item.onedriveItemId] : []);
       const thumbnails = itemIds.length ? await graph.getThumbnails(itemIds) : new Map<string, string>();
       res.json({
@@ -192,6 +201,8 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
           originalName: item.originalName,
           mimeType: item.mimeType,
           size: item.size,
+          capturedAt: item.capturedAt,
+          captureSource: item.captureSource,
           createdAt: item.createdAt,
           isOwner: item.guestId === guest.guestId,
           thumbnailUrl: item.onedriveItemId ? thumbnails.get(item.onedriveItemId) ?? null : null,
@@ -246,9 +257,16 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
       originalName: z.string().min(1).max(512),
       mimeType: z.string().max(127),
       size: z.number().int().positive(),
+      capturedAt: z.string().datetime({ offset: true }).nullable().default(null),
+      captureSource: z.enum(["embedded", "file_modified", "unknown"]).default("unknown"),
     }).safeParse(req.body);
     if (!parsed.success) return res.status(400).json({ error: { code: "UPLOAD_INVALID", message: "Los datos del archivo no son válidos." } });
-    const { originalName, mimeType, size } = parsed.data;
+    const { originalName, mimeType, size, capturedAt, captureSource } = parsed.data;
+    const captureMilliseconds = capturedAt ? Date.parse(capturedAt) : null;
+    const captureIsValid = captureMilliseconds === null
+      ? captureSource === "unknown"
+      : captureSource !== "unknown" && captureMilliseconds >= Date.UTC(1970, 0, 1) && captureMilliseconds <= Date.now() + 24 * 60 * 60_000;
+    if (!captureIsValid) return res.status(400).json({ error: { code: "UPLOAD_CAPTURE_DATE_INVALID", message: "La fecha del archivo no es válida." } });
     if (size > config.maxFileBytes) return res.status(413).json({ error: { code: "FILE_TOO_LARGE", message: "El archivo supera el tamaño máximo permitido." } });
     if (!isAcceptedMedia(originalName, mimeType)) return res.status(415).json({ error: { code: "MEDIA_TYPE_UNSUPPORTED", message: "Solo se admiten fotografías y vídeos compatibles." } });
     const guest = readGuest(req)!;
@@ -266,6 +284,8 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
         storedName,
         mimeType: normalizedMediaType(originalName, mimeType),
         size,
+        capturedAt: capturedAt ? new Date(capturedAt).toISOString() : null,
+        captureSource,
         onedriveItemId: null,
         status: "uploading",
         createdAt: now,
@@ -291,8 +311,14 @@ export function createApp({ config, store, graph, frontendPath = path.resolve(pr
       if (!media || media.guestId !== guest.guestId) return res.status(404).json({ error: { code: "MEDIA_NOT_FOUND", message: "No se encontró la subida." } });
       if (media.status === "visible") return res.json({ mediaId: media.id, status: media.status });
       if (media.status !== "uploading") return res.status(409).json({ error: { code: "UPLOAD_NOT_ACTIVE", message: "La subida ya no está activa." } });
-      await graph.validateCompletedItem(body.data.itemId, media.storedName, media.size);
-      await store.updateMedia(media.id, { onedriveItemId: body.data.itemId, status: "visible", updatedAt: new Date().toISOString() });
+      const completedItem = await graph.validateCompletedItem(body.data.itemId, media.storedName, media.size);
+      const graphCapturedAt = completedItem?.capturedAt ?? null;
+      await store.updateMedia(media.id, {
+        ...(graphCapturedAt ? { capturedAt: graphCapturedAt, captureSource: "embedded" as const } : {}),
+        onedriveItemId: body.data.itemId,
+        status: "visible",
+        updatedAt: new Date().toISOString(),
+      });
       res.json({ mediaId: media.id, status: "visible" });
     } catch (error) { next(error); }
   });

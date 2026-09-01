@@ -21,6 +21,8 @@ const photo: AlbumMedia = {
   originalName: "baile.jpg",
   mimeType: "image/jpeg",
   size: 500,
+  capturedAt: "2026-08-30T11:30:00.000Z",
+  captureSource: "embedded",
   createdAt: "2026-08-30T12:00:00.000Z",
   isOwner: true,
   thumbnailUrl: "https://thumb.example/baile.jpg",
@@ -104,20 +106,25 @@ describe("GalleryGrid", () => {
     expect(screen.getByText("20 seleccionados")).toBeInTheDocument();
   });
 
-  it("stores the selected visual layout and requests the chosen server order", async () => {
+  it("stores layout, capture ordering and media filtering preferences", async () => {
     vi.mocked(albumApi.media).mockResolvedValue({ items: [photo, video], nextCursor: null });
     renderGallery();
     await screen.findByRole("button", { name: "Diseño y orden" });
 
     fireEvent.pointerDown(screen.getByRole("button", { name: "Diseño y orden" }), { button: 0, ctrlKey: false });
+    expect(await screen.findByRole("menu")).toHaveClass("overflow-y-auto", "overscroll-contain");
     fireEvent.click(await screen.findByRole("menuitemradio", { name: /Cuadrícula/ }));
     await waitFor(() => expect(screen.getByRole("button", { name: "Abrir recuerdo compartido por Lucía" })).toHaveClass("aspect-square"));
     await waitFor(() => expect(JSON.parse(window.localStorage.getItem("album-gallery-preferences-v1") ?? "null")).toMatchObject({ layout: "grid" }));
 
     fireEvent.pointerDown(screen.getByRole("button", { name: "Diseño y orden" }), { button: 0, ctrlKey: false });
-    fireEvent.click(await screen.findByRole("menuitemradio", { name: "Añadidos primero" }));
-    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, "oldest", "all"));
-    expect(JSON.parse(window.localStorage.getItem("album-gallery-preferences-v1") ?? "null")).toMatchObject({ layout: "grid", order: "oldest" });
+    fireEvent.click(await screen.findByRole("menuitemradio", { name: "Fecha de captura" }));
+    fireEvent.pointerDown(screen.getByRole("button", { name: "Diseño y orden" }), { button: 0, ctrlKey: false });
+    fireEvent.click(await screen.findByRole("menuitemradio", { name: "Más antiguos primero" }));
+    fireEvent.pointerDown(screen.getByRole("button", { name: "Diseño y orden" }), { button: 0, ctrlKey: false });
+    fireEvent.click(await screen.findByRole("menuitemradio", { name: /Solo vídeos/ }));
+    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, { sort: "captured", direction: "asc", kind: "video", scope: "all" }));
+    expect(JSON.parse(window.localStorage.getItem("album-gallery-preferences-v1") ?? "null")).toMatchObject({ layout: "grid", sort: "captured", direction: "asc", kind: "video" });
   });
 
   it("restores the day layout and groups memories under accessible date headings", async () => {
@@ -127,7 +134,22 @@ describe("GalleryGrid", () => {
 
     expect(await screen.findByRole("heading", { level: 3, name: /29 de agosto de 2026/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: /30 de agosto de 2026/i })).toBeInTheDocument();
-    expect(albumApi.media).toHaveBeenCalledWith(undefined, "oldest", "all");
+    expect(albumApi.media).toHaveBeenCalledWith(undefined, { sort: "uploaded", direction: "asc", kind: "all", scope: "all" });
+  });
+
+  it("keeps filters available with no results and groups guest ordering under visible headings", async () => {
+    window.localStorage.setItem("album-gallery-preferences-v1", JSON.stringify({ layout: "comfortable", sort: "guest", direction: "asc", kind: "all" }));
+    vi.mocked(albumApi.media).mockResolvedValue({ items: [video, photo], nextCursor: null });
+    renderGallery();
+
+    expect(await screen.findByRole("heading", { level: 3, name: "Recuerdos de Álvaro" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Recuerdos de Lucía" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Diseño y orden" })).toBeInTheDocument();
+
+    vi.mocked(albumApi.media).mockResolvedValue({ items: [], nextCursor: null });
+    fireEvent.click(screen.getByRole("button", { name: "Actualizar galería" }));
+    await screen.findByText(/primera persona en compartir/);
+    expect(screen.getByRole("button", { name: "Diseño y orden" })).toBeInTheDocument();
   });
 
   it("enters selection mode on a long press and selects tiles while dragging", async () => {
@@ -171,7 +193,7 @@ describe("GalleryGrid", () => {
     vi.mocked(albumApi.deleteMedia).mockResolvedValue(undefined);
     renderGallery();
     fireEvent.click(await screen.findByRole("button", { name: "Mis recuerdos" }));
-    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, "newest", "mine"));
+    await waitFor(() => expect(albumApi.media).toHaveBeenCalledWith(undefined, { sort: "uploaded", direction: "desc", kind: "all", scope: "mine" }));
     fireEvent.click(await screen.findByRole("button", { name: "Eliminar recuerdo compartido por Lucía" }));
     expect(screen.getByRole("alertdialog")).toHaveTextContent("papelera de OneDrive");
     fireEvent.click(screen.getByRole("button", { name: "Mover a la papelera" }));

@@ -1,6 +1,16 @@
 export type MediaStatus = "uploading" | "visible" | "failed" | "deleted";
-export type MediaOrder = "newest" | "oldest";
 export type MediaScope = "all" | "mine";
+export type MediaSort = "uploaded" | "captured" | "type" | "guest";
+export type MediaDirection = "asc" | "desc";
+export type MediaKind = "all" | "image" | "video";
+export type CaptureSource = "embedded" | "file_modified" | "unknown";
+
+export type MediaListOptions = {
+  sort: MediaSort;
+  direction: MediaDirection;
+  kind: MediaKind;
+  ownerGuestId?: string;
+};
 
 export type MediaRecord = {
   id: string;
@@ -10,6 +20,8 @@ export type MediaRecord = {
   storedName: string;
   mimeType: string;
   size: number;
+  capturedAt: string | null;
+  captureSource: CaptureSource;
   onedriveItemId: string | null;
   status: MediaStatus;
   createdAt: string;

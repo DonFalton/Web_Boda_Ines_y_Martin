@@ -92,7 +92,7 @@ La CSP usa familias restringidas, nunca hosts temporales concretos: `*.1drv.com`
 
 El servidor crea las tablas mínimas automáticamente. Haz copias de seguridad de la base: contiene la relación entre autores, originales e identificadores de OneDrive, además del refresh token cifrado.
 
-El pool usa `utf8mb4` y UTC. El esquema incluye `BIGINT UNSIGNED` para tamaños y un índice `(status, created_at, id)` alineado con el cursor de galería. El arranque es idempotente: no elimina ni recrea tablas y añade el índice de paginación si falta. Un fallo de conexión no activa `MemoryStore`; el startup falla.
+El pool usa `utf8mb4` y UTC. El esquema incluye `BIGINT UNSIGNED` para tamaños, `captured_at`/`capture_source` y los índices de paginación por subida y captura. El arranque es idempotente: no elimina ni recrea tablas y añade columnas e índices de forma aditiva si faltan. Un fallo de conexión no activa `MemoryStore`; el startup falla.
 
 La validación local puede realizarse con un MySQL 8 aislado en Docker, pero Docker no forma parte del despliegue. En Hostinger se usan la aplicación Node.js y la base MySQL creada en hPanel mediante las cinco variables `MYSQL_*`.
 

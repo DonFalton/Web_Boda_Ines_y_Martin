@@ -49,7 +49,7 @@ El token del fragmento se elimina con `history.replaceState` antes de llamar al 
 | `POST` | `/api/album/uploads/session` | Reserva cuota y crea sesión Graph |
 | `POST` | `/api/album/uploads/:id/complete` | Valida nombre, tamaño y carpeta antes de publicar |
 | `POST` | `/api/album/uploads/:id/fail` | Marca una subida cancelada o fallida |
-| `GET` | `/api/album/media` | Página de 20 visibles mediante cursor estable; `scope=mine` limita al propietario actual |
+| `GET` | `/api/album/media` | Página de 20 visibles mediante cursor estable; admite `scope`, `kind`, `sort` y `direction` |
 | `GET` | `/api/album/media/:id/source` | URL temporal del original |
 | `DELETE` | `/api/album/media/:id` | El propietario oculta la media y mueve el original a la papelera de OneDrive |
 | `POST` | `/api/admin/session` | Crea sesión administrativa corta |
@@ -73,7 +73,9 @@ La identidad propietaria es un UUID aleatorio guardado únicamente dentro de la 
 
 ## Persistencia
 
-`MysqlStore` crea al iniciar las tablas mínimas `media` y `oauth_tokens`, ambas con `utf8mb4`, y abre un pool pequeño con zona horaria UTC. El bootstrap es idempotente, migra de forma aditiva el estado `deleted` y comprueba los índices de paginación `(status, created_at, id)` y de propietario `(guest_id, status, created_at, id)`. La galería usa un cursor opaco ligado a orden y ámbito, formado por `(createdAt,id)`, evitando duplicados o saltos al paginar elementos con la misma fecha.
+`MysqlStore` crea al iniciar las tablas mínimas `media` y `oauth_tokens`, ambas con `utf8mb4`, y abre un pool pequeño con zona horaria UTC. El bootstrap es idempotente, migra de forma aditiva el estado `deleted`, los campos de captura y los índices de subida, captura, invitado y MIME. La galería usa cursores opacos ligados a orden, dirección, tipo y ámbito; cada cursor conserva la clave primaria de ordenación más `(createdAt,id)`, evitando duplicados o saltos incluso cuando varias filas comparten fecha, tipo o invitado.
+
+La galería puede filtrar fotos o vídeos y ordenar por fecha de subida, fecha de captura, tipo o invitado. Antes de crear la sesión de subida, el navegador extrae `DateTimeOriginal` de JPEG o la fecha de creación `mvhd` de MP4/MOV/M4V leyendo solo metadata local. Si no existe, utiliza `File.lastModified` como fallback identificado; si tampoco es válido, guarda fecha desconocida. Durante `/complete`, el `photo.takenDateTime` que proporcione Graph tiene prioridad, lo que cubre formatos fotográficos que el navegador no analiza directamente, como HEIC/HEIF. Solo se envía la fecha normalizada a Express: los bytes siguen yendo directamente a OneDrive y el original conserva intacta su metadata embebida.
 
 MySQL conserva la metadata de media y una única conexión Microsoft. Solo se persiste el refresh token cifrado con AES-256-GCM; el access token permanece en memoria. Al recibir `SIGINT` o `SIGTERM`, el backend cierra el servidor HTTP y ejecuta `pool.end()`. Reiniciar Node conserva la galería y permite obtener nuevos access tokens desde el refresh token cifrado.
 

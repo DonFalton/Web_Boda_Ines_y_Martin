@@ -27,6 +27,8 @@ function media(id: string, overrides: Partial<MediaRecord> = {}): MediaRecord {
     storedName: `${id}-mysql-persistence-test.jpg`,
     mimeType: "image/jpeg",
     size: 15 * 1024 ** 3,
+    capturedAt: "2026-08-30T09:00:00.000Z",
+    captureSource: "embedded",
     onedriveItemId: null,
     status: "uploading",
     createdAt: now,
@@ -97,6 +99,16 @@ describeMysql("MysqlStore real integration", () => {
       [testDatabase],
     );
     expect(String(statusRows[0].columnType ?? statusRows[0].COLUMN_TYPE)).toContain("'deleted'");
+    const [captureRows] = await cleanupPool.execute<RowDataPacket[]>(
+      "SELECT column_name AS columnName FROM information_schema.columns WHERE table_schema=? AND table_name='media' AND column_name IN ('captured_at','capture_source') ORDER BY column_name",
+      [testDatabase],
+    );
+    expect(captureRows.map(row => row.columnName)).toEqual(["capture_source", "captured_at"]);
+    const [captureIndexRows] = await cleanupPool.execute<RowDataPacket[]>(
+      "SELECT column_name AS columnName FROM information_schema.statistics WHERE table_schema=? AND table_name='media' AND index_name='idx_media_status_captured_created_id' ORDER BY seq_in_index",
+      [testDatabase],
+    );
+    expect(captureIndexRows.map(row => row.columnName)).toEqual(["status", "captured_at", "created_at", "id"]);
   });
 
   it("persists Unicode media, 15 GiB size and status across pool recreation", async () => {
@@ -152,9 +164,9 @@ describeMysql("MysqlStore real integration", () => {
   it("paginates equal timestamps without gaps and treats SQL-like input as data", async () => {
     const createdAt = "2026-08-31T10:03:00.000Z";
     const records = [
-      media(mediaIds[1], { status: "visible", createdAt, updatedAt: createdAt }),
-      media(mediaIds[2], { status: "visible", createdAt, updatedAt: createdAt, guestName: "Robert'); DROP TABLE media;--" }),
-      media(mediaIds[3], { status: "visible", createdAt, updatedAt: createdAt }),
+      media(mediaIds[1], { status: "visible", createdAt, updatedAt: createdAt, capturedAt: "2026-08-30T10:00:00.000Z" }),
+      media(mediaIds[2], { status: "visible", createdAt, updatedAt: createdAt, capturedAt: "2026-08-30T09:00:00.000Z", guestName: "Robert'); DROP TABLE media;--", mimeType: "video/mp4" }),
+      media(mediaIds[3], { status: "visible", createdAt, updatedAt: createdAt, capturedAt: null, captureSource: "unknown" }),
     ];
     const first = new MysqlStore(mysqlConfig!);
     await first.init();
@@ -172,20 +184,25 @@ describeMysql("MysqlStore real integration", () => {
     ]);
     expect(new Set([...pageOne.items, ...pageTwo.items].map(item => item.id)).size).toBe(3);
 
-    const oldestPageOne = await second.listVisibleMedia(2, undefined, "oldest");
-    const oldestPageTwo = await second.listVisibleMedia(2, oldestPageOne.nextCursor!, "oldest");
+    const oldestPageOne = await second.listVisibleMedia(2, undefined, { direction: "asc" });
+    const oldestPageTwo = await second.listVisibleMedia(2, oldestPageOne.nextCursor!, { direction: "asc" });
     expect([...oldestPageOne.items, ...oldestPageTwo.items].map(item => item.id)).toEqual([
       mediaIds[1],
       mediaIds[2],
       mediaIds[3],
     ]);
     expect(new Set([...oldestPageOne.items, ...oldestPageTwo.items].map(item => item.id)).size).toBe(3);
+    const capturedPageOne = await second.listVisibleMedia(2, undefined, { sort: "captured", direction: "asc" });
+    const capturedPageTwo = await second.listVisibleMedia(2, capturedPageOne.nextCursor!, { sort: "captured", direction: "asc" });
+    expect([...capturedPageOne.items, ...capturedPageTwo.items].map(item => item.id)).toEqual([mediaIds[2], mediaIds[1], mediaIds[3]]);
+    expect((await second.listVisibleMedia(10, undefined, { kind: "image" })).items.map(item => item.id)).toEqual([mediaIds[3], mediaIds[1]]);
+    expect((await second.listVisibleMedia(10, undefined, { sort: "type", direction: "asc" })).items.map(item => item.mimeType.startsWith("image/"))).toEqual([true, true, false]);
     expect((await second.getMedia(mediaIds[2]))?.guestName).toBe("Robert'); DROP TABLE media;--");
     expect(await second.getMedia(mediaIds[1])).not.toBeNull();
-    const mine = await second.listVisibleMedia(10, undefined, "newest", records[0].guestId);
+    const mine = await second.listVisibleMedia(10, undefined, { ownerGuestId: records[0].guestId });
     expect(mine.items).toHaveLength(3);
     await second.updateMedia(mediaIds[1], { status: "deleted", updatedAt: "2026-08-31T10:04:00.000Z" });
-    expect((await second.listVisibleMedia(10, undefined, "newest", records[0].guestId)).items.map(item => item.id)).not.toContain(mediaIds[1]);
+    expect((await second.listVisibleMedia(10, undefined, { ownerGuestId: records[0].guestId })).items.map(item => item.id)).not.toContain(mediaIds[1]);
     await second.close();
   });
 });

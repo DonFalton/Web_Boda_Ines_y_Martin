@@ -84,6 +84,26 @@ describe("MicrosoftGraphService", () => {
     });
   });
 
+  it("returns Graph photo.takenDateTime while validating a completed image", async () => {
+    const config = testConfig();
+    const store = new MemoryStore();
+    await store.saveOAuthToken({ id: "microsoft", encryptedRefreshToken: encryptToken("refresh-token", config.tokenEncryptionKey), updatedAt: new Date().toISOString() });
+    let itemRequest = "";
+    const fetcher = vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.includes("/oauth2/v2.0/token")) return Response.json({ access_token: "access-token", expires_in: 3600 });
+      if (url.endsWith("/me/drive/root:/Originales")) return Response.json({ id: "folder-id", name: "Originales", folder: {} });
+      if (url.includes("/me/drive/items/item-photo")) {
+        itemRequest = url;
+        return Response.json({ id: "item-photo", name: "stored.jpg", size: 123, parentReference: { id: "folder-id" }, photo: { takenDateTime: "2025-08-25T12:34:56Z" } });
+      }
+      throw new Error(`Unexpected mock request: ${url}`);
+    }) as typeof fetch;
+
+    await expect(new MicrosoftGraphService(config, store, fetcher).validateCompletedItem("item-photo", "stored.jpg", 123)).resolves.toEqual({ capturedAt: "2025-08-25T12:34:56.000Z" });
+    expect(itemRequest).toContain("$select=id,name,size,parentReference,photo");
+  });
+
   it("gets the temporary original URL from the Graph content redirect", async () => {
     const config = testConfig();
     const store = new MemoryStore();

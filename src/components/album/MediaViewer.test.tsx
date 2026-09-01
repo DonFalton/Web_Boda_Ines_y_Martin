@@ -10,8 +10,8 @@ vi.mock("@/lib/album-api", async (importOriginal) => {
 });
 
 const items: AlbumMedia[] = [
-  { id: "one", guestName: "Ana", originalName: "ceremonia.jpg", mimeType: "image/jpeg", size: 10, createdAt: "2026-08-30T10:00:00Z", isOwner: true, thumbnailUrl: null },
-  { id: "two", guestName: "Luis", originalName: "baile.mp4", mimeType: "video/mp4", size: 20, createdAt: "2026-08-30T11:00:00Z", isOwner: false, thumbnailUrl: null },
+  { id: "one", guestName: "Ana", originalName: "ceremonia.jpg", mimeType: "image/jpeg", size: 10, capturedAt: "2026-08-30T09:00:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T10:00:00Z", isOwner: true, thumbnailUrl: null },
+  { id: "two", guestName: "Luis", originalName: "baile.mp4", mimeType: "video/mp4", size: 20, capturedAt: "2026-08-30T09:30:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T11:00:00Z", isOwner: false, thumbnailUrl: null },
 ];
 
 describe("MediaViewer", () => {

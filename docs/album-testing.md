@@ -7,8 +7,8 @@ La matriz soportada se ejecuta con **Node.js 22 LTS** (`node --version` debe dev
 | Capa | Comando | Cobertura principal |
 |---|---|---|
 | Backend | `npm run test:server` | cookies, identidad propietaria estable, OAuth, cifrado, Graph, borrado recuperable, políticas, sesiones de subida, paginación y hardening |
-| MySQL real | `npm run test:mysql` | schema idempotente, índices, `utf8mb4`, 15 GiB, SQL parametrizado, paginación y persistencia de media/OAuth tras recrear el pool |
-| Frontend | `npm test` | fragmento mágico, nombre, selección de archivos, galería, visor, metadato noindex y rutas |
+| MySQL real | `npm run test:mysql` | schema idempotente, índices, `utf8mb4`, 15 GiB, fecha de captura, filtros, SQL parametrizado, paginación y persistencia de media/OAuth tras recrear el pool |
+| Frontend | `npm test` | fragmento mágico, nombre, extracción EXIF/QuickTime, selección de archivos, filtros/orden de galería, visor, metadato noindex y rutas |
 | E2E mock | `npm run test:e2e` | acceso → invitado → subida directa simulada → publicación → visor/descarga múltiple → Mis recuerdos → papelera; portada `/` |
 | Tipos | `npm run typecheck` | TypeScript frontend/configuración |
 | Producción | `npm run build` | bundle Vite y compilación Node |
@@ -59,6 +59,8 @@ Estas pruebas requieren configurar `.env`, registrar previamente el callback loc
 14. Desde otro navegador confirma que no aparece la acción de borrar sobre contenido ajeno.
 15. Borra un recuerdo propio y confirma que desaparece de la galería y queda recuperable en la papelera de OneDrive.
 16. Reinicia el backend con MySQL y confirma persistencia.
+17. Comprueba `Solo imágenes` y `Solo vídeos`, y ordena por captura, tipo e invitado en ambas direcciones.
+18. Con un JPG y un MP4/MOV conocidos, confirma que el orden por captura coincide con la metadata original; una fecha basada en `lastModified` es un fallback, no una garantía de fecha de grabación.
 
 ## Casos no cubiertos automáticamente
 

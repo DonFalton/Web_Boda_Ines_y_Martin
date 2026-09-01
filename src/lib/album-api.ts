@@ -17,13 +17,23 @@ export type AlbumMedia = {
   originalName: string;
   mimeType: string;
   size: number;
+  capturedAt: string | null;
+  captureSource: "embedded" | "file_modified" | "unknown";
   createdAt: string;
   isOwner: boolean;
   thumbnailUrl: string | null;
 };
 export type AlbumMediaPage = { items: AlbumMedia[]; nextCursor: string | null };
-export type AlbumMediaOrder = "newest" | "oldest";
 export type AlbumMediaScope = "all" | "mine";
+export type AlbumMediaSort = "uploaded" | "captured" | "type" | "guest";
+export type AlbumMediaDirection = "asc" | "desc";
+export type AlbumMediaKind = "all" | "image" | "video";
+export type AlbumMediaQuery = {
+  sort: AlbumMediaSort;
+  direction: AlbumMediaDirection;
+  kind: AlbumMediaKind;
+  scope: AlbumMediaScope;
+};
 
 export class AlbumApiError extends Error {
   constructor(public readonly code: string, message: string, public readonly status: number) {
@@ -52,17 +62,17 @@ export const albumApi = {
   updateGuest: (displayName: string) => request<{ guest: AlbumGuest }>("/api/album/guest", { method: "PATCH", body: JSON.stringify({ displayName }) }),
   clearGuest: () => request<void>("/api/album/guest", { method: "DELETE" }),
   uploadPolicy: () => request<UploadPolicy>("/api/album/uploads/policy"),
-  createUploadSession: (file: Pick<File, "name" | "type" | "size">) => request<DirectUploadSession>("/api/album/uploads/session", {
+  createUploadSession: (file: Pick<File, "name" | "type" | "size">, capture: { capturedAt: string | null; captureSource: "embedded" | "file_modified" | "unknown" }) => request<DirectUploadSession>("/api/album/uploads/session", {
     method: "POST",
-    body: JSON.stringify({ originalName: file.name, mimeType: file.type, size: file.size }),
+    body: JSON.stringify({ originalName: file.name, mimeType: file.type, size: file.size, ...capture }),
   }),
   completeUpload: (mediaId: string, itemId: string) => request<{ mediaId: string; status: "visible" }>(`/api/album/uploads/${encodeURIComponent(mediaId)}/complete`, {
     method: "POST",
     body: JSON.stringify({ itemId }),
   }),
   failUpload: (mediaId: string) => request<void>(`/api/album/uploads/${encodeURIComponent(mediaId)}/fail`, { method: "POST" }),
-  media: (cursor?: string, order: AlbumMediaOrder = "newest", scope: AlbumMediaScope = "all") => {
-    const params = new URLSearchParams({ order, scope });
+  media: (cursor: string | undefined, query: AlbumMediaQuery) => {
+    const params = new URLSearchParams(query);
     if (cursor) params.set("cursor", cursor);
     return request<AlbumMediaPage>(`/api/album/media?${params.toString()}`);
   },

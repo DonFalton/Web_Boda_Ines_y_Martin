@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { QueryClient } from "@tanstack/react-query";
 import { AlbumApiError, albumApi, type DirectUploadSession, type UploadPolicy } from "./album-api";
+import { extractMediaCaptureMetadata } from "./media-capture-date";
 
 export type UploadStatus = "queued" | "uploading" | "retrying" | "done" | "failed" | "canceled";
 export type UploadTask = {
@@ -183,7 +184,7 @@ export function useUploadQueue(policy: UploadPolicy | undefined, queryClient: Qu
 
   const createReplacementSession = useCallback(async (task: UploadTask) => {
     if (task.session) await albumApi.failUpload(task.session.mediaId).catch(() => undefined);
-    const session = await albumApi.createUploadSession(task.file);
+    const session = await albumApi.createUploadSession(task.file, await extractMediaCaptureMetadata(task.file));
     patchTask(task.id, { session, uploadedItemId: undefined, progress: 0 });
     return session;
   }, [patchTask]);
@@ -202,7 +203,7 @@ export function useUploadQueue(policy: UploadPolicy | undefined, queryClient: Qu
           try { offset = await inspectSession(session.uploadUrl); }
           catch { session = await createReplacementSession(current); }
         } else {
-          session = await albumApi.createUploadSession(current.file);
+          session = await albumApi.createUploadSession(current.file, await extractMediaCaptureMetadata(current.file));
           patchTask(taskId, { session });
         }
         activeSession = session;

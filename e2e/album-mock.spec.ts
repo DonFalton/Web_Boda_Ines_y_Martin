@@ -44,8 +44,8 @@ async function installAlbumMock(page: Page) {
     if (path === "/api/album/uploads/session" && request.method() === "POST") return json(route, { mediaId: "00000000-0000-4000-8000-000000000001", storedName: "stored-recuerdo.jpg", uploadUrl: "http://127.0.0.1:5173/mock-onedrive/session", expiresAt: "2030-01-01T00:00:00Z" }, 201);
     if (path.endsWith("/complete") && request.method() === "POST") {
       media = [
-        { id: "00000000-0000-4000-8000-000000000001", guestName: guest?.displayName ?? "Invitada", originalName: "recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T12:00:00.000Z", isOwner: true, thumbnailUrl: pixel },
-        { id: "00000000-0000-4000-8000-000000000002", guestName: "Otra invitada", originalName: "otro-recuerdo.jpg", mimeType: "image/jpeg", size: 4, createdAt: "2026-08-30T11:00:00.000Z", isOwner: false, thumbnailUrl: pixel },
+        { id: "00000000-0000-4000-8000-000000000001", guestName: guest?.displayName ?? "Invitada", originalName: "recuerdo.jpg", mimeType: "image/jpeg", size: 4, capturedAt: "2026-08-29T12:00:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T12:00:00.000Z", isOwner: true, thumbnailUrl: pixel },
+        { id: "00000000-0000-4000-8000-000000000002", guestName: "Otra invitada", originalName: "otro-recuerdo.jpg", mimeType: "image/jpeg", size: 4, capturedAt: "2026-08-29T11:00:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T11:00:00.000Z", isOwner: false, thumbnailUrl: pixel },
       ];
       return json(route, { mediaId: "00000000-0000-4000-8000-000000000001", status: "visible" });
     }
