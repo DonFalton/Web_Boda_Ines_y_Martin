@@ -94,7 +94,7 @@ MySQL conserva la metadata de media y una única conexión Microsoft. Solo se pe
 - Reserva mínima conservadora de 20 GiB en OneDrive.
 - URLs temporales e identificadores internos de OneDrive no se registran.
 
-La CSP no fija hostnames temporales concretos. `img-src` y `media-src` permiten únicamente las familias restringidas usadas por thumbnails y originales de OneDrive (`*.1drv.com`, `*.sharepoint.com` y `*.microsoftpersonalcontent.com`). `connect-src` conserva solo el mismo origen y las familias necesarias para la `uploadUrl` directa; Microsoft Graph se consulta desde Express y no necesita permiso CSP del navegador. Microsoft documenta las URLs preautenticadas como efímeras, pero no garantiza un hostname estable, por lo que estos patrones deben revisarse de nuevo en staging sin ampliarlos a `https:`, `*` o `*.microsoft.com`.
+La CSP no fija hostnames temporales concretos. `img-src` permite las familias restringidas usadas por thumbnails y originales de OneDrive (`*.1drv.com`, `*.sharepoint.com`, `*.microsoftpersonalcontent.com` y `*.svc.ms`); `*.svc.ms` no se añade a ninguna otra directiva. `media-src` cubre originales en las tres primeras familias y `connect-src` incluye las familias necesarias para la `uploadUrl` directa, incluida `*.microsoftpersonalcontent.com`, observada con OneDrive personal. Microsoft Graph se consulta desde el backend y no necesita permiso CSP del navegador. Microsoft documenta las URLs preautenticadas como efímeras, por lo que no se amplía la política a `https:`, `*` ni `*.microsoft.com`.
 
 ## Limitaciones conocidas
 

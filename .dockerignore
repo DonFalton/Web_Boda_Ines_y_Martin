@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+node_modules
+dist
+dist-server
+release
+docs/album-frontend-refresh
+docs/guestpix-audit
+playwright-report
+test-results
+blob-report
+*.log

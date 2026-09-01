@@ -23,11 +23,14 @@ El frontend escucha únicamente en `127.0.0.1:5173`; Vite redirige `/api` a Expr
 - `npm run test:e2e`: recorrido completo con OneDrive simulado.
 - `npm run typecheck`: comprobación TypeScript.
 - `npm run audit:prod`: comprueba vulnerabilidades conocidas en las dependencias de producción según npm; no sustituye una auditoría completa de seguridad.
+- `npm run test:php`: valida en Docker la alternativa PHP 8.3 + MySQL 8 para Hostinger Single.
+- `npm run build:hostinger`: genera un paquete de staging PHP sin secretos en `release/hostinger-staging`.
 
 ## Documentación
 
 - [Arquitectura del álbum](docs/album-architecture.md)
 - [Despliegue en Hostinger y conexión con OneDrive](docs/album-deployment-hostinger.md)
 - [Pruebas y criterios de aceptación](docs/album-testing.md)
+- [Alternativa de staging PHP para Hostinger Single](docs/album-hostinger-php-staging.md)
 
 Desarrollado y diseñado con cariño por Martín.

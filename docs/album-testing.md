@@ -14,7 +14,7 @@ La matriz soportada se ejecuta con **Node.js 22 LTS** (`node --version` debe dev
 | Producción | `npm run build` | bundle Vite y compilación Node |
 | Dependencias | `npm run audit:prod` | vulnerabilidades conocidas reportadas por npm en el árbol de producción; no es una auditoría integral |
 
-Los tests de seguridad verifican que la CSP use familias OneDrive restringidas, no un hostname temporal concreto, `https:`, `*` ni `*.microsoft.com`. `connect-src` cubre la subida directa; `img-src` y `media-src` cubren thumbnails y originales temporales.
+Los tests de seguridad verifican que la CSP use familias Microsoft restringidas, no un hostname temporal concreto, `https:`, `*` ni `*.microsoft.com`. `connect-src` cubre la subida directa, incluida la familia personal temporal; `img-src` cubre además `*.svc.ms` para miniaturas regionales y `media-src` solo los originales temporales.
 
 `npm run test:e2e` no contacta con Microsoft ni escribe en OneDrive. Playwright intercepta la API propia y la `uploadUrl`, pero ejecuta la interfaz real y un `XMLHttpRequest PUT` real desde el punto de vista del navegador.
 

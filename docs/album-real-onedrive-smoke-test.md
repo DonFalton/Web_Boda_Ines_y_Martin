@@ -98,7 +98,7 @@
 - `server/graph.ts`: changed upload-session creation to the documented root-path form, with an empty request body, after ensuring the album folder exists.
 - `server/graph.ts`: obtains the temporary original URL from the official `/content` redirect without following or logging it.
 - `server/graph.test.ts`: added regression assertions for the personal-OneDrive-compatible upload-session request and temporary original redirect.
-- `server/app.ts` and `server/security.test.ts`: allow the restricted Microsoft personal-content wildcard family for image and video directives, without hardcoding the observed temporary hostname or adding it to `connect-src`.
+- `server/app.ts` and `server/security.test.ts`: allow the restricted Microsoft personal-content wildcard family without hardcoding the observed temporary hostname. Staging later confirmed that OneDrive personal can also use this family for direct upload sessions, so it is required in `connect-src`.
 - Local ignored configuration: rotated `COOKIE_SECRET` after local cookies were accidentally copied during diagnostics. Its value was not displayed.
 
 ## Remaining risks

@@ -31,3 +31,8 @@ node_modules
 .env
 .env.*
 !.env.example
+
+# Hostinger PHP package/runtime (never commit populated credentials)
+hostinger-php/config.php
+hostinger-php/runtime/
+release/

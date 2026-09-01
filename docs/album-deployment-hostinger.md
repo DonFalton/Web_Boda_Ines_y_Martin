@@ -81,7 +81,7 @@ Los planes Business y Cloud compatibles permiten aplicaciones Node.js/Express. E
 
 Express sirve `dist/` y la API desde el mismo origen. Las rutas `/`, `/album` y `/album/admin` reciben la SPA; `/api/*` nunca cae al HTML.
 
-La CSP usa familias restringidas, nunca hosts temporales concretos: `*.1drv.com`/`*.sharepoint.com` para recursos OneDrive compatibles y `*.microsoftpersonalcontent.com` para originales personales observados. Esta última familia solo figura en `img-src` y `media-src`; la descarga por navegación no necesita `connect-src`. Microsoft no garantiza el hostname de las URLs preautenticadas, así que confirma la consola con Express en staging sin ampliar a comodines globales.
+La CSP usa familias restringidas, nunca hosts temporales concretos: `*.1drv.com`/`*.sharepoint.com` para recursos OneDrive compatibles, `*.microsoftpersonalcontent.com` para contenido personal temporal y `*.svc.ms` solo en `img-src` para miniaturas regionales de Microsoft. La familia personal figura en `connect-src` porque una sesión real de subida directa de OneDrive personal utilizó ese dominio. Microsoft no garantiza el hostname de las URLs preautenticadas, así que confirma la consola en staging sin ampliar a comodines globales.
 
 ## 5. MySQL
 
