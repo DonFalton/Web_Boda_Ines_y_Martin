@@ -1,4 +1,4 @@
-import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, ChevronRight, Download, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,8 +14,15 @@ type MediaViewerProps = {
 
 const SWIPE_THRESHOLD = 50;
 
+function needsCompatiblePreview(media: AlbumMedia) {
+  return media.mimeType === "image/heic"
+    || media.mimeType === "image/heif"
+    || /\.(?:heic|heif)$/i.test(media.originalName);
+}
+
 export function MediaViewer({ selected, items, onSelect, onClose }: MediaViewerProps) {
   const pointerStart = useRef<{ x: number; y: number } | null>(null);
+  const [failedPreviewUrl, setFailedPreviewUrl] = useState<string | null>(null);
   const index = selected ? items.findIndex(item => item.id === selected.id) : -1;
   const previous = index > 0 ? items[index - 1] : null;
   const next = index >= 0 && index < items.length - 1 ? items[index + 1] : null;
@@ -27,6 +34,17 @@ export function MediaViewer({ selected, items, onSelect, onClose }: MediaViewerP
     staleTime: 60_000,
     retry: 1,
   });
+  const originalPreviewUrl = source.data?.url ?? null;
+  const compatiblePreviewUrl = selected?.thumbnailUrl ?? null;
+  const preferCompatiblePreview = Boolean(selected && needsCompatiblePreview(selected));
+  const previewUrl = originalPreviewUrl
+    ? ((preferCompatiblePreview || failedPreviewUrl === originalPreviewUrl) && compatiblePreviewUrl ? compatiblePreviewUrl : originalPreviewUrl)
+    : null;
+  const previewUnavailable = Boolean(previewUrl && failedPreviewUrl === previewUrl && (previewUrl === compatiblePreviewUrl || !compatiblePreviewUrl));
+
+  useEffect(() => {
+    setFailedPreviewUrl(null);
+  }, [originalPreviewUrl, selected?.id]);
 
   useEffect(() => {
     if (!selected) return;
@@ -86,8 +104,10 @@ export function MediaViewer({ selected, items, onSelect, onClose }: MediaViewerP
               {source.isError && <div className="relative z-20 max-w-xs px-6 text-center text-sm text-white"><p>No se ha podido abrir este recuerdo.</p><Button className="mt-3" variant="secondary" onClick={() => void source.refetch()}>Reintentar</Button></div>}
               {source.data && (isVideo ? (
                 <video key={source.data.url} src={source.data.url} className="max-h-[calc(100dvh-7rem)] max-w-full" autoPlay muted controls playsInline preload="metadata">Tu navegador no puede reproducir este vídeo.</video>
+              ) : previewUrl && !previewUnavailable ? (
+                <img key={previewUrl} src={previewUrl} alt={`Recuerdo compartido por ${selected.guestName}`} className="max-h-[100dvh] max-w-full select-none object-contain" draggable={false} onError={() => setFailedPreviewUrl(previewUrl)} />
               ) : (
-                <img src={source.data.url} alt={`Recuerdo compartido por ${selected.guestName}`} className="max-h-[100dvh] max-w-full select-none object-contain" draggable={false} />
+                <div className="relative z-20 max-w-xs px-6 text-center text-sm text-white">La vista previa no está disponible. Puedes descargar el original.</div>
               ))}
 
               {!isVideo && previous && <button type="button" className="absolute inset-y-20 left-0 z-10 w-[24%] focus-visible:bg-white/10 focus-visible:outline-none sm:hidden" onClick={() => onSelect(previous)} aria-label="Recuerdo anterior" aria-keyshortcuts="ArrowLeft" />}

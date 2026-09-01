@@ -8,12 +8,14 @@
 - npm: 10.9.8
 - Hostinger staging runtime: PHP 8.3 adapter (Hostinger Single has no Node.js runtime)
 - Browser desktop: Playwright Chromium for automated E2E; real desktop staging checks previously completed in Brave/Chromium 149
+- Physical mobile browsers: Safari, Firefox Focus and Brave
+- Physical networks: Wi-Fi and mobile network
 - iPhone: physical device PASS; model not recorded
 - iOS: version not recorded
 - Safari: physical browser PASS
 - Android: physical device PASS; model not recorded
 - Android version: not recorded
-- Chrome Android: physical browser PASS
+- Chrome Android: not specifically recorded; Android physical validation was completed with the browsers listed above
 - MySQL: Hostinger MariaDB with `storage=mysql`; exact managed-server version not recorded. Local integration also passed on MySQL 8.0.46 and MariaDB 11.4.
 
 No secrets, cookies, OneDrive item identifiers or temporary capability URLs are recorded in this report.
@@ -33,7 +35,7 @@ No secrets, cookies, OneDrive item identifiers or temporary capability URLs are 
 - Audit: PASS — 0 known production dependency vulnerabilities according to `npm audit --omit=dev`
 - Typecheck: PASS
 - Server: PASS — 74 tests in 12 files
-- Frontend: PASS — 46 tests in 10 files
+- Frontend: PASS — 47 tests in 10 files after the HEIC viewer regression was added
 - E2E: PASS — 6 Playwright Chromium tests
 - Build: PASS — Vite production bundle and server TypeScript compilation
 - Node: v22.23.2
@@ -59,7 +61,9 @@ The staging runtime differs from the preferred Node/Express target because the e
 
 - Access: PASS
 - Upload: PASS
-- real HEIC: PASS
+- real HEIC selection/upload/thumbnail/download: PASS
+- real HEIC compatible preview in viewer: PASS after physical retest
+- downloaded original retains `.heic`: PASS
 - real MOV/HEVC: PASS
 - Viewer: PASS
 - individual download from viewer: PASS
@@ -160,11 +164,12 @@ Because PHP is request-scoped on Hostinger Single, the applicable runtime recove
 
 ## Bugs found
 
-No new bug was found by the final automated regression. Physical testing found one non-blocking multi-download limitation:
+Physical testing found two mobile issues:
 
 | ID | Severity | Device | Expected | Actual | Disposition |
 |---|---|---|---|---|---|
 | MOB-01 | MEDIUM | Safari iOS / Chrome Android | Download all selected items from one action | Safari downloads only through the viewer; Android downloads only the first selected item | Accepted for this release: individual viewer download works and there is no data loss. A deterministic one-action multi-file download requires future packaging (for example ZIP) or a separately validated native share/save flow. |
+| MOB-02 | HIGH — CLOSED | Safari / Firefox Focus / Brave with HEIC | Open a real HEIC in the viewer | Graph thumbnail rendered, but the browser could not render the original HEIC URL | Fixed: HEIC/HEIF uses the compatible Graph thumbnail for preview while Download continues to return the untouched original. Automated regression and physical staging retest PASS; downloaded extension remains `.heic`. |
 
 Previously found staging bugs, all fixed with regression coverage:
 
@@ -185,4 +190,4 @@ Previously found staging bugs, all fixed with regression coverage:
 
 **READY FOR PRODUCTION GO-LIVE**
 
-No BLOCKER or HIGH defect remains open. `MOB-01` is MEDIUM and has a working individual-download fallback through the viewer. Production promotion still requires an explicit user-authorized deployment window; this report does not perform it.
+No BLOCKER or HIGH defect remains open. `MOB-02` is closed after automated and physical staging retests. `MOB-01` remains MEDIUM with individual viewer download as fallback. Production promotion still requires an explicit user-authorized deployment window; this report does not perform it.

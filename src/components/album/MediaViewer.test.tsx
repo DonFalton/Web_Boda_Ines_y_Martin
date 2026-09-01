@@ -12,6 +12,7 @@ vi.mock("@/lib/album-api", async (importOriginal) => {
 const items: AlbumMedia[] = [
   { id: "one", guestName: "Ana", originalName: "ceremonia.jpg", mimeType: "image/jpeg", size: 10, capturedAt: "2026-08-30T09:00:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T10:00:00Z", isOwner: true, thumbnailUrl: null },
   { id: "two", guestName: "Luis", originalName: "baile.mp4", mimeType: "video/mp4", size: 20, capturedAt: "2026-08-30T09:30:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T11:00:00Z", isOwner: false, thumbnailUrl: null },
+  { id: "three", guestName: "Inés", originalName: "iphone.heic", mimeType: "image/heic", size: 30, capturedAt: "2026-08-30T09:45:00.000Z", captureSource: "embedded", createdAt: "2026-08-30T12:00:00Z", isOwner: false, thumbnailUrl: "https://thumbnail.example/iphone" },
 ];
 
 describe("MediaViewer", () => {
@@ -23,7 +24,7 @@ describe("MediaViewer", () => {
     expect(await screen.findByRole("img", { name: "Recuerdo compartido por Ana" })).toHaveAttribute("src", "https://download.example/one");
     expect(screen.queryByText("ceremonia.jpg")).not.toBeInTheDocument();
     expect(screen.getByText("Por Ana")).toBeInTheDocument();
-    expect(screen.getByText("1 de 2")).toBeInTheDocument();
+    expect(screen.getByText("1 de 3")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Descargar/ })).toHaveAttribute("download", "ceremonia.jpg");
     fireEvent.keyDown(window, { key: "ArrowRight" });
     expect(onSelect).toHaveBeenCalledWith(items[1]);
@@ -57,5 +58,15 @@ describe("MediaViewer", () => {
     expect(video).toHaveProperty("muted", true);
     expect(screen.queryByText("baile.mp4")).not.toBeInTheDocument();
     expect(container.ownerDocument.querySelector('[role="dialog"]')).toHaveClass("h-[100dvh]");
+  });
+
+  it("uses the compatible Graph thumbnail to preview HEIC while downloading the original", async () => {
+    vi.mocked(albumApi.mediaSource).mockResolvedValue({ url: "https://download.example/iphone", filename: "iphone.heic", mimeType: "image/heic" });
+    const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+    render(<QueryClientProvider client={client}><MediaViewer selected={items[2]} items={items} onSelect={vi.fn()} onClose={vi.fn()} /></QueryClientProvider>);
+
+    expect(await screen.findByRole("img", { name: "Recuerdo compartido por Inés" })).toHaveAttribute("src", "https://thumbnail.example/iphone");
+    expect(screen.getByRole("link", { name: /Descargar/ })).toHaveAttribute("href", "https://download.example/iphone");
+    expect(screen.getByRole("link", { name: /Descargar/ })).toHaveAttribute("download", "iphone.heic");
   });
 });
