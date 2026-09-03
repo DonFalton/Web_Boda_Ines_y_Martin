@@ -49,7 +49,7 @@ El repositorio inspeccionado contiene React/Vite/Tailwind, navegación local de 
   - `codex-test-photo-02.png` — 42,562 bytes.
 - Network/DOM/storage inspeccionados de forma pasiva. Las URLs firmadas, cookies e identificadores están enmascarados.
 - No se compró ningún plan, no se accedió al host, no se borró contenido, no se alteraron permisos y no se probaron otros eventos.
-- Capturas: [`docs/guestpix-audit/`](./guestpix-audit/). Registros sanitizados: [`docs/guestpix-audit/evidence/`](./guestpix-audit/evidence/).
+- Las capturas y los registros sanitizados se conservan en un archivo privado fuera del repositorio público.
 
 ### Tabla de evidencias
 
