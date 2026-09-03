@@ -9,7 +9,7 @@ function graphMock(): GraphService {
     isConnected: vi.fn(async () => false),
     buildAuthorizeUrl: vi.fn((state: string) => `https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?state=${state}`),
     exchangeAuthorizationCode: vi.fn(async () => undefined),
-    testConnection: vi.fn(async () => ({ ok: true as const, itemName: "codex-onedrive-test.txt" })),
+    testConnection: vi.fn(async () => ({ ok: true as const, itemName: "album-onedrive-test.txt" })),
     createUploadSession: vi.fn(),
     validateCompletedItem: vi.fn(),
     getThumbnails: vi.fn(async () => new Map()),
@@ -34,7 +34,7 @@ describe("admin and OAuth routes", () => {
     const agent = request.agent(app);
     await agent.post("/api/admin/session").send({ adminKey: "test-admin-key" }).expect(204);
     await agent.get("/api/admin/microsoft/status").expect(200, { connected: false });
-    await agent.post("/api/admin/microsoft/test").expect(200, { ok: true, itemName: "codex-onedrive-test.txt" });
+    await agent.post("/api/admin/microsoft/test").expect(200, { ok: true, itemName: "album-onedrive-test.txt" });
   });
 
   it("uses state and PKCE for the OAuth callback", async () => {

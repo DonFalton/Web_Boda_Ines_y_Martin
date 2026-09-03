@@ -2,7 +2,7 @@
 
 ## Why this path exists
 
-The Hostinger Single plan cannot run the Node.js/Express process used by the original backend. The validated Node implementation remains intact on `codex/album-frontend-refresh`. The branch `codex/album-hostinger-php` keeps the React frontend and its API contract, but supplies the backend with native PHP, PDO/MySQL, cURL and OpenSSL available on shared hosting.
+The Hostinger Single plan cannot run the Node.js/Express process used by the original backend. The validated Node implementation remains available in the `album` branch alongside the React frontend and its API contract. Production uses the native PHP, PDO/MySQL, cURL and OpenSSL runtime available on shared hosting.
 
 No additional hosting plan or Docker runtime is required in Hostinger. Docker is used only for local repeatable tests.
 

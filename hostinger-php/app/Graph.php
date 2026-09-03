@@ -80,7 +80,7 @@ final class Graph
     public function testConnection(): array
     {
         $folderId = $this->ensureFolder();
-        $filename = 'codex-onedrive-test.txt';
+        $filename = 'album-onedrive-test.txt';
         $content = "Conexión OneDrive del álbum verificada.\n";
         $response = $this->http(
             'PUT',

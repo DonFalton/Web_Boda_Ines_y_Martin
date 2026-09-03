@@ -34,18 +34,18 @@ describe("MicrosoftGraphService", () => {
       if (url.includes("/oauth2/v2.0/token")) return Response.json({ access_token: "access-token", expires_in: 3600 });
       if (url.endsWith("/me/drive/root:/Originales")) return Response.json({ error: { code: "itemNotFound" } }, { status: 404 });
       if (url.endsWith("/me/drive/root/children")) return Response.json({ id: "folder-id", name: "Originales", folder: {} }, { status: 201 });
-      if (url.includes("codex-onedrive-test.txt:/content")) {
+      if (url.includes("album-onedrive-test.txt:/content")) {
         const size = Buffer.isBuffer(init?.body) ? init.body.length : 0;
-        return Response.json({ id: "test-item", name: "codex-onedrive-test.txt", size }, { status: 201 });
+        return Response.json({ id: "test-item", name: "album-onedrive-test.txt", size }, { status: 201 });
       }
       throw new Error(`Unexpected mock request: ${url}`);
     }) as typeof fetch;
 
     const graph = new MicrosoftGraphService(config, store, fetcher);
-    await expect(graph.testConnection()).resolves.toEqual({ ok: true, itemName: "codex-onedrive-test.txt" });
+    await expect(graph.testConnection()).resolves.toEqual({ ok: true, itemName: "album-onedrive-test.txt" });
     expect(calls.some(call => call.includes("/consumers/oauth2/v2.0/token"))).toBe(true);
     expect(calls.some(call => call.includes("/me/drive/root/children"))).toBe(true);
-    expect(calls.some(call => call.startsWith("PUT ") && call.includes("codex-onedrive-test.txt"))).toBe(true);
+    expect(calls.some(call => call.startsWith("PUT ") && call.includes("album-onedrive-test.txt"))).toBe(true);
   });
 
   it("stores the refresh token encrypted after authorization", async () => {

@@ -18,7 +18,7 @@ function thumbnail(index: number) {
 
 const initialMedia = Array.from({ length: 8 }, (_, index) => ({
   id: `visual-${index}`,
-  guestName: index === 3 ? "Álvaro" : index % 2 ? "Lucía" : "Gepete Test",
+  guestName: index === 3 ? "Álvaro" : index % 2 ? "Lucía" : "Invitado Visual",
   originalName: index === 3 ? "brindis.mp4" : `recuerdo-${index}.jpg`,
   mimeType: index === 3 ? "video/mp4" : "image/jpeg",
   size: 2_400_000,
@@ -48,7 +48,7 @@ async function installVisualMock(page: Page) {
     const request = route.request();
     const url = new URL(request.url());
     const apiPath = url.pathname;
-    if (apiPath === "/api/album/session") return json(route, { hasAccess: true, guest: { guestId: "visual-guest", displayName: "Gepete Test" } });
+    if (apiPath === "/api/album/session") return json(route, { hasAccess: true, guest: { guestId: "visual-guest", displayName: "Invitado Visual" } });
     if (apiPath === "/api/album/uploads/policy") return json(route, {
       maxFileBytes: 100_000_000,
       maxBatchFiles: 50,
@@ -85,11 +85,11 @@ for (const viewport of viewports) {
     const capture = (name: string) => page.screenshot({ path: path.join(evidenceDir, name), animations: "disabled" });
 
     await page.goto("/album");
-    await expect(page.getByRole("button", { name: "Abrir recuerdo compartido por Gepete Test" }).first()).toBeVisible();
+    await expect(page.getByRole("button", { name: "Abrir recuerdo compartido por Invitado Visual" }).first()).toBeVisible();
     if (viewport.width < 640) {
       await expect(page.getByTestId("mobile-upload-action")).toBeVisible();
       await expect(page.getByTestId("desktop-upload-dropzone")).toBeHidden();
-      const firstTile = await page.getByRole("button", { name: "Abrir recuerdo compartido por Gepete Test" }).first().boundingBox();
+      const firstTile = await page.getByRole("button", { name: "Abrir recuerdo compartido por Invitado Visual" }).first().boundingBox();
       expect(firstTile?.y).toBeLessThan(viewport.height);
     } else {
       await expect(page.getByTestId("desktop-upload-dropzone")).toBeVisible();
@@ -136,14 +136,14 @@ for (const viewport of viewports) {
     await expect(completionToast).toBeHidden({ timeout: 10_000 });
 
     await page.getByRole("button", { name: "Seleccionar" }).click();
-    await page.getByRole("button", { name: "Seleccionar recuerdo compartido por Gepete Test" }).first().click();
+    await page.getByRole("button", { name: "Seleccionar recuerdo compartido por Invitado Visual" }).first().click();
     await page.getByRole("button", { name: "Seleccionar recuerdo compartido por Lucía" }).first().click();
     await expect(page.getByText("2 seleccionados")).toBeVisible();
     await capture("03-selection.png");
     await page.getByRole("button", { name: "Cerrar" }).click();
 
-    await page.getByRole("button", { name: "Abrir recuerdo compartido por Gepete Test" }).first().click();
-    await expect(page.getByRole("img", { name: "Recuerdo compartido por Gepete Test" })).toBeVisible();
+    await page.getByRole("button", { name: "Abrir recuerdo compartido por Invitado Visual" }).first().click();
+    await expect(page.getByRole("img", { name: "Recuerdo compartido por Invitado Visual" })).toBeVisible();
     await capture("04-photo-viewer.png");
     await page.keyboard.press("Escape");
 

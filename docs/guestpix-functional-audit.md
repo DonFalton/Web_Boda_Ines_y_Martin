@@ -2,7 +2,7 @@
 
 Fecha de observación: 30 de agosto de 2026  
 Ámbito: flujo de invitado del álbum de prueba, sin acceso al panel de anfitrión  
-Identidad usada: `Gepete`  
+Identidad usada: `Invitado de prueba`
 Principio: especificación funcional original; no se ha copiado código, CSS, HTML, bundles, secretos ni branding.
 
 ## Convenciones de evidencia
@@ -15,7 +15,7 @@ Principio: especificación funcional original; no se ha copiado código, CSS, HT
 
 ## 1. Executive Summary
 
-GUESTPIX acierta sobre todo en reducir la fricción: QR/Magic Link, nombre, y acceso inmediato a una página que combina bienvenida, carga y galería. No exige cuenta, aplicación ni PIN cuando se usa el enlace correcto. La sesión se recuerda mediante cookies seguras y HttpOnly; el nombre se asocia a una sesión interna, no actúa como identificador único. Dos navegadores pueden llamarse `Gepete` y seguir siendo invitados distintos.
+GUESTPIX acierta sobre todo en reducir la fricción: QR/Magic Link, nombre, y acceso inmediato a una página que combina bienvenida, carga y galería. No exige cuenta, aplicación ni PIN cuando se usa el enlace correcto. La sesión se recuerda mediante cookies seguras y HttpOnly; el nombre se asocia a una sesión interna, no actúa como identificador único. Dos navegadores pueden usar `Invitado de prueba` y seguir siendo invitados distintos.
 
 La carga es el patrón que más merece replicarse. El selector múltiple inicia automáticamente la cola, muestra cada fichero, tamaño, miniatura, progreso agregado y controles de cancelación/pausa. En la prueba, el cliente obtuvo dos autorizaciones temporales, realizó dos `PUT` directos y concurrentes al almacenamiento y confirmó cada elemento al backend. Los bytes no atravesaron el servidor principal de GUESTPIX. Esto encaja con nuestra arquitectura de OneDrive, con una diferencia importante: para archivos grandes debemos usar sesiones reanudables de Microsoft Graph y fragmentos secuenciales.
 
@@ -43,10 +43,10 @@ El repositorio inspeccionado contiene React/Vite/Tailwind, navegación local de 
 - Perfiles efímeros, sin reutilizar cookies ni storage.
 - Chromium: 1440×900, 1920×1080, 390×844 y 412×915.
 - WebKit: 390×844 para contraste tipo Safari.
-- Nombre exacto `Gepete`; email vacío.
+- Nombre exacto `Invitado de prueba`; email vacío.
 - Dos ficheros creados exclusivamente para la prueba:
-  - `codex-test-photo-01.jpg` — 182,422 bytes.
-  - `codex-test-photo-02.png` — 42,562 bytes.
+  - `album-test-photo-01.jpg` — 182,422 bytes.
+  - `album-test-photo-02.png` — 42,562 bytes.
 - Network/DOM/storage inspeccionados de forma pasiva. Las URLs firmadas, cookies e identificadores están enmascarados.
 - No se compró ningún plan, no se accedió al host, no se borró contenido, no se alteraron permisos y no se probaron otros eventos.
 - Las capturas y los registros sanitizados se conservan en un archivo privado fuera del repositorio público.
@@ -58,7 +58,7 @@ El repositorio inspeccionado contiene React/Vite/Tailwind, navegación local de 
 | E01 | Magic Link conduce al formulario de identificación sin PIN | Observado | Ambos | Alta |
 | E02 | La URL canónica interna sin secreto solicita contraseña/PIN en una sesión limpia | Observado | Mobile | Alta |
 | E03 | Nombre vacío produce error inline; el input no usa `required` nativo | Observado | Ambos | Alta |
-| E04 | Enter con `Gepete` ejecuta login y navega a la experiencia del evento | Observado | Ambos | Alta |
+| E04 | Enter con `Invitado de prueba` ejecuta login y navega a la experiencia del evento | Observado | Ambos | Alta |
 | E05 | Se crean dos cookies funcionales HttpOnly, Secure, SameSite=Lax con persistencia aproximada de un año | Observado | Ambos | Alta |
 | E06 | Recarga y reapertura del Magic Link no vuelven a pedir nombre en el mismo contexto | Observado | Ambos | Alta |
 | E07 | Contexto nuevo vuelve a pedir nombre | Observado | Ambos | Alta |
@@ -108,7 +108,7 @@ flowchart TD
   Validate -->|sesión recordada| Event["Evento / Welcome"]
   Validate -->|URL interna sin secreto| Pin["Acceso con PIN"]
   Name -->|vacío| NameError["Error inline"] --> Name
-  Name -->|Gepete + Enter/Continuar| Session["Crea sesión de invitado"] --> Event
+  Name -->|Invitado de prueba + Enter/Continuar| Session["Crea sesión de invitado"] --> Event
   Event --> Hero["Hero con CTA de carga"]
   Event --> Gallery["Galería en la misma ruta"]
   Event --> Guestbook["Libro de invitados por query/tab"]
@@ -192,7 +192,7 @@ flowchart TD
 
 **Propósito.** Descubrir contenido y volver a cargar sin cambiar de contexto.
 
-**OBSERVADO.** Tabs; uploader repetido en toolbar; switches Cuadrícula/Noticias; Filtros con badge; Ayuda. Masonry conserva ratios portrait/landscape. En desktop se ven cuatro columnas en 1440/1920; en móvil una columna. Cada tarjeta móvil incluye imagen, corazón, comentarios/reacciones y nombre del invitado. Los dos dummies posteriores aparecieron asociados a `Gepete`.
+**OBSERVADO.** Tabs; uploader repetido en toolbar; switches Cuadrícula/Noticias; Filtros con badge; Ayuda. Masonry conserva ratios portrait/landscape. En desktop se ven cuatro columnas en 1440/1920; en móvil una columna. Cada tarjeta móvil incluye imagen, corazón, comentarios/reacciones y nombre del invitado. Los dos archivos de prueba posteriores aparecieron asociados a `Invitado de prueba`.
 
 **Estados.** Loading con GIF/spinner; populated; item recién subido; filtro; vista alternativa. Empty, imagen rota, siguiente página y refresh automático: no determinados.
 
@@ -294,7 +294,7 @@ No se pretende reproducir el config de Tailwind de GUESTPIX.
 - Nunca usar nombre como clave, ni mostrar conflicto por duplicado.
 - Guardar token de Magic Link como hash (p. ej. SHA-256/HMAC), nunca plaintext.
 - Renovación sliding limitada hasta fin del evento + periodo de gracia; botón “Este no soy yo” para reiniciar nombre sin cerrar el álbum.
-- Otro dispositivo con `Gepete` es otra sesión, con ownership propio.
+- Otro dispositivo con `Invitado de prueba` es otra sesión, con ownership propio.
 
 ## 8. Upload System
 

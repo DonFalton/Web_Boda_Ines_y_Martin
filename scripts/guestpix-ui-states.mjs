@@ -12,7 +12,7 @@ const out=path.resolve("docs/guestpix-audit/mobile");
 const data={states:[]};
 const snap=async label=>data.states.push({label,url:page.url(),text:(await page.locator("body").innerText()).replace(/\s+/g," ").slice(0,10000),buttons:await page.getByRole("button").allTextContents(),headings:await page.locator("h1,h2,h3").allTextContents()});
 await page.goto(target,{waitUntil:"domcontentloaded",timeout:60000});
-await page.locator('input[name="name"]').fill("Gepete");
+await page.locator('input[name="name"]').fill("Invitado de prueba");
 await page.locator('input[name="name"]').press("Enter");
 await page.waitForURL(u=>!u.pathname.includes("/access/"),{timeout:60000});
 await page.waitForLoadState("networkidle",{timeout:30000}).catch(()=>{});

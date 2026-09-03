@@ -40,10 +40,10 @@ async function createDummyFiles(browser) {
     body{display:grid;place-items:center;background:linear-gradient(135deg,#0b3554,#b7964b 50%,#ead8c0)}
     .card{width:900px;height:620px;display:grid;place-items:center;text-align:center;border:20px solid white;box-shadow:0 25px 80px #0006;background:repeating-linear-gradient(45deg,#f8f4ed,#f8f4ed 20px,#d9c19f 20px,#d9c19f 40px)}
     h1{font-size:72px;color:#0b3554;margin:0}.small{font-size:30px;color:#633} 
-  </style><div class="card"><div><h1>CODEX AUDIT DUMMY</h1><p class="small">GUESTPIX functional test · no personal media</p></div></div>`);
+  </style><div class="card"><div><h1>ALBUM AUDIT FIXTURE</h1><p class="small">GUESTPIX functional test · no personal media</p></div></div>`);
   const card = page.locator(".card");
-  const jpg = path.join(dummyRoot, "codex-test-photo-01.jpg");
-  const png = path.join(dummyRoot, "codex-test-photo-02.png");
+  const jpg = path.join(dummyRoot, "album-test-photo-01.jpg");
+  const png = path.join(dummyRoot, "album-test-photo-02.png");
   await card.screenshot({ path: jpg, type: "jpeg", quality: 94 });
   await card.screenshot({ path: png, type: "png" });
   await context.close();
@@ -106,7 +106,7 @@ async function login(page, log, outPath) {
   await page.waitForTimeout(500);
   log.states.push(await state(page, "empty-name"));
   log.emptyNameValidity = await nameInput.evaluate(e => ({ valid:e.validity.valid, valueMissing:e.validity.valueMissing, validationMessage:e.validationMessage, ariaInvalid:e.getAttribute("aria-invalid") }));
-  await nameInput.fill("Gepete");
+  await nameInput.fill("Invitado de prueba");
   await page.screenshot({ path: path.join(outPath, "02-name-filled.png"), fullPage: true });
   await nameInput.press("Enter");
   await page.waitForURL(u => /\/guest\/[^/]+\/?(?:\?|$)/.test(u.pathname+u.search) && !u.pathname.includes("/access/"), { timeout: 60000 });

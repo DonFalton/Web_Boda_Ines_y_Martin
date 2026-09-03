@@ -103,7 +103,7 @@ La validación local puede realizarse con un MySQL 8 aislado en Docker, pero Doc
 3. Pulsa **Conectar OneDrive**.
 4. Accede con la cuenta Microsoft personal propietaria del álbum y acepta únicamente acceso a archivos.
 5. De vuelta al panel, pulsa **Probar conexión**.
-6. Verifica en OneDrive la carpeta configurada y `codex-onedrive-test.txt`.
+6. Verifica en OneDrive la carpeta configurada y `album-onedrive-test.txt`.
 
 Después genera el enlace privado:
 

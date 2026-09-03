@@ -86,7 +86,7 @@ async function runOne(browserType, name, viewport, outDir) {
         await page.waitForTimeout(500);
         log.snapshots.push(await snapshot(page, "empty-name-validation"));
       }
-      await nameInput.fill("Gepete");
+      await nameInput.fill("Invitado de prueba");
       await page.screenshot({ path: path.join(root, outDir, "02-name.png"), fullPage: true });
       await nameInput.press("Enter").catch(() => {});
       await page.waitForLoadState("networkidle", { timeout: 30000 }).catch(() => {});

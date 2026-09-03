@@ -31,14 +31,14 @@
 ## Graph connection
 
 - Folder creation: PASS (`Boda/Album/Originales`)
-- `codex-onedrive-test.txt`: PASS
+- `album-onedrive-test.txt`: PASS
 
 ## Photo
 
 - createUploadSession: PASS
 - direct PUT: PASS
 - complete: PASS
-- gallery: PASS (author: `Gepete Test`)
+- gallery: PASS (author: `Invitado de prueba`)
 - thumbnail: PASS (Graph/API and visual browser confirmation)
 - viewer: PASS
 - download: PASS

@@ -154,7 +154,7 @@ export class MicrosoftGraphService implements GraphService {
 
   async testConnection() {
     const folderId = await this.ensureFolder();
-    const filename = "codex-onedrive-test.txt";
+    const filename = "album-onedrive-test.txt";
     const content = Buffer.from("Conexión OneDrive del álbum verificada.\n", "utf8");
     const response = await this.fetcher(`https://graph.microsoft.com/v1.0/me/drive/items/${encodeURIComponent(folderId)}:/${filename}:/content`, {
       method: "PUT",
